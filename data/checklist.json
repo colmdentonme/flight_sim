@@ -1,0 +1,528 @@
+{
+  "aircraft": "FBW A380X",
+  "source": "FBW A380X Full SOP Checklist (community SOP PDF)",
+  "groups": {
+    "pre": { "label": "Pre-Flight / Ground", "color": "#00B79C" },
+    "dep": { "label": "Departure", "color": "#00DEFB" },
+    "air": { "label": "Airborne", "color": "#5b8def" },
+    "arr": { "label": "Arrival / Ground", "color": "#00B79C" }
+  },
+  "phases": [
+    {
+      "id": "pre-flight",
+      "title": "PRE FLIGHT",
+      "group": "pre",
+      "items": [
+        { "type": "note", "text": "VATSIM Flightplan filed? Volanta/VA Tracking Started? Simbreif Flightplan Imported?" }
+      ]
+    },
+    {
+      "id": "preliminary-cockpit-preparation",
+      "title": "Preliminary Cockpit Preparation",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "ENGINE MASTER SWITCHES", "response": "OFF" },
+        { "type": "item", "challenge": "PARKING BRAKE(OR CHOCKS)", "response": "ON" },
+        { "type": "item", "challenge": "SPEED BRAKE LEVER", "response": "RETRACTED" },
+        { "type": "item", "challenge": "FLAPS LEVER", "response": "RETRACTED" },
+        { "type": "item", "challenge": "WEATHER RADAR", "response": "OFF" },
+        { "type": "item", "challenge": "ENGINE MODE SELECTOR", "response": "NORM" },
+        { "type": "item", "challenge": "THRUST LEVERS", "response": "IDLE" },
+        { "type": "item", "challenge": "GEAR LEVER", "response": "DOWN" },
+        { "type": "item", "challenge": "WIPERS(BOTH)", "response": "OFF" }
+      ]
+    },
+    {
+      "id": "power-up",
+      "title": "POWER UP",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "BATTERY VOLTAGE", "response": "WITHIN LIMITS" },
+        { "type": "item", "challenge": "ALL BATTERIES", "response": "ON" },
+        { "type": "item", "challenge": "EXTERNAL POWER", "response": "ON" },
+        { "type": "item", "challenge": "COCKPIT LIGHTING", "response": "AS REQ" }
+      ]
+    },
+    {
+      "id": "fire-test-and-apu-start",
+      "title": "Fire Test and APU Start",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "RMP 1 and 2", "response": "ON" },
+        { "type": "item", "challenge": "STANDBY RADIO NAVIGATION", "response": "OFF" },
+        { "type": "item", "challenge": "COMMUNICATION FREQUENCIES", "response": "TUNE" },
+        { "type": "item", "challenge": "INTERPHONE RECEPTION", "response": "ADJUST" },
+        { "type": "item", "challenge": "APU FIRE", "response": "IN and GUARDED" },
+        { "type": "item", "challenge": "APU AGENT", "response": "OFF" },
+        { "type": "item", "challenge": "ENGINE 1/2/3/4 FIRE", "response": "CHECK IN and GUARDED" },
+        { "type": "item", "challenge": "ENGINE AGENTS 1 and 2", "response": "OFF" },
+        { "type": "item", "challenge": "FIRE TEST", "response": "PRESS" },
+        { "type": "item", "challenge": "APU MASTER SWITCH", "response": "ON" },
+        { "type": "item", "challenge": "APU START", "response": "ON" },
+        { "type": "item", "challenge": "EXTERNAL POWER", "response": "AS REQ" },
+        { "type": "note", "text": "recommended to keep the external power units to ON to reduce the APU load in hot weather conditions" }
+      ]
+    },
+    {
+      "id": "overhead-panel-left",
+      "title": "Overhead Panel Left (bottom to top)",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "ALL WHITE LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "RECORDER GROUND CTL", "response": "ON" },
+        { "type": "item", "challenge": "EVAC CAPT/CAPT & PURS", "response": "CAPT" },
+        { "type": "item", "challenge": "PROBE & WINDOW HEAT", "response": "AUTO" },
+        { "type": "item", "challenge": "ADIRS ALL IR MODE", "response": "NAV" },
+        { "type": "item", "challenge": "ELT (INOP)", "response": "ARMED" }
+      ]
+    },
+    {
+      "id": "overhead-panel-center",
+      "title": "Overhead Panel Center (bottom to top)",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "STROBE", "response": "AUTO" },
+        { "type": "item", "challenge": "BEACON", "response": "OFF" },
+        { "type": "item", "challenge": "REMAINING EXTERIOR LIGHTS", "response": "AS REQ" },
+        { "type": "action", "text": "CONSIDER REFUELING IN-PROGRESS", "emphasis": true },
+        { "type": "item", "challenge": "SEATBELTS", "response": "ON" },
+        { "type": "item", "challenge": "NO MOBILE", "response": "AUTO" },
+        { "type": "item", "challenge": "EMERGENCY EXIT LIGHTS", "response": "ARM" },
+        { "type": "item", "challenge": "ENGINE STARTER", "response": "NORM" },
+        { "type": "item", "challenge": "APU BLEED", "response": "ON" },
+        { "type": "item", "challenge": "XBLEED", "response": "AUTO" },
+        { "type": "item", "challenge": "AIRFLOW", "response": "NORM" },
+        { "type": "item", "challenge": "CKPT", "response": "AS REQ" },
+        { "type": "item", "challenge": "CABIN", "response": "PURS SEL" },
+        { "type": "item", "challenge": "TRIM TK FEED", "response": "AUTO" },
+        { "type": "item", "challenge": "MAINTENCE PANEL LIGHTS", "response": "ALL OFF" }
+      ]
+    },
+    {
+      "id": "overhead-panel-right",
+      "title": "Overhead Panel Right (bottom to top)",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "CARGO AIR COND", "response": "AS REQ" },
+        { "type": "item", "challenge": "RADIO MANGMENT PANEL 3", "response": "ON" },
+        { "type": "item", "challenge": "STBY RAD NAV", "response": "OFF" },
+        { "type": "item", "challenge": "CVR TEST", "response": "PRESS" }
+      ]
+    },
+    {
+      "id": "main-instrument-panel",
+      "title": "Main Instrument Panel",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "SWITCHING PANEL", "response": "NORM" },
+        { "type": "item", "challenge": "INTEGRATED STANDBY INSTRUMENT SYSTEM", "response": "CHECK" },
+        { "type": "item", "challenge": "GRAVITY GEAR SYSTEM", "response": "OFF" },
+        { "type": "item", "challenge": "CLOCK", "response": "CHECK & SET" },
+        { "type": "item", "challenge": "ANTI AKID (A-SKID)", "response": "ON" }
+      ]
+    },
+    {
+      "id": "pedestal",
+      "title": "Pedestal",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "PARK BRAKE", "response": "ON" },
+        { "type": "item", "challenge": "BODY ACCUMULATOR PRESSURE (INOP)", "response": "CHECK" },
+        { "type": "item", "challenge": "THRUST LEVERS", "response": "IDLE" },
+        { "type": "item", "challenge": "THRUST REVERSE", "response": "STOWED" },
+        { "type": "item", "challenge": "ENGINE MASTERS", "response": "OFF" },
+        { "type": "item", "challenge": "COCKPIT DOOR", "response": "NORM" },
+        { "type": "action", "text": "OBTAIN AN IFR CLEARANCE", "emphasis": true },
+        { "type": "action", "text": "PREP CHARTS", "emphasis": true },
+        { "type": "item", "challenge": "MFD SURVEILLANCE DEFAULT", "response": "SELECT" }
+      ]
+    },
+    {
+      "id": "initialise-fms",
+      "title": "Initialise FMS",
+      "group": "dep",
+      "items": [
+        { "type": "note", "text": "At this point, the Flight Management System (FMS) should be initialised." }
+      ]
+    },
+    {
+      "id": "glareshield-lateral-consoles",
+      "title": "Glareshield & Lateral Consoles",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "INTEGRAL LIGHTS", "response": "AS REQ" },
+        { "type": "item", "challenge": "BAROMETRIC REFERENCE", "response": "SET" },
+        { "type": "item", "challenge": "ND MODE AND RANGE", "response": "AS REQ" },
+        { "type": "item", "challenge": "WX RADAR", "response": "AS REQ" },
+        { "type": "item", "challenge": "OTHER EFIS OPTIONS", "response": "AS REQ" },
+        { "type": "item", "challenge": "FD", "response": "ON" },
+        { "type": "item", "challenge": "NORTH REF", "response": "MAG" },
+        { "type": "item", "challenge": "SPD, HDG, V/S", "response": "DEFAULTS" },
+        { "type": "item", "challenge": "ALT", "response": "INITIAL CLIMB" },
+        { "type": "item", "challenge": "OXYGEN MASKS", "response": "TEST" },
+        { "type": "item", "challenge": "DOOR SD PAGE REGUL PR LO", "response": "CHECK NOT DISPLAYED" },
+        { "type": "item", "challenge": "FLIGHTDECK WINDOWS", "response": "CHECK LOCKED" },
+        { "type": "item", "challenge": "TAKEOFF BREIFING", "response": "PERFORM" }
+      ]
+    },
+    {
+      "id": "before-push-and-start",
+      "title": "Before Push & Start",
+      "group": "dep",
+      "items": [
+        { "type": "action", "text": "IFR clearance obtained" },
+        { "type": "action", "text": "The aircraft is secure" },
+        { "type": "action", "text": "APU is available" },
+        { "type": "item", "challenge": "EXT POWER", "response": "DISCONNECT and CHECK AVAIL" },
+        { "type": "item", "challenge": "EXTERNAL POWER DISCONNECTION", "response": "REQUEST" },
+        { "type": "item", "challenge": "LOW PRESSURE GROUND CARTS", "response": "CHECK DISCONNECTED" },
+        { "type": "action", "text": "OBTAIN PUSH & START CLEARANCE" },
+        { "type": "item", "challenge": "BEACON", "response": "ON" },
+        { "type": "item", "challenge": "DOORS & WINDOWS", "response": "CLOSED" },
+        { "type": "item", "challenge": "SLIDES", "response": "ARMED" },
+        { "type": "item", "challenge": "THRUST LEVERS", "response": "IDLE" },
+        { "type": "item", "challenge": "PARKING BRAKE & CHOCKS", "response": "OFF & REMOVED" },
+        { "type": "item", "challenge": "BEFORE START CHKL", "response": "COMPLETE" },
+        { "type": "action", "text": "COMMENCE PUSH" }
+      ]
+    },
+    {
+      "id": "engine-start",
+      "title": "Engine Start",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "ENGINE START selector", "response": "IGN START" },
+        { "type": "item", "challenge": "START ENGINES 1 and 2", "response": "ANNOUNCE" },
+        { "type": "item", "challenge": "ENGINE MASTER 1 then 2", "response": "ON" },
+        { "type": "item", "challenge": "WHEN AVAIL: ENGINE IDLE PARAMETERS", "response": "CHECK NORMAL" },
+        { "type": "item", "challenge": "START ENGINES 3 and 4", "response": "ANNOUNCE" },
+        { "type": "item", "challenge": "ENGINE MASTER 3 then 4", "response": "ON" },
+        { "type": "item", "challenge": "WHEN AVAIL: ENGINE IDLE PARAMETERS", "response": "CHECK NORMAL" }
+      ]
+    },
+    {
+      "id": "after-engine-start",
+      "title": "After Engine Start",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "ENGINE START selector", "response": "NORM" },
+        { "type": "item", "challenge": "APU BLEED", "response": "OFF" },
+        { "type": "item", "challenge": "ANTI ICE", "response": "AS REQ" },
+        { "type": "item", "challenge": "APU", "response": "OFF" },
+        { "type": "item", "challenge": "GROUND SPOILERS", "response": "ARM" },
+        { "type": "item", "challenge": "RUDDER TRIM", "response": "ZERO" },
+        { "type": "item", "challenge": "TO FLAPS", "response": "SET" },
+        { "type": "item", "challenge": "TRIM", "response": "CHECK" },
+        { "type": "item", "challenge": "ECAM STATUS", "response": "CHECK" },
+        { "type": "action", "text": "DISCONNECT GROUND CREW, HAND SIGNALS RECIEVED", "emphasis": true },
+        { "type": "item", "challenge": "FLIGHT CONTROLS", "response": "CHECK" },
+        { "type": "item", "challenge": "TUG", "response": "CLEAR" },
+        { "type": "item", "challenge": "AFTER START CHKL", "response": "COMPLETE" }
+      ]
+    },
+    {
+      "id": "taxi",
+      "title": "Taxi",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "TAXI CLEARANCE", "response": "OBTAIN" },
+        { "type": "item", "challenge": "ND RANGE", "response": "AS REQ" },
+        { "type": "item", "challenge": "NOSE LIGHTS", "response": "TAXI" },
+        { "type": "item", "challenge": "RWY TURN OFF", "response": "AS REQ" },
+        { "type": "item", "challenge": "PARK BRAKE", "response": "OFF" },
+        { "type": "item", "challenge": "BRAKES", "response": "CHECKED" },
+        { "type": "item", "challenge": "NW Steering", "response": "AS REQ" },
+        { "type": "item", "challenge": "ATC CLEARANCE", "response": "CONFIRM" },
+        { "type": "note", "text": "consider SUPER status, ensure taxi route is appropriate" }
+      ]
+    },
+    {
+      "id": "before-takeoff",
+      "title": "Before takeoff",
+      "group": "dep",
+      "items": [
+        { "type": "item", "challenge": "SELECTED RUNWAY AND INPUT DATA", "response": "CHECK" },
+        { "type": "item", "challenge": "F-PLN (SID, TRANS)", "response": "REVISE OR CHECK" },
+        { "type": "item", "challenge": "INITIAL CLIMB SPEED AND SPEED LIMIT", "response": "MODIFY OR CHECK" },
+        { "type": "item", "challenge": "CLEARED ALTITUDE ON FCU", "response": "SET" },
+        { "type": "item", "challenge": "HDG ON FCU", "response": "IF REQUIRED, PRESET" },
+        { "type": "item", "challenge": "FLIGHT DIRECTOR", "response": "CHECK SELECTED ON" },
+        { "type": "item", "challenge": "PFD/ND", "response": "CHECK" },
+        { "type": "item", "challenge": "MFD", "response": "CHECK" },
+        { "type": "item", "challenge": "V1/VR/V2/THR RATING", "response": "CHECK (BOTH)" },
+        { "type": "item", "challenge": "TAKEOFF BRIEFING", "response": "CONFIRM" },
+        { "type": "item", "challenge": "FLIGHT INSTRUMENTS", "response": "CONFIRM" },
+        { "type": "item", "challenge": "SPLRS", "response": "ARM" },
+        { "type": "item", "challenge": "FLAPS", "response": "T.O" },
+        { "type": "item", "challenge": "AUTOBRAKE RTO", "response": "ARM" },
+        { "type": "item", "challenge": "SIGNS", "response": "AS NEEDED" },
+        { "type": "item", "challenge": "T.O CONFIG", "response": "TEST" },
+        { "type": "item", "challenge": "T.O MEMO", "response": "NO BLUE LINE" },
+        { "type": "item", "challenge": "CABIN", "response": "READY" },
+        { "type": "item", "challenge": "BEFORE TAKEOFF CHECKLIST (TAXI - down to the line)", "response": "COMPLETE" }
+      ]
+    },
+    {
+      "id": "lineup",
+      "title": "Lineup",
+      "group": "dep",
+      "items": [
+        { "type": "action", "text": "OBTAIN TAKEOFF OR LINEUP CLEARANCE" },
+        { "type": "item", "challenge": "CABIN CREW", "response": "ADVISE" },
+        { "type": "item", "challenge": "PACKS 1 and 2", "response": "AS REQ" },
+        { "type": "item", "challenge": "EXTERIOR LIGHTS", "response": "SET" },
+        { "type": "item", "challenge": "ND RANGE", "response": "SET" },
+        { "type": "item", "challenge": "EFIS", "response": "SET" },
+        { "type": "item", "challenge": "TRAF", "response": "ON" },
+        { "type": "item", "challenge": "APPROACH PATH", "response": "CLEAR" },
+        { "type": "item", "challenge": "STROBES", "response": "ON" },
+        { "type": "item", "challenge": "TAKEOFF RWY", "response": "CONFIRM (RAAS)" },
+        { "type": "item", "challenge": "SLIDING TABLE", "response": "STOWED" },
+        { "type": "item", "challenge": "TCAS", "response": "TA/RA" },
+        { "type": "item", "challenge": "BEFORE TAKEOFF CHECKLIST (Line-Up - below the line)", "response": "COMPLETE" }
+      ]
+    },
+    {
+      "id": "takeoff",
+      "title": "Takeoff",
+      "group": "dep",
+      "items": [
+        { "type": "action", "text": "TAKEOFF CLEARANCE RECIEVED" },
+        { "type": "item", "challenge": "PARK BRAKE", "response": "OFF" },
+        { "type": "item", "challenge": "BRAKES", "response": "PRESS & HOLD" },
+        { "type": "item", "challenge": "TAKEOFF", "response": "ANNOUNCE" },
+        { "type": "item", "challenge": "THRUST", "response": "25%" },
+        { "type": "item", "challenge": "BRAKES", "response": "RELEASE" },
+        { "type": "item", "challenge": "THRUST LEVERS", "response": "FLX/MCT or TOGA" },
+        { "type": "item", "challenge": "CRONO", "response": "START" }
+      ]
+    },
+    {
+      "id": "after-takeoff",
+      "title": "After Takeoff",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "THRUST LEVERS", "response": "CLIMB" },
+        { "type": "item", "challenge": "A/THR", "response": "CHECK ACTIVE" },
+        { "type": "item", "challenge": "PACKS", "response": "ON" },
+        { "type": "item", "challenge": "AP", "response": "AS REQ" },
+        { "type": "item", "challenge": "AT F SPEED", "response": "FLAPS 1" },
+        { "type": "item", "challenge": "AT S SPEED", "response": "FLAPS 0" },
+        { "type": "item", "challenge": "EXTERIOR LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "GROUND SPOILERS", "response": "DISARM" },
+        { "type": "item", "challenge": "APU", "response": "CONFIRM OFF" },
+        { "type": "item", "challenge": "TCAS", "response": "CONFIRM TA/RA" },
+        { "type": "item", "challenge": "ANTI ICE", "response": "AS REQ" }
+      ]
+    },
+    {
+      "id": "climb",
+      "title": "Climb",
+      "group": "air",
+      "items": [
+        { "type": "action", "text": "Aircraft is Climbing to or is at Initially CLRD FL" },
+        { "type": "action", "text": "Complete After Takeoff Checklist" },
+        { "type": "item", "challenge": "ATC has cleared further climb", "response": "action" },
+        { "type": "item", "challenge": "Cruise FL", "response": "AS REQ" },
+        { "type": "item", "challenge": "ANTI ICE", "response": "AS REQ" },
+        { "type": "action", "text": "ON PASSING 10,000ft", "emphasis": true },
+        { "type": "item", "challenge": "Landing Lights", "response": "OFF" },
+        { "type": "item", "challenge": "SEATBELTS", "response": "CONSIDER OFF" },
+        { "type": "item", "challenge": "EFIS", "response": "AS REQ" },
+        { "type": "item", "challenge": "ECAM MEMO", "response": "REVIEW" },
+        { "type": "note", "text": "consider optimal/max altitude" },
+        { "type": "item", "challenge": "BARO", "response": "STD" }
+      ]
+    },
+    {
+      "id": "cruise",
+      "title": "Cruise",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "ALT CRZ", "response": "CONFIRM" },
+        { "type": "item", "challenge": "ECAM MEMO", "response": "REVIEW" },
+        { "type": "item", "challenge": "SD PAGES", "response": "REVIEW" },
+        { "type": "note", "text": "Monitor flight progress, fuel etc" }
+      ]
+    },
+    {
+      "id": "before-tod",
+      "title": "Before TOD",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "WEATHER AND LANDING INFORMATION", "response": "OBTAIN" },
+        { "type": "item", "challenge": "LANDING ELEVATION", "response": "CHECK" },
+        { "type": "item", "challenge": "BARO", "response": "PRE SET" },
+        { "type": "item", "challenge": "LANDING PERFORMANCE", "response": "CHECK" },
+        { "type": "action", "text": "IN FMS", "emphasis": true },
+        { "type": "item", "challenge": "FMS ACTIVE/F-PLN/ARRIVAL PAGE", "response": "INSERT/CHECK" },
+        { "type": "item", "challenge": "DES PANEL OF THE FMS ACTIVE/PERF PAGE", "response": "INSERT/CHECK" },
+        { "type": "item", "challenge": "APPR PANEL OF THE FMS ACTIVE/PERF PAGE", "response": "INSERT/CHECK" },
+        { "type": "item", "challenge": "GA PANEL OF THE FMS ACTIVE/PERF PAGE", "response": "CHECK" },
+        { "type": "item", "challenge": "FMS POSITIONAL/NAVAIDS PAGE", "response": "CHECK" },
+        { "type": "item", "challenge": "LANDING BRIEF", "response": "PERFROM" }
+      ]
+    },
+    {
+      "id": "oans-and-btv-if-avail",
+      "title": "OANS and BTV if AVAIL",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "RUNWAY SHIFT", "response": "AS REQUIRED" },
+        { "type": "item", "challenge": "ND MODE", "response": "PLAN" },
+        { "type": "item", "challenge": "ND RANGE", "response": "ZOOM" },
+        { "type": "item", "challenge": "RUNWAY", "response": "SELECT" },
+        { "type": "item", "challenge": "RUNWAY EXIT", "response": "SELECT" },
+        { "type": "item", "challenge": "AUTO BRAKE/BTV", "response": "SELECT, AS REQUIRED" },
+        { "type": "item", "challenge": "OANS RWY LENGTH/CHARTS RWY LENGTH", "response": "CROSSCHECK" },
+        { "type": "item", "challenge": "LANDING BRIEF", "response": "PERFORM" }
+      ]
+    },
+    {
+      "id": "descent",
+      "title": "Descent",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "DESCENT CLEARANCE", "response": "OBTAIN" },
+        { "type": "item", "challenge": "CLEARED ALTITUDE/FL", "response": "SET" },
+        { "type": "item", "challenge": "ANTI-ICE", "response": "AS REQ" },
+        { "type": "item", "challenge": "DESCENT", "response": "INITIATE" },
+        { "type": "item", "challenge": "CREW", "response": "ADVISE" },
+        { "type": "marker", "text": "20,000ft" },
+        { "type": "item", "challenge": "CABIN CREW", "response": "ADVISE" },
+        { "type": "item", "challenge": "TER & WX RADAR", "response": "AS REQ" },
+        { "type": "marker", "text": "10,000ft" },
+        { "type": "item", "challenge": "LANDING LIGHTS", "response": "ON" },
+        { "type": "item", "challenge": "LANDING DATA", "response": "SET" },
+        { "type": "item", "challenge": "SEATBELTS", "response": "ON" },
+        { "type": "note", "text": "Consider turning seatbelts on sooner, huge cabin to secure" },
+        { "type": "item", "challenge": "CSTR & LS BUTTON", "response": "PUSH" },
+        { "type": "item", "challenge": "NAVAIDS", "response": "AS REQ" },
+        { "type": "item", "challenge": "APPROACH CHECKLIST", "response": "COMPLETE" }
+      ]
+    },
+    {
+      "id": "before-intercepting-ils",
+      "title": "Before Intercepting ILS",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "ALTIMETER", "response": "SET" },
+        { "type": "item", "challenge": "APPROACH PHASE", "response": "CHECK/ACTIVATE" },
+        { "type": "item", "challenge": "MANAGED SPEED", "response": "CHECK" },
+        { "type": "item", "challenge": "SPEEDBRAKES", "response": "AS REQ" }
+      ]
+    },
+    {
+      "id": "ils-approach",
+      "title": "ILS Approach",
+      "group": "air",
+      "items": [
+        { "type": "item", "challenge": "ILS FREQUENCY", "response": "VERIFY" },
+        { "type": "item", "challenge": "LS", "response": "CHECK ON" },
+        { "type": "item", "challenge": "ALTITUDE", "response": "VERIFY" },
+        { "type": "marker", "text": "ATC APPROACH CLEARANCE" },
+        { "type": "item", "challenge": "SPEED MODE", "response": "MANAGED" },
+        { "type": "item", "challenge": "APPR MODE", "response": "PRESS" },
+        { "type": "item", "challenge": "AUTOPILOT 1+2", "response": "ON" },
+        { "type": "item", "challenge": "FLIGHT MODE ANNUNCIATOR", "response": "CHECK" },
+        { "type": "item", "challenge": "FLAPS 1 (at V~FE~ -15)", "response": "SET" },
+        { "type": "item", "challenge": "TCAS MODE", "response": "TA/RA" },
+        { "type": "item", "challenge": "LOC CAPTURE", "response": "MONITOR" },
+        { "type": "item", "challenge": "ATC CONTACT", "response": "TOWER" },
+        { "type": "item", "challenge": "GO AROUND ALTITUDE", "response": "SET" },
+        { "type": "item", "challenge": "FLAPS 2 (~2.500ft and below V~FE~)", "response": "SET" }
+      ]
+    },
+    {
+      "id": "landing",
+      "title": "Landing",
+      "group": "air",
+      "items": [
+        { "type": "marker", "text": "Below 2,000ft" },
+        { "type": "item", "challenge": "LANDING GEAR", "response": "DOWN" },
+        { "type": "item", "challenge": "AUTO BRAKE", "response": "CONFIRM" },
+        { "type": "item", "challenge": "GROUND SPOILERS", "response": "ARM" },
+        { "type": "item", "challenge": "FLAPS 3 (after L/G down and below V~FE~)", "response": "SET" },
+        { "type": "item", "challenge": "WHEEL SYSTEM DISPLAY PAGE", "response": "CHECK" },
+        { "type": "item", "challenge": "FLAPS (below V~FE~)", "response": "FULL" },
+        { "type": "item", "challenge": "AUTOTHRUST", "response": "CHECK IN SPEED MODE OR OFF" },
+        { "type": "item", "challenge": "LANDING MEMO", "response": "NO BLUE LINE" },
+        { "type": "item", "challenge": "CABIN", "response": "READY" },
+        { "type": "item", "challenge": "LANDING CHECKLIST", "response": "COMPLETE" },
+        { "type": "note", "text": "The A380 should be flared at ~40ft agl" }
+      ]
+    },
+    {
+      "id": "after-landing",
+      "title": "After Landing",
+      "group": "arr",
+      "items": [
+        { "type": "item", "challenge": "REVERSE LEVERS", "response": "STOW" },
+        { "type": "item", "challenge": "AUTOBRAKE", "response": "DISARM" },
+        { "type": "item", "challenge": "SPOILER", "response": "DISARM" },
+        { "type": "item", "challenge": "FLAPS", "response": "RETRACT" },
+        { "type": "item", "challenge": "APU MASTER", "response": "ON" },
+        { "type": "item", "challenge": "APU START", "response": "ON" },
+        { "type": "item", "challenge": "ENGINE START SELECTOR", "response": "CHECK NORM" },
+        { "type": "item", "challenge": "ANTI-ICE", "response": "AS REQ" },
+        { "type": "item", "challenge": "LANDING LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "STROBE", "response": "AUTO" },
+        { "type": "item", "challenge": "OTHER EXTERIOR LIGHTS", "response": "AS REQ" },
+        { "type": "item", "challenge": "NOSE LIGHT", "response": "TAXI" },
+        { "type": "item", "challenge": "RUNWAY TURN OFF LIGHTS & CAMERA", "response": "AS REQ" }
+      ]
+    },
+    {
+      "id": "taxi-in",
+      "title": "Taxi In",
+      "group": "arr",
+      "items": [
+        { "type": "item", "challenge": "AIRPORT NAVIGATION DISPLAY", "response": "ZOOM, AS APPROPRIATE" },
+        { "type": "item", "challenge": "EFIS TAXI", "response": "AS REQ" },
+        { "type": "item", "challenge": "WX RADAR", "response": "CHECK OFF" },
+        { "type": "note", "text": "WX Radar left on will cause ground crew serious health side effects" },
+        { "type": "item", "challenge": "BRAKE TEMP", "response": "MONITOR" }
+      ]
+    },
+    {
+      "id": "turning-into-gate-and-engine-shut-down",
+      "title": "Turning into gate & Engine Shut Down",
+      "group": "arr",
+      "items": [
+        { "type": "item", "challenge": "NOSE LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "RWY TURN OFF LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "ANTI-ICE", "response": "OFF" },
+        { "type": "item", "challenge": "APU BLEED", "response": "ON" },
+        { "type": "item", "challenge": "PARKING BRAKE", "response": "ON" },
+        { "type": "item", "challenge": "ENGINE MASTERS", "response": "OFF" },
+        { "type": "item", "challenge": "SEATBELTS", "response": "OFF" },
+        { "type": "item", "challenge": "SLIDES", "response": "DISARM" },
+        { "type": "action", "text": "After engine N1 <5%", "emphasis": true },
+        { "type": "item", "challenge": "BEACON", "response": "OFF" },
+        { "type": "item", "challenge": "GROUND CONTACT", "response": "ESTABLISH" },
+        { "type": "note", "text": "call GSX" },
+        { "type": "item", "challenge": "FUEL PUMPS", "response": "OFF" },
+        { "type": "item", "challenge": "FUEL QUANTITY", "response": "CHECK" },
+        { "type": "item", "challenge": "PARKING CHECKLIST", "response": "COMPLETE" }
+      ]
+    },
+    {
+      "id": "securing-the-aircraft",
+      "title": "Securing the Aircraft",
+      "group": "arr",
+      "items": [
+        { "type": "item", "challenge": "PARKING BRAKE & CHOCKS", "response": "ON, SET" },
+        { "type": "item", "challenge": "OXYGEN CREW SUPPLY", "response": "OFF" },
+        { "type": "item", "challenge": "ADIRS", "response": "OFF" },
+        { "type": "item", "challenge": "EXTERIOR LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "APU BLEED", "response": "OFF" },
+        { "type": "item", "challenge": "EXTERNAL POWER", "response": "OFF" },
+        { "type": "item", "challenge": "APU MASTER", "response": "OFF" },
+        { "type": "item", "challenge": "EMERGENCY LIGHTS", "response": "OFF" },
+        { "type": "item", "challenge": "NO SMOKING/DEVICES", "response": "OFF" },
+        { "type": "item", "challenge": "SECURING THE AIRCRAFT CHECKLIST", "response": "COMPLETE" },
+        { "type": "item", "challenge": "ALL BATT", "response": "OFF" }
+      ]
+    }
+  ]
+}

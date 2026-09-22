@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>FBW A380X SOP Checklist</title>
+<meta name="description" content="Interactive FBW A380X SOP checklist for iPad">
+
+<meta name="theme-color" content="#0b0f14">
+<link rel="manifest" href="manifest.json">
+
+<!-- iOS home screen / standalone support -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="A380X SOP">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="app">
+
+  <header id="app-header">
+    <button id="menu-btn" class="icon-btn" aria-label="Open phase menu" aria-expanded="false" aria-controls="phase-drawer">
+      <span class="bars"></span>
+    </button>
+
+    <div id="header-title">
+      <div id="phase-title">FBW A380X</div>
+      <div id="phase-sub">SOP Checklist</div>
+    </div>
+
+    <button id="reset-btn" class="icon-btn" aria-label="Reset checklist for new flight">
+      <span class="reset-icon">&#x21bb;</span>
+    </button>
+  </header>
+
+  <div id="progress-track" aria-hidden="true">
+    <div id="progress-fill"></div>
+  </div>
+
+  <nav id="phase-drawer" aria-label="Checklist phases">
+    <div id="phase-drawer-header">
+      <span>Phases</span>
+      <button id="drawer-close-btn" class="icon-btn" aria-label="Close phase menu">&times;</button>
+    </div>
+    <ol id="phase-list"></ol>
+  </nav>
+  <div id="drawer-scrim"></div>
+
+  <main id="checklist-main">
+    <div id="phase-progress-label"></div>
+    <ul id="item-list"></ul>
+  </main>
+
+  <footer id="app-footer">
+    <button id="back-btn" class="nav-btn">Back</button>
+    <div id="footer-mid">
+      <span id="footer-phase-index"></span>
+    </div>
+    <button id="next-btn" class="nav-btn primary">Next</button>
+  </footer>
+
+</div>
+
+<div id="reset-confirm" class="modal-scrim" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="reset-confirm-title">
+    <h2 id="reset-confirm-title">Reset for new flight?</h2>
+    <p>This clears every checked item across all phases. This can't be undone.</p>
+    <div class="modal-actions">
+      <button id="reset-cancel-btn" class="nav-btn">Cancel</button>
+      <button id="reset-confirm-btn" class="nav-btn danger">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

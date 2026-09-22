@@ -1,0 +1,460 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #131a22;
+  --panel-raised: #1a232d;
+  --border: #263140;
+  --text: #eef3f8;
+  --text-dim: #93a3b5;
+  --text-faint: #5c6b7c;
+  --accent-pre: #00b79c;
+  --accent-dep: #00defb;
+  --accent-air: #5b8def;
+  --accent-arr: #00b79c;
+  --danger: #ff5d5d;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --header-h: 56px;
+  --progress-h: 4px;
+  --footer-h: 64px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+#app {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---------- Header ---------- */
+
+#app-header {
+  height: calc(var(--header-h) + var(--safe-top));
+  padding-top: var(--safe-top);
+  padding-left: calc(12px + var(--safe-left));
+  padding-right: calc(12px + var(--safe-right));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  flex: 0 0 auto;
+  z-index: 20;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.icon-btn:active { background: var(--panel-raised); }
+
+.bars, .bars::before, .bars::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+.bars { position: relative; }
+.bars::before { position: absolute; top: -7px; left: 0; }
+.bars::after { position: absolute; top: 7px; left: 0; }
+
+.reset-icon { font-size: 22px; line-height: 1; }
+
+#header-title {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 8px;
+}
+#phase-title {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+}
+#phase-sub {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Progress bar ---------- */
+
+#progress-track {
+  height: var(--progress-h);
+  background: var(--panel);
+  flex: 0 0 auto;
+  z-index: 20;
+}
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-dep), var(--accent-pre));
+  transition: width 0.25s ease;
+}
+
+/* ---------- Main content ---------- */
+
+#checklist-main {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px calc(14px + var(--safe-left)) calc(24px + var(--safe-right)) calc(14px + var(--safe-right));
+  padding-left: calc(14px + var(--safe-left));
+}
+
+#phase-progress-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 4px 2px 10px;
+}
+
+#item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* ---------- Item rows ---------- */
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-height: 52px;
+  cursor: pointer;
+}
+.item-row:active { background: var(--panel-raised); }
+
+.item-checkbox {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: transparent;
+}
+
+.item-text-wrap {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  font-size: 16px;
+}
+
+.item-challenge {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-leader {
+  flex: 1;
+  border-bottom: 2px dotted var(--border);
+  height: 0;
+  margin-bottom: 4px;
+  min-width: 12px;
+}
+
+.item-response {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.item-row.checked {
+  background: rgba(0, 183, 156, 0.08);
+  border-color: rgba(0, 183, 156, 0.35);
+}
+.item-row.checked .item-checkbox {
+  background: var(--accent-pre);
+  border-color: var(--accent-pre);
+  color: #06140f;
+}
+.item-row.checked .item-challenge,
+.item-row.checked .item-response {
+  color: var(--text-faint);
+  text-decoration: line-through;
+  text-decoration-color: var(--text-faint);
+}
+.item-row.checked .item-leader { border-color: rgba(147, 163, 181, 0.15); }
+
+/* Action / callout rows (no response, bold, checkable) */
+.item-row.item-action .item-text-wrap {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.item-row.item-action.emphasis .item-text-wrap {
+  text-transform: uppercase;
+}
+.item-row.item-action .item-checkbox { border-radius: 8px; }
+
+/* Note rows: informational, non-interactive */
+.item-row.item-note {
+  cursor: default;
+  background: transparent;
+  border-style: dashed;
+  padding-left: 14px;
+}
+.item-row.item-note .item-text-wrap {
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.item-row.item-note:active { background: transparent; }
+
+/* Marker rows: small centered caption */
+.item-row.item-marker {
+  cursor: default;
+  background: transparent;
+  border: none;
+  justify-content: center;
+  padding: 4px 0;
+  min-height: 0;
+}
+.item-row.item-marker .item-text-wrap {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+.item-row.item-marker:active { background: transparent; }
+
+/* ---------- Phase section divider (group color) ---------- */
+
+.phase-banner {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 4px auto 12px;
+  max-width: 900px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Footer nav ---------- */
+
+#app-footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px calc(14px + var(--safe-right)) calc(10px + var(--safe-bottom)) calc(14px + var(--safe-left));
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  z-index: 20;
+}
+
+.nav-btn {
+  flex: 1;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-raised);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.nav-btn:disabled { opacity: 0.35; }
+.nav-btn.primary {
+  background: var(--accent-dep);
+  color: #062730;
+  border-color: var(--accent-dep);
+}
+.nav-btn.danger {
+  background: var(--danger);
+  color: #2a0505;
+  border-color: var(--danger);
+}
+
+#footer-mid {
+  flex: 0 0 auto;
+  min-width: 70px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ---------- Phase drawer ---------- */
+
+#drawer-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 30;
+}
+
+#phase-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(340px, 84vw);
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  transform: translateX(-100%);
+  transition: transform 0.22s ease;
+  z-index: 31;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--safe-top);
+  padding-left: var(--safe-left);
+}
+
+body.drawer-open #drawer-scrim { opacity: 1; pointer-events: auto; }
+body.drawer-open #phase-drawer { transform: translateX(0); }
+
+#phase-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+
+#phase-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 8px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.phase-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.phase-list-item:active { background: var(--panel-raised); }
+.phase-list-item.current { background: var(--panel-raised); }
+
+.phase-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.phase-list-title {
+  flex: 1;
+  font-size: 14.5px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.phase-list-progress {
+  font-size: 12px;
+  color: var(--text-dim);
+  flex: 0 0 auto;
+}
+.phase-list-progress.done { color: var(--accent-pre); }
+
+/* ---------- Modal ---------- */
+
+.modal-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  padding: 20px;
+}
+.modal-scrim[hidden] {
+  display: none;
+}
+.modal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 380px;
+  width: 100%;
+}
+.modal h2 { margin: 0 0 8px; font-size: 18px; }
+.modal p { margin: 0 0 18px; color: var(--text-dim); font-size: 14px; line-height: 1.4; }
+.modal-actions { display: flex; gap: 10px; }
+.modal-actions .nav-btn { height: 44px; }
+
+/* ---------- Responsive: iPad Mini and up ---------- */
+
+@media (min-width: 744px) {
+  #item-list { gap: 10px; }
+  .item-row { padding: 14px 18px; min-height: 56px; }
+  .item-text-wrap { font-size: 17px; }
+  #checklist-main { padding: 20px calc(24px + var(--safe-right)) 32px calc(24px + var(--safe-left)); }
+  #app-footer { padding-left: calc(24px + var(--safe-left)); padding-right: calc(24px + var(--safe-right)); }
+  .nav-btn { max-width: 220px; }
+}
+
+@media (min-width: 1024px) {
+  #item-list { max-width: 1000px; }
+  .phase-banner { max-width: 1000px; }
+}
+
+/* Landscape iPad: keep footer/header compact, allow drawer to sit alongside */
+@media (min-width: 900px) and (orientation: landscape) {
+  #phase-drawer { width: 300px; }
+}
