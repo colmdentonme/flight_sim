@@ -1,8 +1,10 @@
 # FBW A380X SOP Checklist (PWA)
 
 An installable, offline-capable checklist for the FlyByWire A380X, transcribed directly from
-the community "FBW A380X Full SOP Checklist" PDF with no wording changes. Built for use on an
-iPad (Mini and up) in the cockpit, in place of the flat PDF.
+the community "FBW A380X Full SOP Checklist" PDF. Content and ordering match the source exactly,
+aside from a handful of obvious spelling corrections (e.g. "Simbreif" → "Simbrief") — see
+`data/checklist.json` for the full transcription. Built for use on an iPad (Mini and up) in the
+cockpit, in place of the flat PDF.
 
 - Plain HTML/CSS/JS, no build step, no framework, no external runtime dependencies.
 - Works fully offline once installed (service worker caches the app shell).

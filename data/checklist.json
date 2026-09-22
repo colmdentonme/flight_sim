@@ -13,7 +13,7 @@
       "title": "PRE FLIGHT",
       "group": "pre",
       "items": [
-        { "type": "note", "text": "VATSIM Flightplan filed? Volanta/VA Tracking Started? Simbreif Flightplan Imported?" }
+        { "type": "note", "text": "VATSIM Flightplan filed? Volanta/VA Tracking Started? Simbrief Flightplan Imported?" }
       ]
     },
     {
@@ -95,7 +95,7 @@
         { "type": "item", "challenge": "CKPT", "response": "AS REQ" },
         { "type": "item", "challenge": "CABIN", "response": "PURS SEL" },
         { "type": "item", "challenge": "TRIM TK FEED", "response": "AUTO" },
-        { "type": "item", "challenge": "MAINTENCE PANEL LIGHTS", "response": "ALL OFF" }
+        { "type": "item", "challenge": "MAINTENANCE PANEL LIGHTS", "response": "ALL OFF" }
       ]
     },
     {
@@ -104,7 +104,7 @@
       "group": "dep",
       "items": [
         { "type": "item", "challenge": "CARGO AIR COND", "response": "AS REQ" },
-        { "type": "item", "challenge": "RADIO MANGMENT PANEL 3", "response": "ON" },
+        { "type": "item", "challenge": "RADIO MANAGEMENT PANEL 3", "response": "ON" },
         { "type": "item", "challenge": "STBY RAD NAV", "response": "OFF" },
         { "type": "item", "challenge": "CVR TEST", "response": "PRESS" }
       ]
@@ -118,7 +118,7 @@
         { "type": "item", "challenge": "INTEGRATED STANDBY INSTRUMENT SYSTEM", "response": "CHECK" },
         { "type": "item", "challenge": "GRAVITY GEAR SYSTEM", "response": "OFF" },
         { "type": "item", "challenge": "CLOCK", "response": "CHECK & SET" },
-        { "type": "item", "challenge": "ANTI AKID (A-SKID)", "response": "ON" }
+        { "type": "item", "challenge": "ANTI SKID (A-SKID)", "response": "ON" }
       ]
     },
     {
@@ -162,7 +162,7 @@
         { "type": "item", "challenge": "OXYGEN MASKS", "response": "TEST" },
         { "type": "item", "challenge": "DOOR SD PAGE REGUL PR LO", "response": "CHECK NOT DISPLAYED" },
         { "type": "item", "challenge": "FLIGHTDECK WINDOWS", "response": "CHECK LOCKED" },
-        { "type": "item", "challenge": "TAKEOFF BREIFING", "response": "PERFORM" }
+        { "type": "item", "challenge": "TAKEOFF BRIEFING", "response": "PERFORM" }
       ]
     },
     {
@@ -214,7 +214,7 @@
         { "type": "item", "challenge": "TO FLAPS", "response": "SET" },
         { "type": "item", "challenge": "TRIM", "response": "CHECK" },
         { "type": "item", "challenge": "ECAM STATUS", "response": "CHECK" },
-        { "type": "action", "text": "DISCONNECT GROUND CREW, HAND SIGNALS RECIEVED", "emphasis": true },
+        { "type": "action", "text": "DISCONNECT GROUND CREW, HAND SIGNALS RECEIVED", "emphasis": true },
         { "type": "item", "challenge": "FLIGHT CONTROLS", "response": "CHECK" },
         { "type": "item", "challenge": "TUG", "response": "CLEAR" },
         { "type": "item", "challenge": "AFTER START CHKL", "response": "COMPLETE" }
@@ -287,14 +287,14 @@
       "title": "Takeoff",
       "group": "dep",
       "items": [
-        { "type": "action", "text": "TAKEOFF CLEARANCE RECIEVED" },
+        { "type": "action", "text": "TAKEOFF CLEARANCE RECEIVED" },
         { "type": "item", "challenge": "PARK BRAKE", "response": "OFF" },
         { "type": "item", "challenge": "BRAKES", "response": "PRESS & HOLD" },
         { "type": "item", "challenge": "TAKEOFF", "response": "ANNOUNCE" },
         { "type": "item", "challenge": "THRUST", "response": "25%" },
         { "type": "item", "challenge": "BRAKES", "response": "RELEASE" },
         { "type": "item", "challenge": "THRUST LEVERS", "response": "FLX/MCT or TOGA" },
-        { "type": "item", "challenge": "CRONO", "response": "START" }
+        { "type": "item", "challenge": "CHRONO", "response": "START" }
       ]
     },
     {
@@ -360,7 +360,7 @@
         { "type": "item", "challenge": "APPR PANEL OF THE FMS ACTIVE/PERF PAGE", "response": "INSERT/CHECK" },
         { "type": "item", "challenge": "GA PANEL OF THE FMS ACTIVE/PERF PAGE", "response": "CHECK" },
         { "type": "item", "challenge": "FMS POSITIONAL/NAVAIDS PAGE", "response": "CHECK" },
-        { "type": "item", "challenge": "LANDING BRIEF", "response": "PERFROM" }
+        { "type": "item", "challenge": "LANDING BRIEF", "response": "PERFORM" }
       ]
     },
     {
