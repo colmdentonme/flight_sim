@@ -33,7 +33,7 @@
           "label": "Expanded Checklist",
           "file": "data/aircraft/pmdg738.json",
           "phaseCount": 18,
-          "itemCount": 311
+          "itemCount": 314
         },
         {
           "id": "reference",
@@ -55,7 +55,7 @@
           "label": "Expanded Checklist",
           "file": "data/aircraft/pmdg777f.json",
           "phaseCount": 11,
-          "itemCount": 137
+          "itemCount": 141
         },
         {
           "id": "reference",
@@ -77,7 +77,7 @@
           "label": "Expanded Checklist",
           "file": "data/aircraft/fenix320.json",
           "phaseCount": 15,
-          "itemCount": 156
+          "itemCount": 157
         },
         {
           "id": "reference",

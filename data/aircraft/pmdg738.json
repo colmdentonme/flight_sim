@@ -361,6 +361,10 @@
           "text": "An alternate destination can be entered on the Route page if desired."
         },
         {
+          "type": "action",
+          "text": "Request Flight-Plan Clearance"
+        },
+        {
           "type": "marker",
           "text": "FMC — Perf Init Page"
         },
@@ -727,6 +731,10 @@
           "response": "RTO"
         },
         {
+          "type": "action",
+          "text": "Request Taxi Clearance"
+        },
+        {
           "type": "item",
           "challenge": "PUSHBACK",
           "response": "END"
@@ -858,6 +866,10 @@
           "type": "item",
           "challenge": "TRANSPONDER",
           "response": "ON"
+        },
+        {
+          "type": "action",
+          "text": "Request Take-Off Clearance"
         },
         {
           "type": "item",

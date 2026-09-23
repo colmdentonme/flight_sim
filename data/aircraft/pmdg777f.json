@@ -249,6 +249,10 @@
           "response": "CHECK NOTCH IS AT 100%, PRESS BUTTON AND CONFIRM FLOW, REPEAT FOR FO SIDE"
         },
         {
+          "type": "action",
+          "text": "Request Flight-Plan Clearance"
+        },
+        {
           "type": "marker",
           "text": "Preflight Checklist"
         },
@@ -347,6 +351,10 @@
           "text": "Center pumps to ON if there is over 10,500lb / 4700kg in the center tank."
         },
         {
+          "type": "action",
+          "text": "Request Pushback & Startup Clearance"
+        },
+        {
           "type": "marker",
           "text": "Before Start Checklist"
         },
@@ -417,6 +425,10 @@
           "response": "COMPLETE"
         },
         {
+          "type": "action",
+          "text": "Request Taxi Clearance"
+        },
+        {
           "type": "marker",
           "text": "Before Taxi Checklist"
         },
@@ -451,6 +463,10 @@
           "type": "item",
           "challenge": "TRANSPONDER",
           "response": "TA/RA BEFORE ENTERING RUNWAY"
+        },
+        {
+          "type": "action",
+          "text": "Request Takeoff Clearance"
         },
         {
           "type": "marker",

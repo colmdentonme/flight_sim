@@ -303,6 +303,11 @@
         },
         {
           "type": "item",
+          "challenge": "LOADING / BOARDING",
+          "response": "COMPLETED"
+        },
+        {
+          "type": "item",
           "challenge": "CHOCKS",
           "response": "REMOVED"
         },

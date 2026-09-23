@@ -93,6 +93,14 @@ one opens it.
   matching real QRH phases, so — like the A380X — most phases link to their Quick Reference
   match on that explicit signal rather than inferred correspondence.
 
+**Clearance calls, in every Expanded Checklist.** The A380X's Expanded SOP explicitly calls out
+moments like "OBTAIN AN IFR CLEARANCE" and "OBTAIN PUSH & START CLEARANCE" inline in the flow,
+not just in its Quick Reference — the other three aircraft's Expanded Checklists didn't
+consistently do the same, since their own source documents weren't as explicit about it. Rather
+than inventing new text, the missing clearance-request (and, for Fenix, boarding/loading) items
+were pulled verbatim from that same aircraft's own Quick Reference and inserted at the matching
+point in its Expanded Checklist.
+
 ### Two kinds of checklist, and where to source them
 
 - **Expanded SOP / flow** — long, detailed, performed silently phase by phase. Usually only
