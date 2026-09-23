@@ -194,8 +194,6 @@
     els.backBtn.disabled = currentPhase === 0;
     els.nextBtn.disabled = currentPhase === data.phases.length - 1;
     els.footerPhaseIndex.textContent = `${currentPhase + 1} / ${data.phases.length}`;
-
-    els.checklistMain.scrollTop = 0;
   }
 
   function renderOverallProgress() {
@@ -209,6 +207,7 @@
     savePhase();
     renderCurrentPhase();
     renderPhaseDrawer();
+    els.checklistMain.scrollTop = 0;
   }
 
   function openDrawer() {

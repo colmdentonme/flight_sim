@@ -1,4 +1,4 @@
-const CACHE_VERSION = "a380x-sop-v1";
+const CACHE_VERSION = "a380x-sop-v2";
 
 const APP_SHELL = [
   "./",
@@ -12,6 +12,15 @@ const APP_SHELL = [
   "./icons/icon-512-maskable.png",
   "./icons/apple-touch-icon.png",
 ];
+
+// Files that rarely/never change once published: safe to serve straight from
+// cache without a network round-trip.
+const CACHE_FIRST = new Set([
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-512-maskable.png",
+  "./icons/apple-touch-icon.png",
+]);
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -29,22 +38,31 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Cache-first for the app shell, so the checklist works with zero connectivity.
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
+  const isIcon = [...CACHE_FIRST].some((path) => event.request.url.endsWith(path.slice(1)));
+
+  if (isIcon) {
+    // Icons: cache-first, they never change once published.
+    event.respondWith(
+      caches.match(event.request).then((cached) => cached || fetch(event.request))
+    );
+    return;
+  }
+
+  // Everything else (HTML/CSS/JS/checklist data): network-first, so an
+  // online reload always picks up the latest checklist content and app
+  // code. Falls back to the cached copy when offline (in-flight use).
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request)
-        .then((response) => {
-          if (response.ok && response.type === "basic") {
-            const clone = response.clone();
-            caches.open(CACHE_VERSION).then((cache) => cache.put(event.request, clone));
-          }
-          return response;
-        })
-        .catch(() => cached);
-    })
+    fetch(event.request)
+      .then((response) => {
+        if (response.ok && response.type === "basic") {
+          const clone = response.clone();
+          caches.open(CACHE_VERSION).then((cache) => cache.put(event.request, clone));
+        }
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
