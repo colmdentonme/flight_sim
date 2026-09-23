@@ -1,0 +1,345 @@
+{
+  "aircraft": "A2A Piper Comanche 250",
+  "source": "Transcribed from A2A Simulations' own official \"ACCU-SIM COMANCHE 250\" Pilot's Manual PDF (a2asimulations.com/Manuals/FSX/A2A_Comanche250_Pilot's_Manual.pdf), \"Normal Procedures\" section. Real Piper PA-24-250 Comanche procedures, as published by the add-on's own developer; the manual's own 40-minute-runup / interactive-preflight notes are genuine current Accu-Sim product features (not legacy sim-specific cruft) and are kept. The numbered short-form checklist items are kept verbatim; the surrounding \"amplified\" explanatory prose is condensed into notes without changing its meaning. Cross-referenced against Flight Sim School's \"A2A Comanche How To Guide\" 3-part YouTube tutorial series for the video walkthrough noted in Climb/Cruise/Approach — cited by title and chapter timestamp only (verified from the videos' own chapter markers), no specific figures were taken from the videos since a reliable transcript wasn't available; all numbers here come from the manual.",
+  "groups": {
+    "pre": {
+      "label": "Preflight / Ground",
+      "color": "#0F9488"
+    },
+    "dep": {
+      "label": "Departure",
+      "color": "#1D72B8"
+    },
+    "air": {
+      "label": "Airborne",
+      "color": "#5A67A6"
+    },
+    "arr": {
+      "label": "Arrival",
+      "color": "#0F9488"
+    }
+  },
+  "phases": [
+    {
+      "id": "preflight",
+      "title": "Preflight",
+      "group": "pre",
+      "items": [
+        {
+          "type": "note",
+          "text": "When the aircraft is stopped with the engine off, press SHIFT-8 to bring up the interactive preflight inspection."
+        }
+      ]
+    },
+    {
+      "id": "starting",
+      "title": "Starting",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FUEL SELECTOR",
+          "response": "PROPER TANK"
+        },
+        {
+          "type": "item",
+          "challenge": "MIXTURE CONTROL",
+          "response": "FULL IN (RICH)"
+        },
+        {
+          "type": "item",
+          "challenge": "CARBURETOR HEAT",
+          "response": "FULL IN (COLD)"
+        },
+        {
+          "type": "item",
+          "challenge": "THROTTLE",
+          "response": "OPEN 1/4 INCH"
+        },
+        {
+          "type": "item",
+          "challenge": "PROPELLER CONTROL",
+          "response": "FULL IN (INCREASE RPM)"
+        },
+        {
+          "type": "item",
+          "challenge": "MASTER SWITCH",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AUXILIARY FUEL PUMP",
+          "response": "ON (LISTEN FOR PUMP, CHECK FUEL PRESSURE)"
+        },
+        {
+          "type": "item",
+          "challenge": "PRIME",
+          "response": "3-5 STROKES IF COLD (UNDER 40°F), NONE IF WARM"
+        },
+        {
+          "type": "item",
+          "challenge": "RADIOS",
+          "response": "OFF (CHECK)"
+        },
+        {
+          "type": "item",
+          "challenge": "PROPELLER AREA",
+          "response": "CLEAR"
+        },
+        {
+          "type": "item",
+          "challenge": "STARTER",
+          "response": "ENGAGE, ALLOW ~1 REVOLUTION"
+        },
+        {
+          "type": "item",
+          "challenge": "IGNITION SWITCH",
+          "response": "BOTH (LIMIT STARTER TO 30 SECONDS)"
+        },
+        {
+          "type": "note",
+          "text": "If the engine doesn't start, re-prime and repeat. If over-primed: open the throttle and turn the engine over with the starter, then re-prime with half the original amount and repeat."
+        },
+        {
+          "type": "item",
+          "challenge": "THROTTLE",
+          "response": "ADJUST TO 800 RPM (ONCE FIRING EVENLY)"
+        },
+        {
+          "type": "note",
+          "text": "Check the oil pressure gauge for an indication within 30 seconds of starting. If no pressure is shown, stop the engine and determine the trouble."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "airspeeds",
+        "label": "Read QREF: AIRSPEEDS"
+      }
+    },
+    {
+      "id": "warmup-and-ground-check",
+      "title": "Warm-Up & Ground Check",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ENGINE",
+          "response": "WARM UP AT 800-1200 RPM (MAX 2 MIN WARM WEATHER, 4 MIN COLD)"
+        },
+        {
+          "type": "item",
+          "challenge": "MAGNETOS",
+          "response": "CHECK AT 2000 RPM (DROP NOT TO EXCEED 125 RPM, 15\" MAP)"
+        },
+        {
+          "type": "item",
+          "challenge": "CARBURETOR HEAT",
+          "response": "CHECK OPERATION, CLEAR ANY ICE"
+        },
+        {
+          "type": "item",
+          "challenge": "PROPELLER CONTROL",
+          "response": "CYCLE THROUGH RANGE, LEAVE AT FULL HIGH RPM"
+        },
+        {
+          "type": "note",
+          "text": "Don't use carburetor heat on the ground in dusty conditions except momentarily during run-up — unfiltered air is drawn in and dust can damage the engine. Don't run up over loose stones or debris the propeller could pick up."
+        }
+      ]
+    },
+    {
+      "id": "takeoff",
+      "title": "Take-Off",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "CONTROLS",
+          "response": "FREE"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "TAB",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "PROPELLER",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "MIXTURE",
+          "response": "RICH"
+        },
+        {
+          "type": "item",
+          "challenge": "CARBURETOR HEAT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL",
+          "response": "ON PROPER TANK"
+        },
+        {
+          "type": "item",
+          "challenge": "ELECTRIC FUEL PUMP",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE GAUGES",
+          "response": "NORMAL"
+        },
+        {
+          "type": "item",
+          "challenge": "DOOR",
+          "response": "LATCHED"
+        },
+        {
+          "type": "item",
+          "challenge": "SAFETY BELTS",
+          "response": "FASTENED"
+        },
+        {
+          "type": "note",
+          "text": "For a minimum takeoff run, lower flaps to 18° (2/3) — reduces the run by about 20%. Not normally used for crosswind takeoffs. Rotate at about 65 MPH; retract the gear once a landing could no longer be made on the remaining runway if power was lost."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "airspeeds",
+        "label": "Read QREF: AIRSPEEDS"
+      }
+    },
+    {
+      "id": "climb",
+      "title": "Climb",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "POWER",
+          "response": "2,400 RPM / 24\" MAP (MAX RECOMMENDED CLIMB POWER)"
+        },
+        {
+          "type": "note",
+          "text": "Best rate of climb is 105 MPH, decreasing about 1 MPH per 1,000ft (95 MPH by 10,000ft). Below 95 MPH at low altitude cuts forward visibility and engine cooling airflow — extended climbs slower than that aren't recommended."
+        },
+        {
+          "type": "note",
+          "text": "Video walkthrough: Flight Sim School, \"A2A Comanche How To Guide Part 2: Startup To Cruise\" — chapters \"Climb CHT Temps\" and \"Climb Engine Performance\"."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "power-setting-table",
+        "label": "Read QREF: POWER SETTING TABLE"
+      }
+    },
+    {
+      "id": "cruise",
+      "title": "Cruise",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "MIXTURE",
+          "response": "LEAN (ABOVE 5,000FT; PILOT'S DISCRETION BELOW)"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL TANKS",
+          "response": "USE ALTERNATELY (TIP TANKS FIRST, IF INSTALLED)"
+        },
+        {
+          "type": "note",
+          "text": "Maximum recommended cruise is 182 MPH. Example: 75% power at 7,000ft is 2,400 RPM / 22.6\" MAP, about 14 GPH leaned to best economy (peak EGT). Cruising RPM of 2,000-2,400 with the manifold pressure for 65-75% power is recommended to balance engine wear, fuel burn and noise — see the Quick Reference power setting table for other altitudes."
+        },
+        {
+          "type": "note",
+          "text": "Don't cruise with carburetor heat on unless icing is severe — it reduces power. Apply only briefly if needed."
+        },
+        {
+          "type": "note",
+          "text": "Video walkthrough: Flight Sim School, \"A2A Comanche How To Guide Part 2: Startup To Cruise\" — chapters \"Choosing A Cruise Altitude\", \"Cruise Power Settings\", \"Lean For Best Power\", \"Lean For Best Economy\"."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "power-setting-table",
+        "label": "Read QREF: POWER SETTING TABLE"
+      }
+    },
+    {
+      "id": "approach-and-landing",
+      "title": "Approach & Landing",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "MIXTURE",
+          "response": "RICH"
+        },
+        {
+          "type": "item",
+          "challenge": "PROPELLER",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "CARBURETOR HEAT",
+          "response": "OFF (UNLESS ICING CONDITIONS EXIST)"
+        },
+        {
+          "type": "item",
+          "challenge": "ELECTRIC FUEL PUMP",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL SELECTOR",
+          "response": "PROPER TANK"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING GEAR",
+          "response": "DOWN, UNDER 150 MPH (GREEN LIGHT ON, HORN OFF, HANDLE FORWARD)"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "AS DESIRED, UNDER 125 MPH"
+        },
+        {
+          "type": "item",
+          "challenge": "SAFETY BELTS",
+          "response": "FASTENED"
+        },
+        {
+          "type": "marker",
+          "text": "GUMPS: Gas (pump on, tank selected) · Undercarriage (down & locked) · Mixture (rich) · Prop (high RPM) · Seatbelts (on)"
+        },
+        {
+          "type": "note",
+          "text": "Trim to about 90 MPH with full flaps, or 95 MPH with no flaps, on final. Keep the propeller at high RPM to allow a go-around if needed. For maximum braking on a short landing: full back pressure on the yoke with flaps up while braking, to load the main wheels."
+        },
+        {
+          "type": "note",
+          "text": "Video walkthrough: Flight Sim School, \"A2A Comanche How To Guide Part 3: Autopilot, Descent & Landing\" — chapters \"Descent & Approach\" and \"Landing Suggestions\"."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "airspeeds",
+        "label": "Read QREF: AIRSPEEDS"
+      }
+    }
+  ]
+}

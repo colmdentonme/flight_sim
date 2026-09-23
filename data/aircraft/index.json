@@ -87,6 +87,28 @@
           "itemCount": 50
         }
       ]
+    },
+    {
+      "id": "a2acomanche250",
+      "name": "A2A Piper Comanche 250",
+      "subtitle": "Piper PA-24-250 · A2A Simulations",
+      "accent": "#14477A",
+      "documents": [
+        {
+          "id": "sop",
+          "label": "Normal Procedures",
+          "file": "data/aircraft/a2acomanche250.json",
+          "phaseCount": 7,
+          "itemCount": 52
+        },
+        {
+          "id": "reference",
+          "label": "Quick Reference",
+          "file": "data/aircraft/a2acomanche250-reference.json",
+          "phaseCount": 2,
+          "itemCount": 26
+        }
+      ]
     }
   ]
 }

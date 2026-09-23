@@ -117,6 +117,22 @@ one opens it.
   go-around procedure at all (only a "GO-AROUND ALTITUDE .. SET" reminder in their Landing
   checklist), so nothing was added there rather than inventing one from outside those sources.
 
+**A2A Piper Comanche 250** — a piston single, a different category from the other three airliners:
+
+- **Normal Procedures** and **Quick Reference** — both transcribed from A2A Simulations' own
+  official "ACCU-SIM COMANCHE 250" Pilot's Manual PDF, "Normal Procedures" section (numbered
+  short-form checklist items kept verbatim, the surrounding explanatory prose condensed into
+  notes) and "Performance" section (the "Power Setting Table" — real Lycoming O-540-A engine
+  data, manifold pressure by pressure altitude and RPM for 55/65/75% power — and the "Airspeeds
+  For Normal Operation" list). The interactive-preflight (SHIFT-8) mention is a current Accu-Sim
+  product feature, not legacy sim cruft, so it's kept like the 777's `CHKL` page trigger.
+- Cross-referenced against Flight Sim School's 3-part "A2A Comanche How To Guide" YouTube series
+  for a video walkthrough, cited by title/channel/chapter timestamp (verified from each video's
+  own chapter markers) in the Climb/Cruise/Approach notes — no reliable transcript was available,
+  so no specific numbers were taken from the videos themselves; every figure comes from the manual.
+- The power-setting data introduced a new schema item type, `"type": "table"` (see below), since
+  a grid of numbers doesn't fit the challenge/response shape everything else uses.
+
 **Clearance calls, in every Expanded Checklist.** The A380X's Expanded SOP explicitly calls out
 moments like "OBTAIN AN IFR CLEARANCE" and "OBTAIN PUSH & START CLEARANCE" inline in the flow,
 not just in its Quick Reference — the other three aircraft's Expanded Checklists didn't
@@ -155,12 +171,21 @@ point in its Expanded Checklist.
            { "type": "item", "challenge": "SOME SWITCH", "response": "ON" },
            { "type": "action", "text": "A checkable step with no response value" },
            { "type": "note", "text": "Non-checkable informational text (italic)" },
-           { "type": "marker", "text": "Small non-checkable caption, e.g. an altitude callout" }
+           { "type": "marker", "text": "Small non-checkable caption, e.g. an altitude callout" },
+           {
+             "type": "table",
+             "caption": "Optional caption above the table",
+             "columns": ["First column is left-aligned/bold", "Other columns", "..."],
+             "rows": [["Row label", 12.3, null], ["null renders as an em dash"]]
+           }
          ]
        }
      ]
    }
    ```
+   `table` is for reference data that doesn't fit challenge/response — e.g. a power-setting grid
+   by altitude (see the A2A Comanche's Quick Reference). It's non-checkable, horizontally
+   scrollable for wide tables, and `null`/missing cells render as "—".
    `group` colors are used for the phase-menu dots and the phase banner — pick whatever fits
    that aircraft's own color scheme.
 2. Register it in `data/aircraft/index.json`. A new document on an existing aircraft just adds

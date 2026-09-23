@@ -570,6 +570,52 @@ body {
 }
 .item-row.item-marker:active { background: transparent; }
 
+/* Table rows: reference data (e.g. power settings by altitude), non-interactive */
+.item-row.item-table {
+  cursor: default;
+  display: block;
+  padding: 12px;
+}
+.item-row.item-table:active { background: var(--panel); }
+
+.data-table-caption {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.data-table-scroller {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.data-table {
+  border-collapse: collapse;
+  font-size: calc(13px * var(--text-scale));
+  white-space: nowrap;
+}
+.data-table th,
+.data-table td {
+  padding: 6px 10px;
+  text-align: right;
+  border: 1px solid var(--border);
+}
+.data-table th:first-child,
+.data-table td:first-child {
+  text-align: left;
+}
+.data-table thead th {
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.data-table tbody td:first-child {
+  font-weight: 700;
+  color: var(--text);
+  background: var(--panel-raised);
+}
+
 /* ---------- Phase section divider (group color) ---------- */
 
 .phase-banner {

@@ -525,6 +525,51 @@
     return response;
   }
 
+  function renderDataTable(item) {
+    const wrap = document.createElement("div");
+    wrap.className = "data-table-wrap";
+
+    if (item.caption) {
+      const caption = document.createElement("div");
+      caption.className = "data-table-caption";
+      caption.textContent = item.caption;
+      wrap.appendChild(caption);
+    }
+
+    const scroller = document.createElement("div");
+    scroller.className = "data-table-scroller";
+    const table = document.createElement("table");
+    table.className = "data-table";
+
+    if (Array.isArray(item.columns)) {
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+      item.columns.forEach((col) => {
+        const th = document.createElement("th");
+        th.textContent = col;
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+    }
+
+    const tbody = document.createElement("tbody");
+    (item.rows || []).forEach((row) => {
+      const tr = document.createElement("tr");
+      row.forEach((cell) => {
+        const td = document.createElement("td");
+        td.textContent = cell === null || cell === undefined || cell === "" ? "—" : cell;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    scroller.appendChild(table);
+    wrap.appendChild(scroller);
+    return wrap;
+  }
+
   function renderItemRow(phase, item, idx) {
     const li = document.createElement("li");
     const id = itemId(phase, idx);
@@ -544,6 +589,11 @@
       wrap.className = "item-text-wrap";
       wrap.textContent = item.text;
       li.appendChild(wrap);
+      return li;
+    }
+
+    if (item.type === "table") {
+      li.appendChild(renderDataTable(item));
       return li;
     }
 
