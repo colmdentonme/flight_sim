@@ -4,19 +4,19 @@
   "groups": {
     "pre": {
       "label": "Pre-Flight / Ground",
-      "color": "#00B79C"
+      "color": "#0F9488"
     },
     "dep": {
       "label": "Departure",
-      "color": "#00DEFB"
+      "color": "#1D72B8"
     },
     "air": {
       "label": "Airborne",
-      "color": "#5b8def"
+      "color": "#5A67A6"
     },
     "arr": {
       "label": "Arrival / Ground",
-      "color": "#00B79C"
+      "color": "#0F9488"
     }
   },
   "phases": [

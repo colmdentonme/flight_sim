@@ -15,6 +15,10 @@ one opens it.
 - Checked-item progress is saved per document to the device (`localStorage`) so a reload
   mid-flight doesn't lose your place. Use the reset button (top right) to clear the current
   document's progress before a new flight.
+- Light theme by default (navy-on-white, in the style of Airbus/Boeing's own corporate sites)
+  for daytime/ground-ops legibility, with a dark "night mode" a tap away (sun/moon icon, top
+  right) for cockpit use after dark — the same day/night split real EFB apps like ForeFlight
+  ship. Your choice is remembered on the device.
 
 ## Content
 

@@ -28,7 +28,32 @@
     resetCancelBtn: document.getElementById("reset-cancel-btn"),
     resetConfirmBtn: document.getElementById("reset-confirm-btn"),
     checklistMain: document.getElementById("checklist-main"),
+    themeToggleBtn: document.getElementById("theme-toggle-btn"),
+    themeToggleBtnHome: document.getElementById("theme-toggle-btn-home"),
+    themeColorMeta: document.getElementById("theme-color-meta"),
   };
+
+  const THEME_KEY = "sop:theme";
+  const THEME_COLOR = { light: "#f4f6f9", dark: "#0b0f14" };
+
+  function applyTheme(theme) {
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    document.querySelectorAll(".theme-icon").forEach((el) => {
+      el.textContent = theme === "dark" ? "☽" : "☀";
+    });
+    els.themeColorMeta.setAttribute("content", THEME_COLOR[theme] || THEME_COLOR.light);
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage unavailable, ignore */ }
+  }
 
   let manifest = null;
   const docCache = {};
@@ -468,10 +493,14 @@
     });
 
     window.addEventListener("hashchange", handleRoute);
+
+    els.themeToggleBtn.addEventListener("click", toggleTheme);
+    els.themeToggleBtnHome.addEventListener("click", toggleTheme);
   }
 
   async function init() {
     migrateLegacyStorage();
+    applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
     wireEvents();
     const res = await fetch("data/aircraft/index.json");
     manifest = await res.json();
