@@ -55,6 +55,10 @@ one opens it.
   read as current instructions. The source PDF's fuel-planning reference tables (not checklist
   content) weren't included either. Marked "DO NOT USE FOR FLIGHT" by its original author —
   simulation use only, same as everything else in this app.
+- Like the A380X, most Expanded Checklist phases link to the matching Quick Reference phase
+  (`linkedReference` in `pmdg738.json`) — mapped by phase correspondence between the two
+  documents rather than an explicit "run the checklist" phrase in the source, since this source
+  doesn't call one out the way the A380X SOP does.
 
 ### Two kinds of checklist, and where to source them
 
