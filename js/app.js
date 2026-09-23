@@ -29,59 +29,78 @@
   };
 
   let manifest = null;
-  const aircraftCache = {};
+  const docCache = {};
 
   let currentAircraftId = null;
+  let currentDocId = null;
   let data = null;
   let checked = new Set();
   let currentPhase = 0;
 
-  function storageKeyChecked(id) { return `sop:${id}:checked`; }
-  function storageKeyPhase(id) { return `sop:${id}:phase`; }
+  function storageKeyChecked(aircraftId, docId) { return `sop:${aircraftId}:${docId}:checked`; }
+  function storageKeyPhase(aircraftId, docId) { return `sop:${aircraftId}:${docId}:phase`; }
 
+  // Two generations of legacy keys to fold forward, oldest first: the very
+  // first single-aircraft release, then the single-document-per-aircraft
+  // release. Both are one-time, idempotent, and safe to run on every load.
   function migrateLegacyStorage() {
     try {
+      const stage1Checked = "sop:a380x:checked";
+      const stage1Phase = "sop:a380x:phase";
       const oldChecked = localStorage.getItem(LEGACY_CHECKED_KEY);
-      if (oldChecked !== null && localStorage.getItem(storageKeyChecked("a380x")) === null) {
-        localStorage.setItem(storageKeyChecked("a380x"), oldChecked);
+      if (oldChecked !== null && localStorage.getItem(stage1Checked) === null) {
+        localStorage.setItem(stage1Checked, oldChecked);
       }
       const oldPhase = localStorage.getItem(LEGACY_PHASE_KEY);
-      if (oldPhase !== null && localStorage.getItem(storageKeyPhase("a380x")) === null) {
-        localStorage.setItem(storageKeyPhase("a380x"), oldPhase);
+      if (oldPhase !== null && localStorage.getItem(stage1Phase) === null) {
+        localStorage.setItem(stage1Phase, oldPhase);
       }
       localStorage.removeItem(LEGACY_CHECKED_KEY);
       localStorage.removeItem(LEGACY_PHASE_KEY);
+
+      const stage2Checked = storageKeyChecked("a380x", "sop");
+      const stage2Phase = storageKeyPhase("a380x", "sop");
+      const stage1CheckedVal = localStorage.getItem(stage1Checked);
+      if (stage1CheckedVal !== null && localStorage.getItem(stage2Checked) === null) {
+        localStorage.setItem(stage2Checked, stage1CheckedVal);
+      }
+      const stage1PhaseVal = localStorage.getItem(stage1Phase);
+      if (stage1PhaseVal !== null && localStorage.getItem(stage2Phase) === null) {
+        localStorage.setItem(stage2Phase, stage1PhaseVal);
+      }
+      localStorage.removeItem(stage1Checked);
+      localStorage.removeItem(stage1Phase);
     } catch (e) { /* storage unavailable, ignore */ }
   }
 
-  function loadState(aircraftId) {
+  function loadState(aircraftId, docId) {
     checked = new Set();
     currentPhase = 0;
     try {
-      const raw = localStorage.getItem(storageKeyChecked(aircraftId));
+      const raw = localStorage.getItem(storageKeyChecked(aircraftId, docId));
       if (raw) checked = new Set(JSON.parse(raw));
     } catch (e) { checked = new Set(); }
     try {
-      const p = parseInt(localStorage.getItem(storageKeyPhase(aircraftId)), 10);
+      const p = parseInt(localStorage.getItem(storageKeyPhase(aircraftId, docId)), 10);
       if (!Number.isNaN(p)) currentPhase = p;
     } catch (e) { currentPhase = 0; }
   }
 
   function saveChecked() {
     try {
-      localStorage.setItem(storageKeyChecked(currentAircraftId), JSON.stringify([...checked]));
+      localStorage.setItem(storageKeyChecked(currentAircraftId, currentDocId), JSON.stringify([...checked]));
     } catch (e) { /* storage unavailable, ignore */ }
   }
 
   function savePhase() {
     try {
-      localStorage.setItem(storageKeyPhase(currentAircraftId), String(currentPhase));
+      localStorage.setItem(storageKeyPhase(currentAircraftId, currentDocId), String(currentPhase));
     } catch (e) { /* ignore */ }
   }
 
-  function checkedCountFor(aircraftId) {
+  function checkedCountFor(aircraftId, docId) {
     try {
-      const raw = localStorage.getItem(storageKeyChecked(aircraftId));
+      const raw = localStorage.getItem(storageKeyChecked(aircraftId, docId));
       if (!raw) return 0;
       return JSON.parse(raw).length;
     } catch (e) { return 0; }
@@ -123,44 +142,62 @@
 
   function renderAircraftList() {
     els.aircraftList.innerHTML = "";
-    manifest.aircraft.forEach((entry) => {
-      const li = document.createElement("li");
-      li.className = "aircraft-card";
-      li.style.setProperty("--card-accent", entry.accent || "#00defb");
-      li.setAttribute("role", "button");
-      li.tabIndex = 0;
+    manifest.aircraft.forEach((aircraft) => {
+      const group = document.createElement("li");
+      group.className = "aircraft-group";
 
-      const bar = document.createElement("span");
-      bar.className = "aircraft-card-accent";
-
-      const body = document.createElement("div");
-      body.className = "aircraft-card-body";
-
+      const header = document.createElement("div");
+      header.className = "aircraft-group-header";
       const name = document.createElement("div");
-      name.className = "aircraft-card-name";
-      name.textContent = entry.name;
-
+      name.className = "aircraft-group-name";
+      name.textContent = aircraft.name;
       const subtitle = document.createElement("div");
-      subtitle.className = "aircraft-card-subtitle";
-      subtitle.textContent = entry.subtitle || "";
+      subtitle.className = "aircraft-group-subtitle";
+      subtitle.textContent = aircraft.subtitle || "";
+      header.append(name, subtitle);
+      group.appendChild(header);
 
-      const meta = document.createElement("div");
-      meta.className = "aircraft-card-meta";
-      const done = checkedCountFor(entry.id);
-      const metaParts = [];
-      if (entry.phaseCount) metaParts.push(`${entry.phaseCount} phases`);
-      if (entry.itemCount) metaParts.push(done > 0 ? `${done}/${entry.itemCount} checked` : `${entry.itemCount} items`);
-      meta.textContent = metaParts.join(" · ");
+      const docList = document.createElement("ul");
+      docList.className = "document-list";
 
-      body.append(name, subtitle, meta);
+      aircraft.documents.forEach((doc) => {
+        const li = document.createElement("li");
+        li.className = "document-card";
+        li.style.setProperty("--card-accent", aircraft.accent || "#00defb");
+        li.setAttribute("role", "button");
+        li.tabIndex = 0;
 
-      const chevron = document.createElement("span");
-      chevron.className = "aircraft-card-chevron";
-      chevron.textContent = "›";
+        const bar = document.createElement("span");
+        bar.className = "document-card-accent";
 
-      li.append(bar, body, chevron);
-      li.addEventListener("click", () => { location.hash = entry.id; });
-      els.aircraftList.appendChild(li);
+        const body = document.createElement("div");
+        body.className = "document-card-body";
+
+        const label = document.createElement("div");
+        label.className = "document-card-label";
+        label.textContent = doc.label;
+
+        const meta = document.createElement("div");
+        meta.className = "document-card-meta";
+        const done = checkedCountFor(aircraft.id, doc.id);
+        const metaParts = [];
+        if (doc.phaseCount) metaParts.push(`${doc.phaseCount} phases`);
+        if (doc.itemCount) metaParts.push(done > 0 ? `${done}/${doc.itemCount} checked` : `${doc.itemCount} items`);
+        meta.textContent = metaParts.join(" · ");
+
+        body.append(label, meta);
+
+        const chevron = document.createElement("span");
+        chevron.className = "document-card-chevron";
+        chevron.textContent = "›";
+
+        li.append(bar, body, chevron);
+        li.addEventListener("click", () => { location.hash = `${aircraft.id}/${doc.id}`; });
+        docList.appendChild(li);
+      });
+
+      group.appendChild(docList);
+      els.aircraftList.appendChild(group);
     });
   }
 
@@ -312,18 +349,20 @@
 
   // ---------------- Routing ----------------
 
-  async function loadAircraftData(entry) {
-    if (aircraftCache[entry.id]) return aircraftCache[entry.id];
-    const res = await fetch(entry.file);
+  async function loadDocData(aircraftId, doc) {
+    const cacheKey = `${aircraftId}/${doc.id}`;
+    if (docCache[cacheKey]) return docCache[cacheKey];
+    const res = await fetch(doc.file);
     const json = await res.json();
-    aircraftCache[entry.id] = json;
+    docCache[cacheKey] = json;
     return json;
   }
 
-  async function showChecklist(entry) {
-    currentAircraftId = entry.id;
-    loadState(entry.id);
-    data = await loadAircraftData(entry);
+  async function showChecklist(aircraft, doc) {
+    currentAircraftId = aircraft.id;
+    currentDocId = doc.id;
+    loadState(aircraft.id, doc.id);
+    data = await loadDocData(aircraft.id, doc);
 
     if (currentPhase < 0 || currentPhase >= data.phases.length) currentPhase = 0;
 
@@ -336,18 +375,22 @@
     els.checklistMain.scrollTop = 0;
   }
 
+  // Hash shape: #<aircraftId>/<documentId>
   function parseHash() {
-    return decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+    const raw = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+    const [aircraftId, docId] = raw.split("/");
+    return { aircraftId, docId };
   }
 
   function handleRoute() {
-    const id = parseHash();
-    const entry = id && manifest.aircraft.find((a) => a.id === id);
-    if (!entry) {
+    const { aircraftId, docId } = parseHash();
+    const aircraft = aircraftId && manifest.aircraft.find((a) => a.id === aircraftId);
+    const doc = aircraft && docId && aircraft.documents.find((d) => d.id === docId);
+    if (!aircraft || !doc) {
       showHome();
       return;
     }
-    showChecklist(entry);
+    showChecklist(aircraft, doc);
   }
 
   function wireEvents() {

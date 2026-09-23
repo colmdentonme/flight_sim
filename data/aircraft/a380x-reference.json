@@ -1,0 +1,307 @@
+{
+  "aircraft": "FBW A380X",
+  "source": "FlyByWire Simulations aircraft repo (github.com/flybywiresim/aircraft), fbw-a380x normal-checklist EFB data, GPL-3.0",
+  "groups": {
+    "pre": {
+      "label": "Pre-Flight / Ground",
+      "color": "#00B79C"
+    },
+    "dep": {
+      "label": "Departure",
+      "color": "#00DEFB"
+    },
+    "air": {
+      "label": "Airborne",
+      "color": "#5b8def"
+    },
+    "arr": {
+      "label": "Arrival / Ground",
+      "color": "#00B79C"
+    }
+  },
+  "phases": [
+    {
+      "id": "cockpit-preparation",
+      "title": "COCKPIT PREPARATION",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "GEAR PINS & COVERS",
+          "response": "REMOVED"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL QTY",
+          "response": "___KG"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "BARO REF",
+          "response": "SET"
+        }
+      ]
+    },
+    {
+      "id": "before-start",
+      "title": "BEFORE START",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "___"
+        },
+        {
+          "type": "item",
+          "challenge": "T.O SPEEDS & THRUST",
+          "response": "CHECKED"
+        },
+        {
+          "type": "item",
+          "challenge": "BEACON",
+          "response": "ON"
+        }
+      ]
+    },
+    {
+      "id": "after-start",
+      "title": "AFTER START",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ANTI ICE",
+          "response": "___"
+        },
+        {
+          "type": "item",
+          "challenge": "PITCH TRIM",
+          "response": "T.O"
+        },
+        {
+          "type": "item",
+          "challenge": "RUDDER TRIM",
+          "response": "NEUTRAL"
+        }
+      ]
+    },
+    {
+      "id": "taxi",
+      "title": "TAXI",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FLIGHT CONTROLS",
+          "response": "CHECKED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS SETTING",
+          "response": "CONF ___"
+        },
+        {
+          "type": "item",
+          "challenge": "RADAR",
+          "response": "ON"
+        },
+        {
+          "type": "marker",
+          "text": "T.O"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "GND SPLRs",
+          "response": "ARMED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "T.O"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO BRAKE",
+          "response": "RTO"
+        },
+        {
+          "type": "item",
+          "challenge": "T.O CONFIG",
+          "response": "TESTED"
+        }
+      ]
+    },
+    {
+      "id": "line-up",
+      "title": "LINE-UP",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "T.O RWY",
+          "response": "CONFIRMED"
+        },
+        {
+          "type": "item",
+          "challenge": "CABIN CREW",
+          "response": "ADVISED"
+        },
+        {
+          "type": "item",
+          "challenge": "PACKS 1+2",
+          "response": "ON"
+        }
+      ]
+    },
+    {
+      "id": "departure-change",
+      "title": "<< DEPARTURE CHANGE >>",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "RWY & SID",
+          "response": "RWY __, ____"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS SETTING",
+          "response": "CONF ____"
+        },
+        {
+          "type": "item",
+          "challenge": "T.O SPEEDS & THRUST",
+          "response": "V1 __, VR __, V2 __, FLEX __/TOGA"
+        },
+        {
+          "type": "item",
+          "challenge": "FCU ALT",
+          "response": "____ SET"
+        }
+      ]
+    },
+    {
+      "id": "approach",
+      "title": "APPROACH",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "BARO REF",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "MINIMUM",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO BRAKE",
+          "response": "SET"
+        }
+      ]
+    },
+    {
+      "id": "landing",
+      "title": "LANDING",
+      "group": "air",
+      "items": [
+        {
+          "type": "marker",
+          "text": "LDG"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LDG GEAR",
+          "response": "DOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "GND SPLRs",
+          "response": "ARM"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "LDG"
+        }
+      ]
+    },
+    {
+      "id": "parking",
+      "title": "PARKING",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PARK BRAKE OR CHOCKS",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINES",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "WING LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPs",
+          "response": "OFF"
+        }
+      ]
+    },
+    {
+      "id": "securing-aircraft",
+      "title": "SECURING AIRCRAFT",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "OXYGEN",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EMER EXIT LT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EFBs",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERIES",
+          "response": "OFF"
+        }
+      ]
+    }
+  ]
+}

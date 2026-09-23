@@ -82,12 +82,27 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 22px;
   max-width: 640px;
   margin-inline: auto;
 }
 
-.aircraft-card {
+.aircraft-group { display: flex; flex-direction: column; gap: 8px; }
+
+.aircraft-group-header { padding: 0 2px; }
+.aircraft-group-name { font-size: 15px; font-weight: 700; }
+.aircraft-group-subtitle { font-size: 12.5px; color: var(--text-dim); }
+
+.document-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.document-card {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -95,13 +110,13 @@ body {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px 16px;
-  min-height: 76px;
+  min-height: 68px;
   cursor: pointer;
   overflow: hidden;
 }
-.aircraft-card:active { background: var(--panel-raised); }
+.document-card:active { background: var(--panel-raised); }
 
-.aircraft-card-accent {
+.document-card-accent {
   flex: 0 0 auto;
   width: 5px;
   align-self: stretch;
@@ -109,18 +124,17 @@ body {
   background: var(--card-accent, var(--accent-dep));
 }
 
-.aircraft-card-body {
+.document-card-body {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
-.aircraft-card-name { font-size: 17px; font-weight: 700; }
-.aircraft-card-subtitle { font-size: 13px; color: var(--text-dim); }
-.aircraft-card-meta { font-size: 12px; color: var(--text-faint); }
+.document-card-label { font-size: 16px; font-weight: 700; }
+.document-card-meta { font-size: 12px; color: var(--text-faint); }
 
-.aircraft-card-chevron {
+.document-card-chevron {
   flex: 0 0 auto;
   font-size: 26px;
   color: var(--text-faint);
@@ -549,8 +563,9 @@ body.drawer-open #phase-drawer { transform: translateX(0); }
   #app-footer { padding-left: calc(24px + var(--safe-left)); padding-right: calc(24px + var(--safe-right)); }
   .nav-btn { max-width: 220px; }
   #home-main { padding: 24px calc(24px + var(--safe-right)) 32px calc(24px + var(--safe-left)); }
-  .aircraft-card { padding: 16px 20px; min-height: 84px; }
-  .aircraft-card-name { font-size: 19px; }
+  .document-card { padding: 16px 20px; min-height: 76px; }
+  .document-card-label { font-size: 18px; }
+  .aircraft-group-name { font-size: 17px; }
 }
 
 @media (min-width: 1024px) {

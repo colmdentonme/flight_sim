@@ -1,34 +1,53 @@
 # Flight SOP Checklists (PWA)
 
-An installable, offline-capable library of interactive aircraft SOP checklists, for use on an
+An installable, offline-capable library of interactive aircraft checklists, for use on an
 iPad (Mini and up) in the cockpit, in place of a flat PDF. Opening the app shows a landing page
-listing each installed aircraft; tapping one opens its checklist.
+listing each aircraft and, under it, the checklist documents available for that aircraft; tapping
+one opens it.
 
 - Plain HTML/CSS/JS, no build step, no framework, no external runtime dependencies.
 - Works fully offline once installed (service worker caches the app shell).
-- Landing page lists every aircraft checklist available; tap one to open it, or use the "All
-  Aircraft" link in the phase menu to come back.
-- Linear phase-by-phase flow per aircraft (Cockpit Prep → ... → Securing the Aircraft) with a
+- Landing page groups checklists by aircraft, each with its available documents (e.g. an
+  expanded SOP flow and/or a short Quick Reference / Normal Checklist). Tap one to open it, or
+  use the "Home" link in the phase menu to come back.
+- Linear phase-by-phase flow per document (Cockpit Prep → ... → Securing the Aircraft) with a
   menu to jump to any phase directly.
-- Checked-item progress is saved per aircraft to the device (`localStorage`) so a reload
+- Checked-item progress is saved per document to the device (`localStorage`) so a reload
   mid-flight doesn't lose your place. Use the reset button (top right) to clear the current
-  aircraft's progress before a new flight.
+  document's progress before a new flight.
 
 ## Content
 
-Currently included:
+Currently included, both for the **FBW A380X**:
 
-- **FBW A380X** — transcribed directly from the community "FBW A380X Full SOP Checklist" PDF.
+- **Expanded SOP** — transcribed directly from the community "FBW A380X Full SOP Checklist" PDF.
   Content and ordering match the source exactly, aside from a handful of obvious spelling
   corrections (e.g. "Simbreif" → "Simbrief").
+- **Quick Reference** — the short, read-aloud Normal Checklist, converted from FlyByWire
+  Simulations' own aircraft repo
+  ([`flybywiresim/aircraft`](https://github.com/flybywiresim/aircraft), GPL-3.0 — the actual
+  data their in-sim EFB checklist page uses). Credit: FlyByWire Simulations.
 
-### Adding another aircraft
+### Two kinds of checklist, and where to source them
 
-1. Add a new file at `data/aircraft/<id>.json` with this shape:
+- **Expanded SOP / flow** — long, detailed, performed silently phase by phase. Usually only
+  exists as a PDF (official airline SOP, or a community one like the FBW A380X source above), so
+  adding one means rendering its pages to images and transcribing it by hand — same process used
+  for the A380X SOP (see the git history for that transcription work if you're doing another).
+- **Quick Reference / Normal Checklist** — short, read aloud, organized by phase. Airbus/Boeing
+  publish these officially but they're copyrighted OEM documents; several open-source cockpit
+  projects (like FlyByWire) publish their own equivalent as structured data (JSON/JSON5) in their
+  GitHub repos, which can be script-converted directly — no PDF/manual transcription needed. Check
+  the project's GitHub repo for a `checklists.json`/`.json5` file before assuming you need a PDF.
+
+### Adding another aircraft or document
+
+1. Add a new file at `data/aircraft/<id>.json` (pick any filename — `<aircraftId>.json` for the
+   main SOP, `<aircraftId>-reference.json` for a second document, etc.) with this shape:
    ```json
    {
      "aircraft": "Aircraft Name",
-     "source": "where this SOP came from",
+     "source": "where this content came from, and its license if not your own",
      "groups": { "groupId": { "label": "...", "color": "#RRGGBB" }, ... },
      "phases": [
        {
@@ -46,10 +65,19 @@ Currently included:
    }
    ```
    `group` colors are used for the phase-menu dots and the phase banner — pick whatever fits
-   that aircraft's own SOP color scheme.
-2. Register it in `data/aircraft/index.json`:
+   that aircraft's own color scheme.
+2. Register it in `data/aircraft/index.json`. A new document on an existing aircraft just adds
+   another entry to that aircraft's `documents` array; a new aircraft adds a whole new object:
    ```json
-   { "id": "<id>", "name": "...", "subtitle": "...", "file": "data/aircraft/<id>.json", "accent": "#RRGGBB", "phaseCount": N, "itemCount": N }
+   {
+     "id": "<aircraftId>",
+     "name": "...",
+     "subtitle": "...",
+     "accent": "#RRGGBB",
+     "documents": [
+       { "id": "<docId>", "label": "...", "file": "data/aircraft/<file>.json", "phaseCount": N, "itemCount": N }
+     ]
+   }
    ```
    `phaseCount`/`itemCount` are just for the landing page card — they don't need to be exact.
 3. Optionally add its file path to `APP_SHELL` in `sw.js` so it's precached on install (fully

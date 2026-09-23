@@ -4,10 +4,23 @@
       "id": "a380x",
       "name": "FBW A380X",
       "subtitle": "Airbus A380-800 · FlyByWire",
-      "file": "data/aircraft/a380x.json",
       "accent": "#00DEFB",
-      "phaseCount": 31,
-      "itemCount": 299
+      "documents": [
+        {
+          "id": "sop",
+          "label": "Expanded SOP",
+          "file": "data/aircraft/a380x.json",
+          "phaseCount": 31,
+          "itemCount": 299
+        },
+        {
+          "id": "reference",
+          "label": "Quick Reference",
+          "file": "data/aircraft/a380x-reference.json",
+          "phaseCount": 10,
+          "itemCount": 43
+        }
+      ]
     }
   ]
 }
