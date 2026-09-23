@@ -349,6 +349,10 @@ body {
   letter-spacing: 0.08em;
   margin: 4px 2px 10px;
 }
+#phase-progress-label.complete {
+  color: var(--success);
+  font-weight: 700;
+}
 
 #item-list {
   list-style: none;
@@ -500,7 +504,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* ---------- Linked-reference CTA (jump from flow to QREF) ---------- */
+/* ---------- Linked-reference CTA (jump between flow and QREF) ---------- */
 
 .linked-reference-cta {
   display: flex;
@@ -519,6 +523,7 @@ body {
 }
 .linked-reference-cta:active { background: var(--accent-tint-strong); }
 .linked-reference-cta .arrow { font-size: 17px; }
+.linked-reference-cta.reverse { margin-top: 8px; }
 
 /* ---------- Footer nav ---------- */
 

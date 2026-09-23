@@ -25,6 +25,11 @@ one opens it.
   apps all offer, since cockpit viewing distance and lighting vary a lot.
 - The home page shows a "Continue" card for whichever document you last made progress in, so
   reopening the app after a break doesn't mean re-navigating from the aircraft list every time.
+- Where a document links to another (e.g. an Expanded flow phase to its matching Quick Reference
+  phase), the link works both ways — the QREF phase gets a "Read Flow" link back, however you
+  arrived there, not just when you followed the forward link in the same session.
+- A phase's progress label switches to a clear "✓ Phase complete" once every item in it is
+  checked, instead of just a count ticking up.
 
 ## Content
 

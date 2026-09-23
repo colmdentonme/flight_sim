@@ -98,6 +98,12 @@
   // Cleared on use or on returning Home.
   let returnRoute = null;
 
+  // Reverse of linkedReference: maps a phase id in the *current* document to
+  // the sibling document's phase that links to it, so a QREF phase opened
+  // any way (not just via the forward CTA) can still jump to its matching
+  // flow phase. Rebuilt whenever the open document changes.
+  let reverseLinks = {};
+
   function storageKeyChecked(aircraftId, docId) { return `sop:${aircraftId}:${docId}:checked`; }
   function storageKeyPhase(aircraftId, docId) { return `sop:${aircraftId}:${docId}:phase`; }
 
@@ -374,6 +380,7 @@
     els.checklistView.hidden = true;
     els.homeView.hidden = false;
     returnRoute = null;
+    reverseLinks = {};
     closeDrawer();
     closeSearch();
     renderContinueCard();
@@ -477,7 +484,11 @@
     els.phaseSub.textContent = `Phase ${currentPhase + 1} of ${data.phases.length}`;
 
     const s = phaseStats(phase);
-    els.phaseProgressLabel.textContent = s.total ? `${s.done} of ${s.total} checked` : "Informational";
+    const isComplete = s.total > 0 && s.done === s.total;
+    els.phaseProgressLabel.textContent = s.total
+      ? (isComplete ? "✓ Phase complete" : `${s.done} of ${s.total} checked`)
+      : "Informational";
+    els.phaseProgressLabel.classList.toggle("complete", isComplete);
 
     els.itemList.innerHTML = "";
     const banner = document.createElement("div");
@@ -506,6 +517,24 @@
       cta.addEventListener("click", () => {
         returnRoute = { aircraftId: currentAircraftId, docId: currentDocId, phaseId: phase.id };
         location.hash = `${currentAircraftId}/${phase.linkedReference.docId}/${phase.linkedReference.phaseId}`;
+      });
+      els.itemList.appendChild(cta);
+    }
+
+    const reverse = reverseLinks[phase.id];
+    if (reverse) {
+      const cta = document.createElement("li");
+      cta.className = "linked-reference-cta reverse";
+      cta.setAttribute("role", "button");
+      cta.tabIndex = 0;
+      const arrow = document.createElement("span");
+      arrow.className = "arrow";
+      arrow.textContent = "‹";
+      const label = document.createElement("span");
+      label.textContent = `Read Flow: ${reverse.phaseTitle}`;
+      cta.append(arrow, label);
+      cta.addEventListener("click", () => {
+        location.hash = `${currentAircraftId}/${reverse.docId}/${reverse.phaseId}`;
       });
       els.itemList.appendChild(cta);
     }
@@ -561,12 +590,35 @@
     els.returnBanner.hidden = false;
   }
 
+  async function buildReverseLinks(aircraft, doc) {
+    reverseLinks = {};
+    for (const otherDoc of aircraft.documents) {
+      if (otherDoc.id === doc.id) continue;
+      let otherData;
+      try {
+        otherData = await loadDocData(aircraft.id, otherDoc);
+      } catch (e) {
+        continue; // sibling doc unreachable (offline, first visit); skip reverse links
+      }
+      otherData.phases.forEach((p) => {
+        if (p.linkedReference && p.linkedReference.docId === doc.id) {
+          reverseLinks[p.linkedReference.phaseId] = {
+            docId: otherDoc.id,
+            phaseId: p.id,
+            phaseTitle: p.title,
+          };
+        }
+      });
+    }
+  }
+
   async function showChecklist(aircraft, doc, phaseId) {
     currentAircraftId = aircraft.id;
     currentDocId = doc.id;
     saveLastOpened(aircraft.id, doc.id);
     loadState(aircraft.id, doc.id);
     data = await loadDocData(aircraft.id, doc);
+    await buildReverseLinks(aircraft, doc);
     buildSearchIndex();
 
     if (phaseId) {
