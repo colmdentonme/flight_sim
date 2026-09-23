@@ -31,6 +31,16 @@
     themeToggleBtn: document.getElementById("theme-toggle-btn"),
     themeToggleBtnHome: document.getElementById("theme-toggle-btn-home"),
     themeColorMeta: document.getElementById("theme-color-meta"),
+    textSizeBtns: document.querySelectorAll(".text-size-btn"),
+    continueCard: document.getElementById("continue-card"),
+    continueTitle: document.getElementById("continue-title"),
+    continueMeta: document.getElementById("continue-meta"),
+    searchBtn: document.getElementById("search-btn"),
+    searchOverlay: document.getElementById("search-overlay"),
+    searchInput: document.getElementById("search-input"),
+    searchCloseBtn: document.getElementById("search-close-btn"),
+    searchResults: document.getElementById("search-results"),
+    searchEmpty: document.getElementById("search-empty"),
   };
 
   const THEME_KEY = "sop:theme";
@@ -55,6 +65,25 @@
     try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage unavailable, ignore */ }
   }
 
+  const TEXT_SIZE_KEY = "sop:textSize";
+
+  function applyTextSize(size) {
+    if (size === "sm" || size === "lg") {
+      document.documentElement.setAttribute("data-text-size", size);
+    } else {
+      document.documentElement.removeAttribute("data-text-size");
+      size = "md";
+    }
+    els.textSizeBtns.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.size === size);
+    });
+  }
+
+  function setTextSize(size) {
+    applyTextSize(size);
+    try { localStorage.setItem(TEXT_SIZE_KEY, size); } catch (e) { /* storage unavailable, ignore */ }
+  }
+
   let manifest = null;
   const docCache = {};
 
@@ -71,6 +100,11 @@
 
   function storageKeyChecked(aircraftId, docId) { return `sop:${aircraftId}:${docId}:checked`; }
   function storageKeyPhase(aircraftId, docId) { return `sop:${aircraftId}:${docId}:phase`; }
+
+  const LAST_OPENED_KEY = "sop:lastOpened";
+  function saveLastOpened(aircraftId, docId) {
+    try { localStorage.setItem(LAST_OPENED_KEY, `${aircraftId}/${docId}`); } catch (e) { /* ignore */ }
+  }
 
   // Two generations of legacy keys to fold forward, oldest first: the very
   // first single-aircraft release, then the single-document-per-aircraft
@@ -170,7 +204,110 @@
     return (data.groups[groupId] && data.groups[groupId].color) || "#00defb";
   }
 
+  // ---------------- Search ----------------
+
+  let searchIndex = [];
+
+  function buildSearchIndex() {
+    searchIndex = [];
+    data.phases.forEach((phase, phaseIdx) => {
+      phase.items.forEach((item, itemIdx) => {
+        const text = item.type === "item"
+          ? `${item.challenge} — ${item.response}`
+          : (item.text || "");
+        if (!text) return;
+        searchIndex.push({ phaseIdx, itemIdx, phaseTitle: phase.title, text });
+      });
+    });
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function renderSearchResults(query) {
+    const q = query.trim().toLowerCase();
+    els.searchResults.innerHTML = "";
+    if (!q) {
+      els.searchEmpty.hidden = true;
+      return;
+    }
+    const matches = searchIndex.filter((entry) => entry.text.toLowerCase().includes(q)).slice(0, 40);
+    els.searchEmpty.hidden = matches.length > 0;
+
+    matches.forEach((entry) => {
+      const li = document.createElement("li");
+      li.className = "search-result-row";
+
+      const phaseLabel = document.createElement("div");
+      phaseLabel.className = "search-result-phase";
+      phaseLabel.textContent = entry.phaseTitle;
+
+      const textEl = document.createElement("div");
+      textEl.className = "search-result-text";
+      const escaped = escapeHtml(entry.text);
+      const qEscaped = escapeHtml(q).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      textEl.innerHTML = escaped.replace(new RegExp(`(${qEscaped})`, "ig"), "<mark>$1</mark>");
+
+      li.append(phaseLabel, textEl);
+      li.addEventListener("click", () => jumpToSearchResult(entry.phaseIdx, entry.itemIdx));
+      els.searchResults.appendChild(li);
+    });
+  }
+
+  function jumpToSearchResult(phaseIdx, itemIdx) {
+    closeSearch();
+    goToPhase(phaseIdx);
+    requestAnimationFrame(() => {
+      const row = els.itemList.querySelector(`[data-item-idx="${itemIdx}"]`);
+      if (!row) return;
+      row.scrollIntoView({ block: "center" });
+      row.classList.add("flash-highlight");
+      setTimeout(() => row.classList.remove("flash-highlight"), 1600);
+    });
+  }
+
+  function openSearch() {
+    els.searchOverlay.hidden = false;
+    els.searchInput.value = "";
+    renderSearchResults("");
+    els.searchInput.focus();
+  }
+
+  function closeSearch() {
+    els.searchOverlay.hidden = true;
+  }
+
   // ---------------- Home / aircraft library ----------------
+
+  function renderContinueCard() {
+    let lastOpened = null;
+    try { lastOpened = localStorage.getItem(LAST_OPENED_KEY); } catch (e) { /* ignore */ }
+    if (!lastOpened) { els.continueCard.hidden = true; return; }
+
+    const [aircraftId, docId] = lastOpened.split("/");
+    const aircraft = manifest.aircraft.find((a) => a.id === aircraftId);
+    const doc = aircraft && aircraft.documents.find((d) => d.id === docId);
+    if (!aircraft || !doc) { els.continueCard.hidden = true; return; }
+
+    const done = checkedCountFor(aircraftId, docId);
+    if (done === 0) { els.continueCard.hidden = true; return; }
+
+    let phase = 0;
+    try {
+      const p = parseInt(localStorage.getItem(storageKeyPhase(aircraftId, docId)), 10);
+      if (!Number.isNaN(p)) phase = p;
+    } catch (e) { /* ignore */ }
+
+    els.continueTitle.textContent = `${aircraft.name} — ${doc.label}`;
+    const metaParts = [];
+    if (doc.phaseCount) metaParts.push(`Phase ${phase + 1} of ${doc.phaseCount}`);
+    if (doc.itemCount) metaParts.push(`${done}/${doc.itemCount} checked`);
+    els.continueMeta.textContent = metaParts.join(" · ");
+
+    els.continueCard.onclick = () => { location.hash = `${aircraftId}/${docId}`; };
+    els.continueCard.hidden = false;
+  }
 
   function renderAircraftList() {
     els.aircraftList.innerHTML = "";
@@ -238,6 +375,8 @@
     els.homeView.hidden = false;
     returnRoute = null;
     closeDrawer();
+    closeSearch();
+    renderContinueCard();
     renderAircraftList();
   }
 
@@ -279,6 +418,7 @@
     const checkable = isCheckable(item);
     const isChecked = checkable && checked.has(id);
 
+    li.dataset.itemIdx = idx;
     li.className = "item-row item-" + item.type;
     if (item.emphasis) li.classList.add("emphasis");
     if (isChecked) li.classList.add("checked");
@@ -424,8 +564,10 @@
   async function showChecklist(aircraft, doc, phaseId) {
     currentAircraftId = aircraft.id;
     currentDocId = doc.id;
+    saveLastOpened(aircraft.id, doc.id);
     loadState(aircraft.id, doc.id);
     data = await loadDocData(aircraft.id, doc);
+    buildSearchIndex();
 
     if (phaseId) {
       const idx = data.phases.findIndex((p) => p.id === phaseId);
@@ -496,11 +638,23 @@
 
     els.themeToggleBtn.addEventListener("click", toggleTheme);
     els.themeToggleBtnHome.addEventListener("click", toggleTheme);
+
+    els.textSizeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => setTextSize(btn.dataset.size));
+    });
+
+    els.searchBtn.addEventListener("click", openSearch);
+    els.searchCloseBtn.addEventListener("click", closeSearch);
+    els.searchInput.addEventListener("input", () => renderSearchResults(els.searchInput.value));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !els.searchOverlay.hidden) closeSearch();
+    });
   }
 
   async function init() {
     migrateLegacyStorage();
     applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
+    applyTextSize(document.documentElement.getAttribute("data-text-size") || "md");
     wireEvents();
     const res = await fetch("data/aircraft/index.json");
     manifest = await res.json();

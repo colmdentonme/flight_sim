@@ -18,11 +18,13 @@
 <link rel="icon" href="icons/icon-192.png">
 <link rel="stylesheet" href="css/styles.css">
 <script>
-  // Applied before first paint so a saved dark-mode choice doesn't flash light first.
+  // Applied before first paint so a saved dark-mode/text-size choice doesn't flash the default first.
   try {
     var t = localStorage.getItem("sop:theme");
     if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
-  } catch (e) { /* storage unavailable, default light theme applies */ }
+    var ts = localStorage.getItem("sop:textSize");
+    if (ts === "sm" || ts === "lg") document.documentElement.setAttribute("data-text-size", ts);
+  } catch (e) { /* storage unavailable, defaults apply */ }
 </script>
 </head>
 <body>
@@ -41,6 +43,11 @@
       </button>
     </header>
     <main id="home-main">
+      <button id="continue-card" type="button" hidden>
+        <div id="continue-label">Continue</div>
+        <div id="continue-title"></div>
+        <div id="continue-meta"></div>
+      </button>
       <ul id="aircraft-list"></ul>
     </main>
   </section>
@@ -59,6 +66,9 @@
       </div>
 
       <div id="header-actions">
+        <button id="search-btn" class="icon-btn" aria-label="Search this checklist">
+          <span class="search-icon"></span>
+        </button>
         <button id="theme-toggle-btn" class="icon-btn theme-toggle-btn" aria-label="Toggle light/dark theme">
           <span class="theme-icon">&#x2600;</span>
         </button>
@@ -86,6 +96,14 @@
         <span class="home-icon">&#x2302;</span> Home
       </button>
       <ol id="phase-list"></ol>
+      <div id="text-size-row">
+        <span id="text-size-label">Text Size</span>
+        <div id="text-size-buttons">
+          <button type="button" class="text-size-btn" data-size="sm">A</button>
+          <button type="button" class="text-size-btn" data-size="md">A</button>
+          <button type="button" class="text-size-btn" data-size="lg">A</button>
+        </div>
+      </div>
     </nav>
     <div id="drawer-scrim"></div>
 
@@ -104,6 +122,15 @@
 
   </section>
 
+</div>
+
+<div id="search-overlay" hidden>
+  <div id="search-bar">
+    <input id="search-input" type="search" placeholder="Search this checklist…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <button id="search-close-btn" class="icon-btn" aria-label="Close search">&times;</button>
+  </div>
+  <ul id="search-results"></ul>
+  <div id="search-empty" hidden>No matches</div>
 </div>
 
 <div id="reset-confirm" class="modal-scrim" hidden>

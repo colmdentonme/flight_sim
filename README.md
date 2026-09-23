@@ -19,6 +19,12 @@ one opens it.
   for daytime/ground-ops legibility, with a dark "night mode" a tap away (sun/moon icon, top
   right) for cockpit use after dark — the same day/night split real EFB apps like ForeFlight
   ship. Your choice is remembered on the device.
+- Search (magnifying-glass icon, top right) finds any item across the whole open document by
+  challenge, response, or note text, and jumps straight to it with a momentary highlight.
+- Text size control (bottom of the phase menu) — Small/Default/Large — another thing real EFB
+  apps all offer, since cockpit viewing distance and lighting vary a lot.
+- The home page shows a "Continue" card for whichever document you last made progress in, so
+  reopening the app after a break doesn't mean re-navigating from the aircraft list every time.
 
 ## Content
 
