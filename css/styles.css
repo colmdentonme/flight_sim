@@ -221,6 +221,27 @@ body {
   transition: width 0.25s ease;
 }
 
+/* ---------- Return-to-flow banner ---------- */
+
+#return-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 222, 251, 0.1);
+  color: var(--accent-dep);
+  padding: 10px calc(14px + var(--safe-left)) 10px calc(14px + var(--safe-right));
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+#return-banner[hidden] { display: none; }
+#return-banner:active { background: rgba(0, 222, 251, 0.18); }
+.return-banner-icon { font-size: 16px; }
+
 /* ---------- Main content ---------- */
 
 #checklist-main {
@@ -379,6 +400,26 @@ body {
   text-align: center;
   letter-spacing: 0.03em;
 }
+
+/* ---------- Linked-reference CTA (jump from flow to QREF) ---------- */
+
+.linked-reference-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0, 222, 251, 0.1);
+  border: 1px dashed var(--accent-dep);
+  color: var(--accent-dep);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.linked-reference-cta:active { background: rgba(0, 222, 251, 0.18); }
+.linked-reference-cta .arrow { font-size: 17px; }
 
 /* ---------- Footer nav ---------- */
 

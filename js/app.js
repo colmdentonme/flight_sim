@@ -21,6 +21,8 @@
     drawerCloseBtn: document.getElementById("drawer-close-btn"),
     drawerScrim: document.getElementById("drawer-scrim"),
     allAircraftBtn: document.getElementById("all-aircraft-btn"),
+    returnBanner: document.getElementById("return-banner"),
+    returnBannerLabel: document.getElementById("return-banner-label"),
     resetBtn: document.getElementById("reset-btn"),
     resetConfirm: document.getElementById("reset-confirm"),
     resetCancelBtn: document.getElementById("reset-cancel-btn"),
@@ -36,6 +38,11 @@
   let data = null;
   let checked = new Set();
   let currentPhase = 0;
+
+  // Set when a linkedReference CTA jumps from one document to another, so a
+  // "Back to Flow" banner can bring you straight back to where you left off.
+  // Cleared on use or on returning Home.
+  let returnRoute = null;
 
   function storageKeyChecked(aircraftId, docId) { return `sop:${aircraftId}:${docId}:checked`; }
   function storageKeyPhase(aircraftId, docId) { return `sop:${aircraftId}:${docId}:phase`; }
@@ -204,6 +211,7 @@
   function showHome() {
     els.checklistView.hidden = true;
     els.homeView.hidden = false;
+    returnRoute = null;
     closeDrawer();
     renderAircraftList();
   }
@@ -319,6 +327,24 @@
       els.itemList.appendChild(renderItemRow(phase, item, idx));
     });
 
+    if (phase.linkedReference) {
+      const cta = document.createElement("li");
+      cta.className = "linked-reference-cta";
+      cta.setAttribute("role", "button");
+      cta.tabIndex = 0;
+      const label = document.createElement("span");
+      label.textContent = phase.linkedReference.label || "Read Quick Reference";
+      const arrow = document.createElement("span");
+      arrow.className = "arrow";
+      arrow.textContent = "›";
+      cta.append(label, arrow);
+      cta.addEventListener("click", () => {
+        returnRoute = { aircraftId: currentAircraftId, docId: currentDocId, phaseId: phase.id };
+        location.hash = `${currentAircraftId}/${phase.linkedReference.docId}/${phase.linkedReference.phaseId}`;
+      });
+      els.itemList.appendChild(cta);
+    }
+
     els.backBtn.disabled = currentPhase === 0;
     els.nextBtn.disabled = currentPhase === data.phases.length - 1;
     els.footerPhaseIndex.textContent = `${currentPhase + 1} / ${data.phases.length}`;
@@ -358,39 +384,57 @@
     return json;
   }
 
-  async function showChecklist(aircraft, doc) {
+  function renderReturnBanner(aircraft) {
+    const showBanner = returnRoute &&
+      (returnRoute.aircraftId !== currentAircraftId || returnRoute.docId !== currentDocId);
+    if (!showBanner) {
+      els.returnBanner.hidden = true;
+      return;
+    }
+    const fromDoc = aircraft.documents.find((d) => d.id === returnRoute.docId);
+    els.returnBannerLabel.textContent = `Back to ${fromDoc ? fromDoc.label : "Flow"}`;
+    els.returnBanner.hidden = false;
+  }
+
+  async function showChecklist(aircraft, doc, phaseId) {
     currentAircraftId = aircraft.id;
     currentDocId = doc.id;
     loadState(aircraft.id, doc.id);
     data = await loadDocData(aircraft.id, doc);
 
+    if (phaseId) {
+      const idx = data.phases.findIndex((p) => p.id === phaseId);
+      if (idx >= 0) currentPhase = idx;
+    }
     if (currentPhase < 0 || currentPhase >= data.phases.length) currentPhase = 0;
+    savePhase();
 
     els.homeView.hidden = true;
     els.checklistView.hidden = false;
 
+    renderReturnBanner(aircraft);
     renderCurrentPhase();
     renderPhaseDrawer();
     renderOverallProgress();
     els.checklistMain.scrollTop = 0;
   }
 
-  // Hash shape: #<aircraftId>/<documentId>
+  // Hash shape: #<aircraftId>/<documentId>[/<phaseId>]
   function parseHash() {
     const raw = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
-    const [aircraftId, docId] = raw.split("/");
-    return { aircraftId, docId };
+    const [aircraftId, docId, phaseId] = raw.split("/");
+    return { aircraftId, docId, phaseId };
   }
 
   function handleRoute() {
-    const { aircraftId, docId } = parseHash();
+    const { aircraftId, docId, phaseId } = parseHash();
     const aircraft = aircraftId && manifest.aircraft.find((a) => a.id === aircraftId);
     const doc = aircraft && docId && aircraft.documents.find((d) => d.id === docId);
     if (!aircraft || !doc) {
       showHome();
       return;
     }
-    showChecklist(aircraft, doc);
+    showChecklist(aircraft, doc, phaseId);
   }
 
   function wireEvents() {
@@ -400,6 +444,13 @@
     els.drawerCloseBtn.addEventListener("click", closeDrawer);
     els.drawerScrim.addEventListener("click", closeDrawer);
     els.allAircraftBtn.addEventListener("click", () => { location.hash = ""; });
+
+    els.returnBanner.addEventListener("click", () => {
+      if (!returnRoute) return;
+      const target = returnRoute;
+      returnRoute = null;
+      location.hash = `${target.aircraftId}/${target.docId}/${target.phaseId}`;
+    });
 
     els.resetBtn.addEventListener("click", () => {
       els.resetConfirm.hidden = false;
