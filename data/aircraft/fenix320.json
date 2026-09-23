@@ -126,7 +126,7 @@
         },
         {
           "type": "item",
-          "challenge": "EFC 1+2",
+          "challenge": "EEC 1+2",
           "response": "ON"
         },
         {
@@ -575,7 +575,7 @@
         {
           "type": "item",
           "challenge": "BRAKE TEMP",
-          "response": "CHECK > 150"
+          "response": "CHECK < 150"
         },
         {
           "type": "marker",

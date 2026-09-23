@@ -573,7 +573,7 @@
         },
         {
           "type": "item",
-          "challenge": "IS LOC COURSE",
+          "challenge": "LOC COURSE",
           "response": "SET"
         },
         {
@@ -607,15 +607,6 @@
         },
         {
           "type": "marker",
-          "text": "Passing Transition Altitude"
-        },
-        {
-          "type": "item",
-          "challenge": "ALTIMETER",
-          "response": "RESET TO LOCAL"
-        },
-        {
-          "type": "marker",
           "text": "Below 10'000 FT"
         },
         {
@@ -632,6 +623,15 @@
           "type": "item",
           "challenge": "PASSENGER SIGNS",
           "response": "ON"
+        },
+        {
+          "type": "marker",
+          "text": "Passing Transition Altitude"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "RESET TO LOCAL"
         }
       ]
     },

@@ -1046,9 +1046,8 @@
           "text": "Complete After Takeoff Checklist"
         },
         {
-          "type": "item",
-          "challenge": "ATC has cleared further climb",
-          "response": "action"
+          "type": "action",
+          "text": "ATC has cleared further climb"
         },
         {
           "type": "item",
@@ -1393,7 +1392,7 @@
         },
         {
           "type": "item",
-          "challenge": "FLAPS 1 (at V~FE~ -15)",
+          "challenge": "FLAPS 1 (at VFE -15)",
           "response": "SET"
         },
         {
@@ -1418,7 +1417,7 @@
         },
         {
           "type": "item",
-          "challenge": "FLAPS 2 (~2.500ft and below V~FE~)",
+          "challenge": "FLAPS 2 (~2,500ft and below VFE)",
           "response": "SET"
         }
       ]
@@ -1449,7 +1448,7 @@
         },
         {
           "type": "item",
-          "challenge": "FLAPS 3 (after L/G down and below V~FE~)",
+          "challenge": "FLAPS 3 (after L/G down and below VFE)",
           "response": "SET"
         },
         {
@@ -1459,7 +1458,7 @@
         },
         {
           "type": "item",
-          "challenge": "FLAPS (below V~FE~)",
+          "challenge": "FLAPS (below VFE)",
           "response": "FULL"
         },
         {
