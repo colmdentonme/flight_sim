@@ -1,7 +1,7 @@
 {
-  "name": "FBW A380X SOP Checklist",
-  "short_name": "A380X SOP",
-  "description": "Interactive FBW A380X SOP checklist for iPad",
+  "name": "Flight SOP Checklists",
+  "short_name": "Checklists",
+  "description": "Interactive aircraft SOP checklists for iPad",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

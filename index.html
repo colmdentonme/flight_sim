@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>FBW A380X SOP Checklist</title>
-<meta name="description" content="Interactive FBW A380X SOP checklist for iPad">
+<title>Flight SOP Checklists</title>
+<meta name="description" content="Interactive aircraft SOP checklists for iPad">
 
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
@@ -12,7 +12,7 @@
 <!-- iOS home screen / standalone support -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="A380X SOP">
+<meta name="apple-mobile-web-app-title" content="SOP Checklists">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 
 <link rel="icon" href="icons/icon-192.png">
@@ -22,46 +22,67 @@
 
 <div id="app">
 
-  <header id="app-header">
-    <button id="menu-btn" class="icon-btn" aria-label="Open phase menu" aria-expanded="false" aria-controls="phase-drawer">
-      <span class="bars"></span>
-    </button>
+  <!-- ============ HOME / AIRCRAFT LIBRARY ============ -->
+  <section id="home-view">
+    <header id="home-header">
+      <div id="home-header-title">
+        <div id="home-title">Flight Checklists</div>
+        <div id="home-sub">Choose an aircraft</div>
+      </div>
+    </header>
+    <main id="home-main">
+      <ul id="aircraft-list"></ul>
+    </main>
+  </section>
 
-    <div id="header-title">
-      <div id="phase-title">FBW A380X</div>
-      <div id="phase-sub">SOP Checklist</div>
+  <!-- ============ CHECKLIST VIEW ============ -->
+  <section id="checklist-view" hidden>
+
+    <header id="app-header">
+      <button id="menu-btn" class="icon-btn" aria-label="Open phase menu" aria-expanded="false" aria-controls="phase-drawer">
+        <span class="bars"></span>
+      </button>
+
+      <div id="header-title">
+        <div id="phase-title">&nbsp;</div>
+        <div id="phase-sub">&nbsp;</div>
+      </div>
+
+      <button id="reset-btn" class="icon-btn" aria-label="Reset checklist for new flight">
+        <span class="reset-icon">&#x21bb;</span>
+      </button>
+    </header>
+
+    <div id="progress-track" aria-hidden="true">
+      <div id="progress-fill"></div>
     </div>
 
-    <button id="reset-btn" class="icon-btn" aria-label="Reset checklist for new flight">
-      <span class="reset-icon">&#x21bb;</span>
-    </button>
-  </header>
+    <nav id="phase-drawer" aria-label="Checklist phases">
+      <div id="phase-drawer-header">
+        <span>Phases</span>
+        <button id="drawer-close-btn" class="icon-btn" aria-label="Close phase menu">&times;</button>
+      </div>
+      <button id="all-aircraft-btn" type="button">
+        <span class="home-icon">&#x2302;</span> All Aircraft
+      </button>
+      <ol id="phase-list"></ol>
+    </nav>
+    <div id="drawer-scrim"></div>
 
-  <div id="progress-track" aria-hidden="true">
-    <div id="progress-fill"></div>
-  </div>
+    <main id="checklist-main">
+      <div id="phase-progress-label"></div>
+      <ul id="item-list"></ul>
+    </main>
 
-  <nav id="phase-drawer" aria-label="Checklist phases">
-    <div id="phase-drawer-header">
-      <span>Phases</span>
-      <button id="drawer-close-btn" class="icon-btn" aria-label="Close phase menu">&times;</button>
-    </div>
-    <ol id="phase-list"></ol>
-  </nav>
-  <div id="drawer-scrim"></div>
+    <footer id="app-footer">
+      <button id="back-btn" class="nav-btn">Back</button>
+      <div id="footer-mid">
+        <span id="footer-phase-index"></span>
+      </div>
+      <button id="next-btn" class="nav-btn primary">Next</button>
+    </footer>
 
-  <main id="checklist-main">
-    <div id="phase-progress-label"></div>
-    <ul id="item-list"></ul>
-  </main>
-
-  <footer id="app-footer">
-    <button id="back-btn" class="nav-btn">Back</button>
-    <div id="footer-mid">
-      <span id="footer-phase-index"></span>
-    </div>
-    <button id="next-btn" class="nav-btn primary">Next</button>
-  </footer>
+  </section>
 
 </div>
 

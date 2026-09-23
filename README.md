@@ -1,20 +1,60 @@
-# FBW A380X SOP Checklist (PWA)
+# Flight SOP Checklists (PWA)
 
-An installable, offline-capable checklist for the FlyByWire A380X, transcribed directly from
-the community "FBW A380X Full SOP Checklist" PDF. Content and ordering match the source exactly,
-aside from a handful of obvious spelling corrections (e.g. "Simbreif" → "Simbrief") — see
-`data/checklist.json` for the full transcription. Built for use on an iPad (Mini and up) in the
-cockpit, in place of the flat PDF.
+An installable, offline-capable library of interactive aircraft SOP checklists, for use on an
+iPad (Mini and up) in the cockpit, in place of a flat PDF. Opening the app shows a landing page
+listing each installed aircraft; tapping one opens its checklist.
 
 - Plain HTML/CSS/JS, no build step, no framework, no external runtime dependencies.
 - Works fully offline once installed (service worker caches the app shell).
-- Linear phase-by-phase flow (Cockpit Prep → ... → Securing the Aircraft) with a menu to jump
-  to any phase directly.
-- Checked-item progress is saved to the device (`localStorage`) so a reload mid-flight doesn't
-  lose your place. Use the reset button (top right) to clear everything before a new flight.
-- The checklist content lives entirely in [`data/checklist.json`](data/checklist.json) — to
-  correct a transcription error or adapt this for a different aircraft's SOP, edit that file;
-  the app renders whatever is in there.
+- Landing page lists every aircraft checklist available; tap one to open it, or use the "All
+  Aircraft" link in the phase menu to come back.
+- Linear phase-by-phase flow per aircraft (Cockpit Prep → ... → Securing the Aircraft) with a
+  menu to jump to any phase directly.
+- Checked-item progress is saved per aircraft to the device (`localStorage`) so a reload
+  mid-flight doesn't lose your place. Use the reset button (top right) to clear the current
+  aircraft's progress before a new flight.
+
+## Content
+
+Currently included:
+
+- **FBW A380X** — transcribed directly from the community "FBW A380X Full SOP Checklist" PDF.
+  Content and ordering match the source exactly, aside from a handful of obvious spelling
+  corrections (e.g. "Simbreif" → "Simbrief").
+
+### Adding another aircraft
+
+1. Add a new file at `data/aircraft/<id>.json` with this shape:
+   ```json
+   {
+     "aircraft": "Aircraft Name",
+     "source": "where this SOP came from",
+     "groups": { "groupId": { "label": "...", "color": "#RRGGBB" }, ... },
+     "phases": [
+       {
+         "id": "phase-id",
+         "title": "Phase Title",
+         "group": "groupId",
+         "items": [
+           { "type": "item", "challenge": "SOME SWITCH", "response": "ON" },
+           { "type": "action", "text": "A checkable step with no response value" },
+           { "type": "note", "text": "Non-checkable informational text (italic)" },
+           { "type": "marker", "text": "Small non-checkable caption, e.g. an altitude callout" }
+         ]
+       }
+     ]
+   }
+   ```
+   `group` colors are used for the phase-menu dots and the phase banner — pick whatever fits
+   that aircraft's own SOP color scheme.
+2. Register it in `data/aircraft/index.json`:
+   ```json
+   { "id": "<id>", "name": "...", "subtitle": "...", "file": "data/aircraft/<id>.json", "accent": "#RRGGBB", "phaseCount": N, "itemCount": N }
+   ```
+   `phaseCount`/`itemCount` are just for the landing page card — they don't need to be exact.
+3. Optionally add its file path to `APP_SHELL` in `sw.js` so it's precached on install (fully
+   offline-ready before it's ever opened); otherwise it's cached automatically the first time
+   it's opened with connectivity.
 
 ## Run locally
 

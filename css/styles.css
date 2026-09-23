@@ -43,6 +43,89 @@ body {
   position: relative;
 }
 
+#home-view, #checklist-view {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+#home-view[hidden], #checklist-view[hidden] {
+  display: none;
+}
+
+/* ---------- Home / aircraft library ---------- */
+
+#home-header {
+  height: calc(var(--header-h) + var(--safe-top));
+  padding-top: var(--safe-top);
+  padding-left: calc(16px + var(--safe-left));
+  padding-right: calc(16px + var(--safe-right));
+  display: flex;
+  align-items: center;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+#home-title { font-size: 18px; font-weight: 700; }
+#home-sub { font-size: 12px; color: var(--text-dim); }
+
+#home-main {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px calc(16px + var(--safe-right)) calc(24px + var(--safe-bottom)) calc(16px + var(--safe-left));
+}
+
+#aircraft-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.aircraft-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  min-height: 76px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.aircraft-card:active { background: var(--panel-raised); }
+
+.aircraft-card-accent {
+  flex: 0 0 auto;
+  width: 5px;
+  align-self: stretch;
+  border-radius: 4px;
+  background: var(--card-accent, var(--accent-dep));
+}
+
+.aircraft-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.aircraft-card-name { font-size: 17px; font-weight: 700; }
+.aircraft-card-subtitle { font-size: 13px; color: var(--text-dim); }
+.aircraft-card-meta { font-size: 12px; color: var(--text-faint); }
+
+.aircraft-card-chevron {
+  flex: 0 0 auto;
+  font-size: 26px;
+  color: var(--text-faint);
+}
+
 /* ---------- Header ---------- */
 
 #app-header {
@@ -368,6 +451,24 @@ body.drawer-open #phase-drawer { transform: translateX(0); }
   border-bottom: 1px solid var(--border);
 }
 
+#all-aircraft-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 14.5px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+#all-aircraft-btn:active { background: var(--panel-raised); }
+#all-aircraft-btn .home-icon { font-size: 17px; opacity: 0.85; }
+
 #phase-list {
   list-style: none;
   margin: 0;
@@ -447,11 +548,15 @@ body.drawer-open #phase-drawer { transform: translateX(0); }
   #checklist-main { padding: 20px calc(24px + var(--safe-right)) 32px calc(24px + var(--safe-left)); }
   #app-footer { padding-left: calc(24px + var(--safe-left)); padding-right: calc(24px + var(--safe-right)); }
   .nav-btn { max-width: 220px; }
+  #home-main { padding: 24px calc(24px + var(--safe-right)) 32px calc(24px + var(--safe-left)); }
+  .aircraft-card { padding: 16px 20px; min-height: 84px; }
+  .aircraft-card-name { font-size: 19px; }
 }
 
 @media (min-width: 1024px) {
   #item-list { max-width: 1000px; }
   .phase-banner { max-width: 1000px; }
+  #aircraft-list { max-width: 760px; }
 }
 
 /* Landscape iPad: keep footer/header compact, allow drawer to sit alongside */

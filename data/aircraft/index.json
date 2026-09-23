@@ -1,0 +1,13 @@
+{
+  "aircraft": [
+    {
+      "id": "a380x",
+      "name": "FBW A380X",
+      "subtitle": "Airbus A380-800 · FlyByWire",
+      "file": "data/aircraft/a380x.json",
+      "accent": "#00DEFB",
+      "phaseCount": 31,
+      "itemCount": 299
+    }
+  ]
+}

@@ -1,12 +1,16 @@
-const CACHE_VERSION = "a380x-sop-v2";
+const CACHE_VERSION = "flight-checklists-v1";
 
+// Precached at install so the app works offline immediately after the first
+// visit. An aircraft added later gets cached automatically (network-first
+// below) the first time it's opened with connectivity.
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.json",
   "./css/styles.css",
   "./js/app.js",
-  "./data/checklist.json",
+  "./data/aircraft/index.json",
+  "./data/aircraft/a380x.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-512-maskable.png",
