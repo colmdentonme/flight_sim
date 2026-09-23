@@ -60,6 +60,39 @@ one opens it.
   documents rather than an explicit "run the checklist" phrase in the source, since this source
   doesn't call one out the way the A380X SOP does.
 
+**PMDG 777F:**
+
+- **Quick Reference** — transcribed from a real Boeing 777 Normal Checklist PDF
+  ([flyuk.aero](https://flyuk.aero/assets/downloads/resources/checklists/UKV-PRD-B777-CHECKLIST-V2.pdf),
+  `UKV-PRD-B777-CHECKLIST-V2`). Not PMDG-branded, but directly applicable. As the 777F is a
+  freighter with no passenger cabin, passenger-specific items in the source (passenger signs,
+  cabin lights, IFE/pass seats, cabin/utility power) were left out rather than invented for a
+  configuration the source doesn't cover; everything else kept exactly as sourced. A short
+  virtual-airline flight-prep intro (weather/NOTAM download, VATSIM/IVAO flight-plan filing, a
+  tracking tool) at the top of the source, not itself checklist content, wasn't included.
+- **Expanded Checklist** — transcribed from "PMDG Boeing 777 Flows" by FilbertFlies
+  (filbertflies.com), a 2024 PMDG-777-specific flow document credited to a real-world pilot. Its
+  electronic-checklist trigger points (the 777's own EICAS `CHKL` synoptic page) are a real
+  aircraft feature and are kept faithfully, each linking to the matching Quick Reference phase.
+  Passing references to Simbrief/GSX (third-party tools) were left out. Written for the
+  passenger 777-300ER — PMDG's 777F shares the same flight deck and systems, so this transfers
+  directly, except the same passenger-cabin items excluded from the Quick Reference above were
+  also removed here for consistency (no freighter-specific source was found, so nothing
+  cargo-specific was invented beyond what's here).
+
+**Fenix A320 CEO** (classic engine option, not NEO):
+
+- **Quick Reference** — transcribed from "Airbus A320 Summarised Checklist" for the Fenix
+  A320-200, by BritishAvgeek (same author as the PMDG 737 QREF above). Explicitly the CEO model.
+  Published under a virtual airline's branding; only the checklist content itself was
+  transcribed, not the livery.
+- **Expanded Checklist** — transcribed from "Airbus 320/321 Cockpit Flows" by Eisa Godoussey,
+  derived from Aerosoft's "Step by Step" document and explicitly written to be
+  aircraft/livery-generic — no NEO-specific content (no PW1100G/LEAP references), so it applies
+  cleanly to the CEO. The source itself marks phase-boundary checkpoints (`[--COMPLETE--]`)
+  matching real QRH phases, so — like the A380X — most phases link to their Quick Reference
+  match on that explicit signal rather than inferred correspondence.
+
 ### Two kinds of checklist, and where to source them
 
 - **Expanded SOP / flow** — long, detailed, performed silently phase by phase. Usually only

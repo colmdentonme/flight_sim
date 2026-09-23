@@ -1,0 +1,799 @@
+{
+  "aircraft": "PMDG 777F",
+  "source": "\"PMDG Boeing 777 Flows\" by FilbertFlies, transcribed from the \"MSFS Tutorial: PMDG Boeing 777 with a Real World Pilot\" video, with credit to Liam (Official Ghostwriter Books) (filbertflies.com). A modern (2024), PMDG-777-specific flow document. The electronic-checklist trigger points (\"Display Select Panel → CHKL synoptic page\", \"Checklist → Complete\") reflect a real feature of the 777 - the aircraft's own EICAS checklist system - and are kept faithfully; each links to the matching Quick Reference phase. A couple of passing references to Simbrief and GSX (third-party flight-planning/ground-service tools) were left out as not being aircraft procedure. Written for the passenger 777-300ER; as PMDG's 777F shares the same flight deck and systems, this transfers directly - no freighter-specific source was found, so nothing cargo-specific was invented beyond what's here. Passenger-cabin-specific items (IFE/PASS SEATS, CABIN/UTILITY power, PASSENGER SIGNS, SEAT BELTS) were removed for consistency with the freighter-adapted Quick Reference, which already excludes them for the same reason.",
+  "groups": {
+    "pre": {
+      "label": "Pre-Flight / Ground",
+      "color": "#0F9488"
+    },
+    "dep": {
+      "label": "Departure",
+      "color": "#1D72B8"
+    },
+    "air": {
+      "label": "Airborne",
+      "color": "#5A67A6"
+    },
+    "arr": {
+      "label": "Arrival / Ground",
+      "color": "#0F9488"
+    }
+  },
+  "phases": [
+    {
+      "id": "power-up-and-fmc-setup",
+      "title": "Power Up & Pre-Flight FMC Setup",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FLAP HANDLE",
+          "response": "VERIFY UP"
+        },
+        {
+          "type": "item",
+          "challenge": "GEAR HANDLE",
+          "response": "VERIFY DOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED BRAKE",
+          "response": "VERIFY STOWED"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL CTRL SWITCHES",
+          "response": "VERIFY CUTOFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERY",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "EXTERNAL POWER PRIMARY",
+          "response": "ON"
+        },
+        {
+          "type": "note",
+          "text": "Wait 2 seconds, then External Power Secondary to ON. Wait approx. 60s for the aircraft to power up."
+        },
+        {
+          "type": "item",
+          "challenge": "EXTERNAL POWER SECONDARY",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ADIRU",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "POS INIT (FMC)",
+          "response": "COPY AND PASTE GPS POSITION INTO SET INERTIAL POS"
+        },
+        {
+          "type": "note",
+          "text": "Optionally input the airport ICAO and verify the position agrees."
+        },
+        {
+          "type": "item",
+          "challenge": "ROUTE (FMC)",
+          "response": "ROUTE REQUEST, THEN ACTIVATE, THEN EXEC"
+        },
+        {
+          "type": "note",
+          "text": "Once the route (e.g. from Simbrief) has been imported into the EFB. Fuel and payload can optionally be set on the ROUTE REQUEST screen, or loaded another way."
+        },
+        {
+          "type": "item",
+          "challenge": "PERF INIT (FMC)",
+          "response": "ENTER ZFW, CONFIRM CRZ ALT/COST INDEX/RESERVES, ACCEPT PERF INIT DATA"
+        },
+        {
+          "type": "item",
+          "challenge": "DEP ARR (FMC)",
+          "response": "SELECT DEPARTING RUNWAY AND SID, EXEC, INDEX; SELECT EXPECTED ARRIVAL RUNWAY AND STAR/TRANSITION, EXEC"
+        },
+        {
+          "type": "note",
+          "text": "Optionally check DTG on the PROG page to confirm the route distance agrees."
+        },
+        {
+          "type": "item",
+          "challenge": "LEGS (FMC)",
+          "response": "STEP THROUGH AND CHECK FOR DISCONTINUITIES, FIX WHERE REQUIRED"
+        }
+      ]
+    },
+    {
+      "id": "overhead-panel",
+      "title": "Overhead Panel",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ADIRU",
+          "response": "VERIFY ON"
+        },
+        {
+          "type": "item",
+          "challenge": "EMERGENCY LIGHTS",
+          "response": "CLOSE COVER"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOW HEAT",
+          "response": "ALL FOUR TO ON"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "VERIFY 8X FAULT ANNUNCIATIONS, R ELEC TO AUTO, VERIFY BRAKE PRESSURE CLIMB"
+        },
+        {
+          "type": "item",
+          "challenge": "FIRE TEST",
+          "response": "PRESS AND HOLD FIRE/OVHT TEST"
+        },
+        {
+          "type": "note",
+          "text": "Verify ‘10 Things and a Noise’: 2x engine fire handles illuminate, 2x fuel control switches illuminate, 2x master warnings illuminate, 2x cargo fire warning illuminate, APU fire handle illuminate, Fire Test Pass on EICAS, fire bell."
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCHES",
+          "response": "VERIFY BOTH NORM"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "VERIFY 4X PRESS ANNUNCIATIONS ON FWD AND AFT PUMPS"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-ICING",
+          "response": "VERIFY ALL AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "NAV LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "INDICATOR LIGHTS",
+          "response": "SET TO TEST, VERIFY ALL LIGHTS ANNUNCIATE, SET TO BRT"
+        },
+        {
+          "type": "item",
+          "challenge": "AIR CONDITIONING",
+          "response": "VERIFY ALL AUTO OR ON"
+        },
+        {
+          "type": "item",
+          "challenge": "BLEED AIR",
+          "response": "VERIFY ALL AUTO OR ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PRESSURIZATION",
+          "response": "VERIFY OUTFLOW VALVES SET TO AUTO"
+        }
+      ]
+    },
+    {
+      "id": "mcp-and-pedestal",
+      "title": "MCP & Pedestal",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ALTIMETERS",
+          "response": "SET CURRENT PRESSURE"
+        },
+        {
+          "type": "note",
+          "text": "Optionally ensure that ARPT, TERR and TFC are selected."
+        },
+        {
+          "type": "item",
+          "challenge": "EFIS",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT DIRECTORS",
+          "response": "BOTH TO ON"
+        },
+        {
+          "type": "item",
+          "challenge": "HEADING",
+          "response": "SET TO DEPARTURE RUNWAY HEADING"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTITUDE",
+          "response": "SET TO INITIAL CLEARED ALTITUDE"
+        },
+        {
+          "type": "item",
+          "challenge": "LNAV",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "VNAV",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOBRAKE",
+          "response": "RTO"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "SET SQUAWK"
+        },
+        {
+          "type": "item",
+          "challenge": "RADIOS",
+          "response": "TUNE AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "OXYGEN",
+          "response": "CHECK NOTCH IS AT 100%, PRESS BUTTON AND CONFIRM FLOW, REPEAT FOR FO SIDE"
+        },
+        {
+          "type": "marker",
+          "text": "Preflight Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "pre-flight",
+        "label": "Read QREF: PRE FLIGHT CHECKLIST"
+      }
+    },
+    {
+      "id": "takeoff-data-and-prestart",
+      "title": "Takeoff Data & Pre-Start",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PERFORMANCE CALCULATIONS",
+          "response": "COMPLETE VIA EFB (FLAPS 5 STANDARD FOR T/O, FLAPS 15 OR 20 FOR ABNORMAL/GUSTY)"
+        },
+        {
+          "type": "item",
+          "challenge": "INIT REF (FMC) — THRUST LIM",
+          "response": "INSERT SEL TEMP, SELECT RATE (TO/TO1/TO2)"
+        },
+        {
+          "type": "item",
+          "challenge": "INIT REF (FMC) — TAKEOFF",
+          "response": "INSERT TO FLAPS, CG%, SEL INTO THRUST"
+        },
+        {
+          "type": "note",
+          "text": "Confirm V speeds agree with the performance calculation."
+        },
+        {
+          "type": "item",
+          "challenge": "INIT REF (FMC) — NEXT PAGE",
+          "response": "INSERT EO ACCEL, ACCEL AND THR REDUC HEIGHTS (NOT ALTITUDES)"
+        },
+        {
+          "type": "item",
+          "challenge": "TRIM",
+          "response": "SET PER TAKEOFF PAGE"
+        },
+        {
+          "type": "note",
+          "text": "Optionally confirm the correct STAB value on the FCTL synoptic page."
+        },
+        {
+          "type": "item",
+          "challenge": "IAS",
+          "response": "SET V2 SPEED"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "ON, CONFIRM L FWD FUEL PUMP PRESS EXTINGUISHED"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START, WATCH EICAS FOR APU RUNNING, CONFIRM SECONDARY EXT PWR AVAIL"
+        },
+        {
+          "type": "item",
+          "challenge": "DOORS",
+          "response": "CONFIRM ALL CLOSED AND ARMED VIA DOOR SYNOPTIC PAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "EXTERNAL POWER",
+          "response": "SET PRIMARY TO OFF, DISMISS GPU"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "SET TO XPDR"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "C2 ELEC ON, C1 ELEC ON, L ELEC DEMAND AUTO, C1 AIR AUTO, C2 AIR AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "L AND R PUMPS ALL ON"
+        },
+        {
+          "type": "note",
+          "text": "Center pumps to ON if there is over 10,500lb / 4700kg in the center tank."
+        },
+        {
+          "type": "marker",
+          "text": "Before Start Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "CONFIRM SET AND PRESSURIZED"
+        },
+        {
+          "type": "item",
+          "challenge": "CHOCKS",
+          "response": "REMOVE"
+        },
+        {
+          "type": "item",
+          "challenge": "EICAS",
+          "response": "CONFIRM TCAS OFF AND ENG SHUTDOWN MESSAGES BEFORE PUSHBACK"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "before-start",
+        "label": "Read QREF: BEFORE START CHECKLIST"
+      }
+    },
+    {
+      "id": "engine-start-and-taxi",
+      "title": "Engine Start & Taxi",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PUSHBACK",
+          "response": "COMMENCE"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START",
+          "response": "L ENGINE SWITCH TO START, L FUEL CONTROL TO RUN"
+        },
+        {
+          "type": "note",
+          "text": "Verify oil pressure rising, and the red notch on the EGT gauge disappearing to confirm a successful start. Repeat for R engine."
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "SET TO FLAPS"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-ICING",
+          "response": "SET AS NECESSARY"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "SET TO OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT CONTROLS CHECK",
+          "response": "COMPLETE"
+        },
+        {
+          "type": "marker",
+          "text": "Before Taxi Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "before-taxi",
+        "label": "Read QREF: BEFORE TAXI CHECKLIST"
+      }
+    },
+    {
+      "id": "before-takeoff",
+      "title": "Before Takeoff",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST",
+          "response": "MAXIMUM 35% N1 BREAKAWAY THRUST"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "TA/RA BEFORE ENTERING RUNWAY"
+        },
+        {
+          "type": "marker",
+          "text": "Before Takeoff Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "before-takeoff",
+        "label": "Read QREF: BEFORE TAKE-OFF CHECKLIST"
+      }
+    },
+    {
+      "id": "takeoff-and-climb",
+      "title": "Takeoff & Climb",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "LIGHTS",
+          "response": "LANDING ON, RUNWAY TURNOFF ON, WING ON, STROBE ON"
+        },
+        {
+          "type": "note",
+          "text": "If dark: Logo Lights ON."
+        },
+        {
+          "type": "item",
+          "challenge": "RECALL",
+          "response": "CONFIRM NO EICAS MESSAGES"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST",
+          "response": "N1 TO 55% AND STABLE, THEN TO/GA"
+        },
+        {
+          "type": "item",
+          "challenge": "PITCH",
+          "response": "APPROX 1-2 DEGREES PER SECOND, 10 SECONDS TO 15 DEGREE PITCH UP"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING GEAR",
+          "response": "UP AT POSITIVE RATE, CONFIRM UP ON MFD BELOW EICAS"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RETRACT IN LINE WITH IAS FLAGS"
+        },
+        {
+          "type": "note",
+          "text": "Note that ‘clean speed’ may be above 250kt."
+        }
+      ]
+    },
+    {
+      "id": "after-takeoff",
+      "title": "After Takeoff",
+      "group": "air",
+      "items": [
+        {
+          "type": "marker",
+          "text": "After Takeoff Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        },
+        {
+          "type": "marker",
+          "text": "10,000ft"
+        },
+        {
+          "type": "item",
+          "challenge": "LIGHTS",
+          "response": "LANDING OFF BETWEEN 10,000FT AND 18,000FT, WING OFF, TAXI/RWY TURNOFF OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SCREEN SETUP",
+          "response": "COMM SYNOPTIC PAGE ON LOWER CENTER SCREEN"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "after-takeoff",
+        "label": "Read QREF: AFTER TAKE-OFF CHECKLIST"
+      }
+    },
+    {
+      "id": "cruise-and-descent-prep",
+      "title": "Cruise & Descent Preparation",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "WAYPOINTS",
+          "response": "CHECK TIMINGS AND ARRIVALS AGAINST OFP"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL MANAGEMENT",
+          "response": "WHEN FUEL LOW CENTER EICAS MESSAGE APPEARS, TRANSFER CENTER TANKS TO L/R TANKS AND CONFIRM FLOW"
+        },
+        {
+          "type": "item",
+          "challenge": "STEP CLIMBS",
+          "response": "AS REQUIRED (SET AUTO STEPS IN EFB, OR STEP CLIMB MANUALLY)"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING PERFORMANCE",
+          "response": "CALCULATE APPROACHING TOD WITH EXPECTED RUNWAY AND WEATHER (ADD 1/2 HEADWIND + FULL GUST TO VREF, MIN 5KT MAX 15KT); SELECT FLAPS 25 OR 30"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTITUDE",
+          "response": "SELECT LOWEST CONSTRAINT ON STAR OR DESIRED ALTITUDE BEFORE TOD"
+        },
+        {
+          "type": "marker",
+          "text": "Descent and Approach Checklists"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        },
+        {
+          "type": "note",
+          "text": "Complete the Approach Checklist at transition altitude."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "cruise-and-descent-prep",
+        "label": "Read QREF: CRUISE & DESCENT PREPARATION"
+      }
+    },
+    {
+      "id": "approach-and-landing",
+      "title": "Descent, Approach & Landing",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "LOWER MFD",
+          "response": "DISPLAY ENG SYNOPTIC PAGE FOR DESCENT"
+        },
+        {
+          "type": "item",
+          "challenge": "LIGHTS",
+          "response": "LANDING ON, WING ON, TAXI AND RUNWAY TURNOFF ON"
+        },
+        {
+          "type": "note",
+          "text": "If dark: Logo Lights ON."
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED",
+          "response": "MANAGE DURING DESCENT WITH SPEEDBRAKE AND LANDING GEAR IF NEEDED"
+        },
+        {
+          "type": "marker",
+          "text": "RNP RNAV Approach"
+        },
+        {
+          "type": "item",
+          "challenge": "RAD NAV (FMC)",
+          "response": "VERIFY ILS IS SET TO PARK"
+        },
+        {
+          "type": "item",
+          "challenge": "PROG PAGE 4 (FMC)",
+          "response": "ENTER RNP MINIMUM INTO LSK2, ENTER 125 INTO RSK2"
+        },
+        {
+          "type": "note",
+          "text": "Do not lower altitude to field elevation until enroute to the final approach point."
+        },
+        {
+          "type": "marker",
+          "text": "ILS Approach"
+        },
+        {
+          "type": "item",
+          "challenge": "RAD NAV (FMC)",
+          "response": "VERIFY ILS COURSE AND FREQUENCY DISPLAYED"
+        },
+        {
+          "type": "item",
+          "challenge": "FINAL APPROACH",
+          "response": "NO MORE THAN 30 DEGREE INTERCEPT ANGLE, ARM APP MODE"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTITUDE",
+          "response": "ONCE ON FINAL DESCENT, SET MISSED APPROACH ALTITUDE"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "EXTEND ON SCHEDULE (BEFORE GREEN TICK SPEEDS, BELOW PLACARDED FLAP LIMIT SPEEDS)"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING GEAR",
+          "response": "EXTEND BEFORE FLAPS 25, VERIFY DOWN ANNUNCIATION ON MFD BELOW EICAS"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS 25/30",
+          "response": "EXTEND AS REQUIRED BELOW 190KT"
+        },
+        {
+          "type": "note",
+          "text": "Aim to be configured before final approach for speed management."
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED",
+          "response": "SLOW TO VREF + WIND CORRECTION SPEED"
+        },
+        {
+          "type": "marker",
+          "text": "Landing Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING",
+          "response": "AT 30FT, VERY SLIGHT FLARE TO CHECK DESCENT RATE, ALLOW THE PLANE TO SETTLE DOWN ITSELF"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "landing",
+        "label": "Read QREF: LANDING CHECKLIST"
+      }
+    },
+    {
+      "id": "taxi-in-and-shutdown",
+      "title": "Taxi-In & Shutdown",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "LIGHTS",
+          "response": "LANDING OFF, RUNWAY TURNOFF OFF, WING/LOGO OFF, STROBE OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT DIRECTORS",
+          "response": "BOTH TO OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOBRAKE",
+          "response": "SET TO OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEEDBRAKE",
+          "response": "STOWED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RETRACTED"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "SET TO XPDR"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "WHEN APPROACHING APRON, SET TO ON, WAIT A BEAT, SET TO START"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHT",
+          "response": "OFF BEFORE TURNING ONTO RAMP"
+        },
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL CTRL SWITCHES",
+          "response": "BOTH TO CUTOFF"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "C2 AIR OFF, C1 AIR OFF, L ELEC DEMAND OFF, C1 ELEC OFF, C2 ELEC OFF, R ELEC DEMAND OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "ALL TO OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BEACON LIGHT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "STBY"
+        },
+        {
+          "type": "marker",
+          "text": "Shutdown Checklist"
+        },
+        {
+          "type": "item",
+          "challenge": "DISPLAY SELECT PANEL",
+          "response": "SELECT CHKL SYNOPTIC PAGE"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "parking-shutdown",
+        "label": "Read QREF: PARKING / SHUTDOWN CHECKLIST"
+      }
+    }
+  ]
+}

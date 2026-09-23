@@ -43,6 +43,50 @@
           "itemCount": 170
         }
       ]
+    },
+    {
+      "id": "pmdg777f",
+      "name": "PMDG 777F",
+      "subtitle": "Boeing 777 Freighter · PMDG",
+      "accent": "#14477A",
+      "documents": [
+        {
+          "id": "sop",
+          "label": "Expanded Checklist",
+          "file": "data/aircraft/pmdg777f.json",
+          "phaseCount": 11,
+          "itemCount": 137
+        },
+        {
+          "id": "reference",
+          "label": "Quick Reference",
+          "file": "data/aircraft/pmdg777f-reference.json",
+          "phaseCount": 15,
+          "itemCount": 176
+        }
+      ]
+    },
+    {
+      "id": "fenix320",
+      "name": "Fenix A320 CEO",
+      "subtitle": "Airbus A320-200 (CEO) · Fenix",
+      "accent": "#14477A",
+      "documents": [
+        {
+          "id": "sop",
+          "label": "Expanded Checklist",
+          "file": "data/aircraft/fenix320.json",
+          "phaseCount": 15,
+          "itemCount": 156
+        },
+        {
+          "id": "reference",
+          "label": "Quick Reference",
+          "file": "data/aircraft/fenix320-reference.json",
+          "phaseCount": 10,
+          "itemCount": 124
+        }
+      ]
     }
   ]
 }

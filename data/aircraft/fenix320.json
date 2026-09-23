@@ -1,0 +1,937 @@
+{
+  "aircraft": "Fenix A320 CEO",
+  "source": "\"Airbus 320/321 Cockpit Flows\" by Eisa Godoussey, derived from Aerosoft's \"Step by Step\" document, adjusted to reflect real-world Airbus operations and explicitly written to be livery/aircraft-generic. Real A320 (CEO) systems flow content transcribed faithfully. \"Shall not be used for real world operations.\"",
+  "groups": {
+    "pre": {
+      "label": "Pre-Flight / Ground",
+      "color": "#0F9488"
+    },
+    "dep": {
+      "label": "Departure",
+      "color": "#1D72B8"
+    },
+    "air": {
+      "label": "Airborne",
+      "color": "#5A67A6"
+    },
+    "arr": {
+      "label": "Arrival / Ground",
+      "color": "#0F9488"
+    }
+  },
+  "phases": [
+    {
+      "id": "cockpit-preparation",
+      "title": "Cockpit Preparation Flows",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PFD LT",
+          "response": "BRT"
+        },
+        {
+          "type": "item",
+          "challenge": "ND LT",
+          "response": "BRT"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM UPPER DISPLAY",
+          "response": "BRT"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM LOWER DISPLAY",
+          "response": "BRT"
+        },
+        {
+          "type": "item",
+          "challenge": "FLOOD LT",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "INTEG LT",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "marker",
+          "text": "Overhead Panel"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERY",
+          "response": "ON - CHECK VOLTAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "EXTERNAL POWER",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS/ADIRS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ELEC HYDR PUMP",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG GEN",
+          "response": "ON/FAULT"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK 1+2",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG BLEED 1+2",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "HOT AIR",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG ANTI ICE/PROBE",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EMERGENCY LIGHTS",
+          "response": "ARMED"
+        },
+        {
+          "type": "item",
+          "challenge": "CABIN SIGNS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "NAV & LOGO LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "EFC 1+2",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "GPWS",
+          "response": "ON"
+        },
+        {
+          "type": "marker",
+          "text": "Pedestal"
+        },
+        {
+          "type": "item",
+          "challenge": "PARK BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "VERIFY 0"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEEDBRAKE",
+          "response": "RETRACTED/DISARMED"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MASTER 1+2",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MODE SEL",
+          "response": "NORM"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST LEVERS",
+          "response": "IDLE"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "STANDBY"
+        },
+        {
+          "type": "item",
+          "challenge": "RADIO CONTROL PANEL",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FREQUENCIES",
+          "response": "SET"
+        },
+        {
+          "type": "marker",
+          "text": "ECAM & Main Panel"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM RECALL BUTTON",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING GEAR",
+          "response": "VERIFY DOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "MCDU2 > DOORS",
+          "response": "VERIFY OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTISKID/NWS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FD",
+          "response": "ON"
+        }
+      ]
+    },
+    {
+      "id": "fmgs-setup",
+      "title": "FMGS Setup",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ATIS/ATC CLEARANCE",
+          "response": "OBTAIN"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER CODE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "MCDU",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "QNH MODE",
+          "response": "VERIFY"
+        },
+        {
+          "type": "item",
+          "challenge": "QNH",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "ND MODE/RANGE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "VOR/ADF",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED MANAGED/SELECTED",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "HDG MANAGED/SELECTED",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "INITIAL ALTITUDE SET/MANAGED/SELECTED",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS",
+          "response": "CONFIRM ALIGNED"
+        },
+        {
+          "type": "item",
+          "challenge": "FD",
+          "response": "CYCLE OFF THEN ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FCU",
+          "response": "VERIFY CORRECT & COMPLETE"
+        }
+      ]
+    },
+    {
+      "id": "before-start-flows",
+      "title": "Before Start Flows",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FUELING",
+          "response": "VERIFY DISCONNECTED, KG, BALANCED, & SUFFICIENT"
+        },
+        {
+          "type": "item",
+          "challenge": "CHOCKS",
+          "response": "REMOVED"
+        },
+        {
+          "type": "item",
+          "challenge": "TRAFFIC CONES",
+          "response": "REMOVED"
+        },
+        {
+          "type": "marker",
+          "text": "Overhead Panel"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "EXT POWER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "DOORS",
+          "response": "CLOSED"
+        },
+        {
+          "type": "item",
+          "challenge": "BEACON",
+          "response": "ON"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "pre-flight-before-start",
+        "label": "Read QREF: PRE-FLIGHT / BEFORE START"
+      }
+    },
+    {
+      "id": "pushback-and-engine-start-flows",
+      "title": "Pushback & Engine Start Flows",
+      "group": "dep",
+      "items": [
+        {
+          "type": "action",
+          "text": "Obtain push & start clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND COMMUNICATION",
+          "response": "INITIATE/FOLLOW COMMANDS"
+        },
+        {
+          "type": "item",
+          "challenge": "RIGHT SIDE",
+          "response": "VERIFY CLEAR"
+        },
+        {
+          "type": "marker",
+          "text": "Pedestal"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MODE SELECTOR",
+          "response": "IGN/START"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MASTER 2",
+          "response": "ON"
+        },
+        {
+          "type": "marker",
+          "text": "ECAM"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM",
+          "response": "MONITOR"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE",
+          "response": "CONFIRM STABILIZED"
+        },
+        {
+          "type": "note",
+          "text": "Repeat the ground-communication/right-side/ENG MODE/ENG MASTER/ECAM/ENGINE steps for Engine 1."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "engine-start",
+        "label": "Read QREF: ENGINE START"
+      }
+    },
+    {
+      "id": "after-start-flows",
+      "title": "After Start Flows",
+      "group": "dep",
+      "items": [
+        {
+          "type": "marker",
+          "text": "Overhead Panel"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG & WING ANTI ICE",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU MASTER",
+          "response": "OFF"
+        },
+        {
+          "type": "marker",
+          "text": "Pedestal"
+        },
+        {
+          "type": "item",
+          "challenge": "PITCH TRIM",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MODE SELECTOR",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "ARMED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "RUD TRIM",
+          "response": "0"
+        },
+        {
+          "type": "marker",
+          "text": "ECAM"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT CONTROLS",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM DOOR PAGE",
+          "response": "CHECKED"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM STATUS",
+          "response": "CHECKED"
+        },
+        {
+          "type": "marker",
+          "text": "Other"
+        },
+        {
+          "type": "item",
+          "challenge": "HAND SIGNALS",
+          "response": "RECEIVED"
+        }
+      ]
+    },
+    {
+      "id": "taxi-flows",
+      "title": "Taxi Flows",
+      "group": "dep",
+      "items": [
+        {
+          "type": "action",
+          "text": "Obtain taxi clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "PARK BRAKE",
+          "response": "RELEASED"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO BRAKE",
+          "response": "MAX"
+        },
+        {
+          "type": "item",
+          "challenge": "TO CONFIG",
+          "response": "PRESS"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHT",
+          "response": "ON"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "taxi",
+        "label": "Read QREF: TAXI"
+      }
+    },
+    {
+      "id": "before-take-off-flows",
+      "title": "Before Take Off Flows",
+      "group": "dep",
+      "items": [
+        {
+          "type": "marker",
+          "text": "Pedestal"
+        },
+        {
+          "type": "item",
+          "challenge": "TCAS",
+          "response": "TA/RA - TILT ABOVE"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MODE SELECTOR",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "marker",
+          "text": "ECAM"
+        },
+        {
+          "type": "item",
+          "challenge": "BRAKE TEMP",
+          "response": "CHECK > 150"
+        },
+        {
+          "type": "marker",
+          "text": "Main Panel"
+        },
+        {
+          "type": "item",
+          "challenge": "BRAKE FANS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SLIDING TABLE",
+          "response": "STOWED"
+        },
+        {
+          "type": "marker",
+          "text": "ATC"
+        },
+        {
+          "type": "action",
+          "text": "Obtain take off / line up clearance"
+        },
+        {
+          "type": "marker",
+          "text": "Overhead Panel"
+        },
+        {
+          "type": "item",
+          "challenge": "EXT LIGHTS",
+          "response": "ON"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "pre-departure",
+        "label": "Read QREF: PRE-DEPARTURE"
+      }
+    },
+    {
+      "id": "after-take-off-flows",
+      "title": "After Take Off Flows",
+      "group": "air",
+      "items": [
+        {
+          "type": "marker",
+          "text": "@ Accel Height"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILER",
+          "response": "DISARM"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE MODE SELECTOR",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG & WING ANTI ICE",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK 1+2",
+          "response": "ON"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "after-takeoff",
+        "label": "Read QREF: AFTER TAKEOFF"
+      }
+    },
+    {
+      "id": "climb-10000ft-flows",
+      "title": "10,000ft Flows (Climb)",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "EXT LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELT SIGN",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "PRESSURIZATION",
+          "response": "CHECKED"
+        }
+      ]
+    },
+    {
+      "id": "predescent-flows",
+      "title": "Predescent Flows",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ATIS",
+          "response": "OBTAIN"
+        },
+        {
+          "type": "item",
+          "challenge": "MCDU",
+          "response": "FPLN, PERF, NAV/RAD SET"
+        },
+        {
+          "type": "item",
+          "challenge": "NAV ACCURACY",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELT SIGN",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI ICE",
+          "response": "AS RQRD"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "descent",
+        "label": "Read QREF: DESCENT"
+      }
+    },
+    {
+      "id": "descent-10000ft-flows",
+      "title": "10,000ft Flows (Descent / Approach)",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "SLIDING TABLES",
+          "response": "STOWED"
+        },
+        {
+          "type": "item",
+          "challenge": "EXT LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELT SIGN",
+          "response": "VERIFY ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LS",
+          "response": "PUSH"
+        },
+        {
+          "type": "item",
+          "challenge": "PRESSURIZATION",
+          "response": "CHECKED"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM STATUS",
+          "response": "CHECK"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "approach",
+        "label": "Read QREF: APPROACH"
+      }
+    },
+    {
+      "id": "landing-flows",
+      "title": "Landing Flows",
+      "group": "air",
+      "items": [
+        {
+          "type": "marker",
+          "text": "When fully configured and established on approach"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHT",
+          "response": "SET T/O"
+        },
+        {
+          "type": "item",
+          "challenge": "MISSED APPROACH ALTITUDE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "ARMED"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING MEMO",
+          "response": "NO BLUE"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "approach",
+        "label": "Read QREF: APPROACH"
+      }
+    },
+    {
+      "id": "after-landing-flows",
+      "title": "After Landing Flows",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "RETRACT"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MODE SELECTOR",
+          "response": "NORM"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RETRACT"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "STBY"
+        },
+        {
+          "type": "item",
+          "challenge": "BRAKE TEMP",
+          "response": "CHECK > 300"
+        },
+        {
+          "type": "item",
+          "challenge": "EXT LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE & WING ANTI ICE",
+          "response": "OFF"
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "after-landing",
+        "label": "Read QREF: AFTER LANDING"
+      }
+    },
+    {
+      "id": "parking-flows",
+      "title": "Parking Flows",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PARK BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG MASTER 1+2",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELT SIGN",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BEACON",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EXT POWER",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "note",
+          "text": "Once the doors have opened, the APU bleed can be turned on for cabin air conditioning. Verify APU bleed off before starting the Securing flows."
+        }
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "shutdown",
+        "label": "Read QREF: SHUTDOWN"
+      }
+    },
+    {
+      "id": "securing-flows",
+      "title": "Securing Flows",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PFD LT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ND LT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM UPPER LT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM LOWER LT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ADIRS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EXT POWER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "GEN",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "SHUTDOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "CABIN SIGNS & EMERGENCY LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BAT 1+2",
+          "response": "OFF"
+        }
+      ]
+    }
+  ]
+}
