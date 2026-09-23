@@ -1,0 +1,1660 @@
+{
+  "aircraft": "PMDG 737-800",
+  "source": "\"Checklist + Flow-Procedure, Boeing 737 NG -600/-700/-800/-900\" v6.0 by Carsten Rau (CarstenRau.de), written for PMDG 737NGX/FSX. Real Boeing 737 systems flow content transcribed faithfully; simulator/multiplayer-session-specific instructions (starting an FSX flight, IVAP voice-client connection/transponder, ATC hand-off/frequency-change reminders, keyboard shortcuts, FSBuild flight-plan-tool references) were left out as not applicable outside that specific legacy setup. Fuel-planning reference tables and blank pages at the end of the source were not part of the checklist and are not included. Marked \"DO NOT USE FOR FLIGHT\" by its author - for simulation use only, same as the rest of this app.",
+  "groups": {
+    "pre": {
+      "label": "Pre-Flight / Ground",
+      "color": "#0F9488"
+    },
+    "dep": {
+      "label": "Departure",
+      "color": "#1D72B8"
+    },
+    "air": {
+      "label": "Airborne",
+      "color": "#5A67A6"
+    },
+    "arr": {
+      "label": "Arrival / Ground",
+      "color": "#0F9488"
+    }
+  },
+  "phases": [
+    {
+      "id": "cockpit-preparation",
+      "title": "Cockpit Preparation",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "CHECK SET"
+        },
+        {
+          "type": "item",
+          "challenge": "DOOR 1",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "GANGWAY",
+          "response": "ENABLE (IF AVAILABLE)"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERY (OHP)",
+          "response": "ON & COVERED"
+        },
+        {
+          "type": "item",
+          "challenge": "DC-VOLTMETER SELECTOR (LEFT)",
+          "response": "BAT"
+        },
+        {
+          "type": "item",
+          "challenge": "DC-VOLTMETER",
+          "response": "CHECK ≈ 28V"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR (RIGHT)",
+          "response": "STBY PWR"
+        },
+        {
+          "type": "item",
+          "challenge": "MASTER CAUTION",
+          "response": "DISENGAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "ALL OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "ALL OFF"
+        },
+        {
+          "type": "marker",
+          "text": "Interior Lights"
+        },
+        {
+          "type": "item",
+          "challenge": "PANEL / FLOOD LIGHT (PEDESTAL)",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "MAIN PANEL LIGHTS / BACKGROUND / AFDS FLOOD",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "OVERHEAD PANEL LIGHT / CIRCUIT BREAKER PANEL",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "CABIN / UTILITY POWER",
+          "response": "CHECK ON"
+        },
+        {
+          "type": "item",
+          "challenge": "IFE PASS SEAT POWER",
+          "response": "CHECK ON"
+        },
+        {
+          "type": "note",
+          "text": "Connect ground power. If no ground power is available, bring the APU start forward."
+        },
+        {
+          "type": "item",
+          "challenge": "WHEEL CHOCKS",
+          "response": "CHECK SET"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND POWER",
+          "response": "CONNECTED"
+        },
+        {
+          "type": "item",
+          "challenge": "AIR START UNIT",
+          "response": "CONNECTED (IF USED FOR START)"
+        },
+        {
+          "type": "item",
+          "challenge": "AIR COND. UNIT",
+          "response": "CONNECTED (IF USED)"
+        },
+        {
+          "type": "item",
+          "challenge": "PITOT COVERS",
+          "response": "CHECK REMOVED"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND POWER (GRD PWR)",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR (RIGHT)",
+          "response": "GND PWR"
+        },
+        {
+          "type": "item",
+          "challenge": "EMERGENCY LIGHTS",
+          "response": "ARMED & COVERED"
+        },
+        {
+          "type": "marker",
+          "text": "External Lights"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION",
+          "response": "STEADY"
+        },
+        {
+          "type": "item",
+          "challenge": "WHEEL WELL",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LOGO",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "WING",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "MASTER CAUTION",
+          "response": "DISENGAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELT SIGN",
+          "response": "AUTO / ON"
+        },
+        {
+          "type": "note",
+          "text": "From here on, this is also the resume point for the next flight if the cockpit is not being set dark & cold."
+        },
+        {
+          "type": "marker",
+          "text": "FMC — Payload & Fuel"
+        },
+        {
+          "type": "item",
+          "challenge": "PAYLOAD",
+          "response": "SET (VIA FMC PAYLOAD MENU)"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL",
+          "response": "SET AS REQUIRED PER FUEL PLAN (VIA FMC FUEL MENU, IN LBS)"
+        },
+        {
+          "type": "item",
+          "challenge": "RECIRC FAN LEFT",
+          "response": "AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "RECIRC FAN RIGHT",
+          "response": "AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK LEFT",
+          "response": "AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK RIGHT",
+          "response": "AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOTS",
+          "response": "CHECK OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED BRAKE",
+          "response": "CHECK DOWN / OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "COCKPIT VOICE RECORDER",
+          "response": "TEST, HOLD FOR 5 SEC"
+        },
+        {
+          "type": "note",
+          "text": "Wait for the green light to appear."
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE FIRE TEST BUTTON",
+          "response": "HOLD LEFT"
+        },
+        {
+          "type": "note",
+          "text": "Verify FAULT and APU DET INOP light illuminated."
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE FIRE TEST BUTTON",
+          "response": "HOLD RIGHT"
+        },
+        {
+          "type": "note",
+          "text": "Verify test lights illuminated and bell ringing."
+        },
+        {
+          "type": "marker",
+          "text": "IRS — Test"
+        },
+        {
+          "type": "item",
+          "challenge": "DSPL SEL",
+          "response": "TEST"
+        },
+        {
+          "type": "item",
+          "challenge": "DSPL SEL",
+          "response": "HDG/STS"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS SELECTOR LEFT",
+          "response": "ALIGN"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS SELECTOR RIGHT",
+          "response": "ALIGN"
+        }
+      ]
+    },
+    {
+      "id": "route-and-performance",
+      "title": "Route & Performance Setup",
+      "group": "pre",
+      "items": [
+        {
+          "type": "marker",
+          "text": "FMC — Init Ref / Pos Init"
+        },
+        {
+          "type": "item",
+          "challenge": "INIT REF PAGE",
+          "response": "INIT REF"
+        },
+        {
+          "type": "item",
+          "challenge": "ORIGIN AIRPORT",
+          "response": "ENTER (AS REQUIRED)"
+        },
+        {
+          "type": "item",
+          "challenge": "GATE",
+          "response": "ENTER (AS REQUIRED)"
+        },
+        {
+          "type": "item",
+          "challenge": "GPS POSITION",
+          "response": "COPY FROM PAGE 1 AND PASTE TO CONFIRM"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS SELECTOR LEFT",
+          "response": "NAV"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS SELECTOR RIGHT",
+          "response": "NAV"
+        },
+        {
+          "type": "marker",
+          "text": "FMC — Route Page"
+        },
+        {
+          "type": "item",
+          "challenge": "ORIGIN AND DESTINATION AIRPORT",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT NUMBER",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "FIRST WAYPOINT AFTER SID",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "AIRWAYS",
+          "response": "ENTER ALL, REPEATING UNTIL COMPLETE"
+        },
+        {
+          "type": "item",
+          "challenge": "LAST WAYPOINT BEFORE STAR",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "ROUTE",
+          "response": "ACTIVATE, THEN EXECUTE"
+        },
+        {
+          "type": "note",
+          "text": "An alternate destination can be entered on the Route page if desired."
+        },
+        {
+          "type": "marker",
+          "text": "FMC — Perf Init Page"
+        },
+        {
+          "type": "item",
+          "challenge": "PERF INIT PAGE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "ZFW",
+          "response": "AUTO-ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "COST INDEX",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "CRUISE FLIGHT LEVEL",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSITION ALTITUDE",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "AVERAGE CRUISE WIND",
+          "response": "ENTER (NOT REQUIRED)"
+        },
+        {
+          "type": "item",
+          "challenge": "RESERVES",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "PERF INIT",
+          "response": "EXECUTE"
+        },
+        {
+          "type": "marker",
+          "text": "FMC — N1 Limit / Takeoff Page"
+        },
+        {
+          "type": "item",
+          "challenge": "N1 LIMIT PAGE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "TAKEOFF POWER",
+          "response": "SET AS DESIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "TAKEOFF PAGE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "CG",
+          "response": "AUTO-ENTER, NOTE TRIM DATA"
+        },
+        {
+          "type": "item",
+          "challenge": "TAKEOFF WINDS",
+          "response": "ENTER"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY CONDITION",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMP AFT NO.1",
+          "response": "ON"
+        },
+        {
+          "type": "note",
+          "text": "Check the low-pressure light extinguishes."
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "EFIS MODE",
+          "response": "MAP"
+        },
+        {
+          "type": "item",
+          "challenge": "EFIS RANGE",
+          "response": "20 NM (OR AS REQUIRED)"
+        },
+        {
+          "type": "note",
+          "text": "Wait until APU generators are available."
+        },
+        {
+          "type": "item",
+          "challenge": "APU GEN SWITCH LEFT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "APU GEN SWITCH RIGHT",
+          "response": "ON"
+        },
+        {
+          "type": "note",
+          "text": "Wait until APU GEN OFF BUS and SOURCE OFF lights extinguish."
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED SWITCH",
+          "response": "CHECK ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE BLEED SWITCHES",
+          "response": "CHECK ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR (RIGHT)",
+          "response": "APU"
+        }
+      ]
+    },
+    {
+      "id": "before-start",
+      "title": "Before Start",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ELEVATOR TRIM",
+          "response": "SET TO TRIM DATA FROM FMC"
+        },
+        {
+          "type": "item",
+          "challenge": "GANGWAY",
+          "response": "DISABLE"
+        },
+        {
+          "type": "item",
+          "challenge": "DOOR 1",
+          "response": "CLOSE"
+        },
+        {
+          "type": "item",
+          "challenge": "DOORS",
+          "response": "CHECK ALL CLOSED"
+        },
+        {
+          "type": "item",
+          "challenge": "GEN BUS TRANSFER SWITCH",
+          "response": "CHECK AUTO & COVERED"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "ALL ON (NO CROSS-FEED)"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "ALL ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-COLLISION LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK LEFT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK RIGHT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST",
+          "response": "IDLE (CHECK)"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL CONTROL SWITCHES",
+          "response": "CUTOFF (CHECK)"
+        }
+      ]
+    },
+    {
+      "id": "engine-start-and-pushback",
+      "title": "Engine Start & Pushback",
+      "group": "dep",
+      "items": [
+        {
+          "type": "action",
+          "text": "Request engine start-up & pushback clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "WHEEL CHOCKS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "PUSHBACK",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "DUCT PRESSURE GAUGE",
+          "response": "VERIFY 30 PSI"
+        },
+        {
+          "type": "item",
+          "challenge": "IGNITION SELECTOR",
+          "response": "ENGINE L (OR R OR BOTH)"
+        },
+        {
+          "type": "item",
+          "challenge": "LEFT ENGINE START SWITCH",
+          "response": "GRD"
+        },
+        {
+          "type": "note",
+          "text": "Wait until Engine 1 N2 is above 20%."
+        },
+        {
+          "type": "item",
+          "challenge": "LEFT ENGINE FUEL CONTROL SWITCH",
+          "response": "ON"
+        },
+        {
+          "type": "note",
+          "text": "Wait until the left engine start switch returns to off."
+        },
+        {
+          "type": "item",
+          "challenge": "LEFT ENGINE START SWITCH",
+          "response": "CONT"
+        },
+        {
+          "type": "item",
+          "challenge": "RIGHT ENGINE START SWITCH",
+          "response": "GRD"
+        },
+        {
+          "type": "note",
+          "text": "Wait until Engine 2 N2 is above 20%."
+        },
+        {
+          "type": "item",
+          "challenge": "RIGHT ENGINE FUEL CONTROL SWITCH",
+          "response": "ON"
+        },
+        {
+          "type": "note",
+          "text": "Wait until the right engine start switch returns to off."
+        },
+        {
+          "type": "item",
+          "challenge": "RIGHT ENGINE START SWITCH",
+          "response": "CONT"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE GENERATOR SWITCHES",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR",
+          "response": "GEN 1 (OR 2)"
+        }
+      ]
+    },
+    {
+      "id": "before-taxi",
+      "title": "Before Taxi",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK LEFT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PACK RIGHT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PITOT HEAT SWITCHES (PROBE)",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOW HEAT",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE ANTI-ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "WING ANTI-ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "YAW DAMPER",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "SELECT (AS ENTERED IN FMC)"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOBRAKE",
+          "response": "RTO"
+        },
+        {
+          "type": "item",
+          "challenge": "PUSHBACK",
+          "response": "END"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY TURNOFF LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "TCAS",
+          "response": "TEST"
+        },
+        {
+          "type": "note",
+          "text": "Wait for the “TCAS Test passed” aural."
+        },
+        {
+          "type": "item",
+          "challenge": "TCAS",
+          "response": "TA/RA"
+        }
+      ]
+    },
+    {
+      "id": "taxi",
+      "title": "Taxi",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "TAXI TO HOLDING POINT",
+          "response": "TAXI"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "VNAV",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LNAV",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RAISE ON SCHEDULE"
+        }
+      ]
+    },
+    {
+      "id": "before-takeoff",
+      "title": "Before Takeoff",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "AP DISENGAGE BAR",
+          "response": "UP (AP AVAILABLE)"
+        },
+        {
+          "type": "item",
+          "challenge": "FD (FLIGHT DIRECTOR)",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AT (AUTO-THROTTLE)",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "IAS",
+          "response": "250 KNOTS / FIRST SPEED LIMIT"
+        },
+        {
+          "type": "item",
+          "challenge": "HDG",
+          "response": "RUNWAY HEADING"
+        },
+        {
+          "type": "item",
+          "challenge": "ALT",
+          "response": "FIRST ASSIGNED ALTITUDE"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILER",
+          "response": "ARMED"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY TURNOFF LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION LIGHTS",
+          "response": "STROBE + STEADY"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION & HOLD",
+          "response": "TAXI & STOP ON RUNWAY"
+        },
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST LEVERS",
+          "response": "TAKEOFF SETTING"
+        },
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "RELEASE"
+        },
+        {
+          "type": "item",
+          "challenge": "YOKE (TILL 80 KNOTS)",
+          "response": "PRESS FORWARD"
+        },
+        {
+          "type": "item",
+          "challenge": "AT VR",
+          "response": "ROTATE"
+        },
+        {
+          "type": "item",
+          "challenge": "AT V2",
+          "response": "LIFT-OFF"
+        }
+      ]
+    },
+    {
+      "id": "takeoff",
+      "title": "Takeoff",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "TRIM SETTINGS",
+          "response": "ADJUST (WHEN NEEDED)"
+        },
+        {
+          "type": "item",
+          "challenge": "GEAR",
+          "response": "UP AT POSITIVE CLIMB RATE, ABOVE 500FT"
+        }
+      ]
+    },
+    {
+      "id": "after-takeoff",
+      "title": "After Takeoff",
+      "group": "air",
+      "items": [
+        {
+          "type": "note",
+          "text": "After climbing above 1000ft AGL."
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "VNAV",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LNAV",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RAISE ON SCHEDULE"
+        }
+      ]
+    },
+    {
+      "id": "climb",
+      "title": "Climb",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "AUTOBRAKE",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILER",
+          "response": "DISARM"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY TURNOFF LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "WHEEL WELL LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "note",
+          "text": "When cleared to the next or final flight level."
+        },
+        {
+          "type": "item",
+          "challenge": "AP ALTITUDE",
+          "response": "SET"
+        },
+        {
+          "type": "note",
+          "text": "The following are done as required:"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOW HEAT",
+          "response": "ON (UNDER 10°C TAT)"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE ANTI-ICE",
+          "response": "ON (UNDER 10°C TAT)"
+        },
+        {
+          "type": "item",
+          "challenge": "WING ANTI-ICE",
+          "response": "ON (UNDER 10°C TAT)"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "READJUST (ABOVE 18000FT)"
+        }
+      ]
+    },
+    {
+      "id": "cruise",
+      "title": "Cruise",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT / FMC",
+          "response": "CHECK PERMANENTLY"
+        },
+        {
+          "type": "item",
+          "challenge": "FMC PROGRESS PAGE",
+          "response": "CHECK FUEL CONSUMPTION"
+        },
+        {
+          "type": "note",
+          "text": "When the center fuel tank is empty."
+        },
+        {
+          "type": "item",
+          "challenge": "CENTER FUEL PUMP",
+          "response": "OFF"
+        }
+      ]
+    },
+    {
+      "id": "descent-and-approach",
+      "title": "Descent & Approach Setup",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "DESCENT PREPARATIONS",
+          "response": "BEGIN 30NM BEFORE TOP OF DESCENT"
+        },
+        {
+          "type": "item",
+          "challenge": "AIRPORT / METAR INFORMATION",
+          "response": "RETRIEVE"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOBRAKES",
+          "response": "SET"
+        },
+        {
+          "type": "marker",
+          "text": "Top of Descent"
+        },
+        {
+          "type": "item",
+          "challenge": "ALT (AP)",
+          "response": "SET BEFORE REACHING TOP OF DESCENT"
+        },
+        {
+          "type": "note",
+          "text": "VNAV will descend automatically at Top of Descent."
+        },
+        {
+          "type": "marker",
+          "text": "FMC — Arrival"
+        },
+        {
+          "type": "item",
+          "challenge": "ARRIVALS PAGE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "STAR",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSITION",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "APPROACH",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "APPROACH TRANSITION",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "ROUTE PAGE",
+          "response": "CHECK, DELETE ANY DISCONTINUITIES"
+        },
+        {
+          "type": "item",
+          "challenge": "INIT REF PAGE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "APPROACH FLAP / SPEED SETTING",
+          "response": "COPY AND PASTE"
+        },
+        {
+          "type": "note",
+          "text": "When the ILS is available:"
+        },
+        {
+          "type": "item",
+          "challenge": "ILS FREQUENCY",
+          "response": "SET INTO NAV1 AND NAV2"
+        },
+        {
+          "type": "item",
+          "challenge": "ILS COURSE",
+          "response": "SET INTO BOTH AP CRS SELECTORS"
+        },
+        {
+          "type": "marker",
+          "text": "HGS Settings"
+        },
+        {
+          "type": "item",
+          "challenge": "HGS MODE",
+          "response": "PRI"
+        },
+        {
+          "type": "item",
+          "challenge": "HGS STBY",
+          "response": "ARM"
+        },
+        {
+          "type": "item",
+          "challenge": "HGS RWY ELEVATION",
+          "response": "SET AIRPORT ELEVATION (FT)"
+        },
+        {
+          "type": "item",
+          "challenge": "HGS RWY LENGTH",
+          "response": "SET RUNWAY LENGTH (FT)"
+        },
+        {
+          "type": "item",
+          "challenge": "HGS GS",
+          "response": "SET GLIDESLOPE (STANDARD -3.00°)"
+        },
+        {
+          "type": "note",
+          "text": "If too fast, too high, or drag is required:"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEEDBRAKES",
+          "response": "FLIGHT DETENT"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "READJUST (UNDER 18000FT)"
+        }
+      ]
+    },
+    {
+      "id": "approach",
+      "title": "Approach",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY TURNOFF LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "ARM"
+        }
+      ]
+    },
+    {
+      "id": "landing-handflown",
+      "title": "Final Approach & Landing (Handflown)",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "LOWER AS INDICATED ON PFD"
+        },
+        {
+          "type": "item",
+          "challenge": "GEAR",
+          "response": "DOWN (LATEST AT FLAP 20)"
+        },
+        {
+          "type": "note",
+          "text": "Check flaps at reference degree and gear down."
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT (AP)",
+          "response": "DISENGAGE (DISENGAGE BAR DOWN)"
+        },
+        {
+          "type": "item",
+          "challenge": "A/T (AP)",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AP DISENGAGE WARNING",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "TRIM SETTINGS",
+          "response": "ADJUST (WHEN NEEDED)"
+        },
+        {
+          "type": "note",
+          "text": "After touchdown:"
+        },
+        {
+          "type": "item",
+          "challenge": "THROTTLES",
+          "response": "IDLE"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "ENGAGE (IF NOT AUTO-ENGAGED)"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST REVERSERS",
+          "response": "ENGAGE (IF NEEDED)"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST REVERSERS",
+          "response": "DISENGAGE UNDER 80KT"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY",
+          "response": "VACATE"
+        }
+      ]
+    },
+    {
+      "id": "landing-autoland",
+      "title": "Final Approach & Landing (Autoland)",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "LOWER AS INDICATED ON PFD"
+        },
+        {
+          "type": "item",
+          "challenge": "GEAR",
+          "response": "DOWN (LATEST AT FLAP 20)"
+        },
+        {
+          "type": "item",
+          "challenge": "DECISION HEIGHT (OVHD PANEL)",
+          "response": "SET 100 (FT)"
+        },
+        {
+          "type": "item",
+          "challenge": "AP ALT",
+          "response": "SET 0"
+        },
+        {
+          "type": "note",
+          "text": "10-15nm before the runway, verify on glideslope; required to start autoland. When turning onto the ILS, continue below."
+        },
+        {
+          "type": "item",
+          "challenge": "LOC/LOC (AP)",
+          "response": "ON (TO FOLLOW ILS LOCALIZER)"
+        },
+        {
+          "type": "note",
+          "text": "Verify white VOR/LOC illuminated on PFD. Wait until localizer captured, verify green VOR/LOC illuminated."
+        },
+        {
+          "type": "item",
+          "challenge": "APP (AP)",
+          "response": "ON (TO FOLLOW GLIDESLOPE)"
+        },
+        {
+          "type": "note",
+          "text": "Verify white GS illuminated on PFD. Wait until ILS glideslope captured, verify green GS illuminated."
+        },
+        {
+          "type": "item",
+          "challenge": "AP2",
+          "response": "ON"
+        },
+        {
+          "type": "note",
+          "text": "Verify both autopilots on. Verify LAND3, ROLLOUT and FLARE illuminated on PFD."
+        },
+        {
+          "type": "note",
+          "text": "After touchdown:"
+        },
+        {
+          "type": "item",
+          "challenge": "THROTTLES",
+          "response": "IDLE"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "ENGAGE (IF NOT AUTO-ENGAGED)"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST REVERSERS",
+          "response": "ENGAGE (IF NEEDED)"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST REVERSERS",
+          "response": "DISENGAGE UNDER 80KT"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT (AP)",
+          "response": "DISENGAGE (BAR DOWN)"
+        },
+        {
+          "type": "item",
+          "challenge": "A/T (AP)",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AP DISENGAGE WARNING",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY",
+          "response": "VACATE"
+        }
+      ]
+    },
+    {
+      "id": "after-landing-and-taxi-in",
+      "title": "After Landing & Taxi In",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "STDBY"
+        },
+        {
+          "type": "item",
+          "challenge": "FD (AP)",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "SPOILERS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "SET 0"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOBRAKES",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "RUNWAY TURNOFF LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION LIGHTS",
+          "response": "STEADY"
+        },
+        {
+          "type": "item",
+          "challenge": "WHEEL WELL LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOW HEAT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE ANTI-ICE",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "WING ANTI-ICE",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT (AP)",
+          "response": "RESET (BAR UP)"
+        }
+      ]
+    },
+    {
+      "id": "parking-and-shutdown",
+      "title": "Parking & Shutdown",
+      "group": "arr",
+      "items": [
+        {
+          "type": "note",
+          "text": "Before entering the parking position:"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "note",
+          "text": "At the parking position:"
+        },
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "note",
+          "text": "Wait until APU generator is available."
+        },
+        {
+          "type": "item",
+          "challenge": "APU GEN SWITCHES",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR",
+          "response": "APU"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE 1 FUEL CONTROL SWITCH",
+          "response": "CUTOFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE 2 FUEL CONTROL SWITCH",
+          "response": "CUTOFF"
+        },
+        {
+          "type": "item",
+          "challenge": "MASTER WARNING",
+          "response": "DISENGAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND CONNECTIONS (CHOCKS, GROUND POWER)",
+          "response": "SET / CONNECTED"
+        },
+        {
+          "type": "item",
+          "challenge": "DOORS",
+          "response": "OPEN AS REQUIRED"
+        }
+      ]
+    },
+    {
+      "id": "securing-aircraft",
+      "title": "Securing the Aircraft",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "GANGWAY",
+          "response": "ENABLE"
+        },
+        {
+          "type": "item",
+          "challenge": "SEAT BELTS",
+          "response": "OFF / AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND POWER (GRD PWR)",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR (RIGHT)",
+          "response": "GND PWR"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED",
+          "response": "OFF"
+        },
+        {
+          "type": "marker",
+          "text": "External Lights"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION",
+          "response": "STEADY"
+        },
+        {
+          "type": "item",
+          "challenge": "WHEEL WELL",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LOGO",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "WING",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-COLLISION",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "TCAS",
+          "response": "STDBY"
+        },
+        {
+          "type": "item",
+          "challenge": "YAW DAMPER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "PITOT HEAT SWITCHES (PROBE)",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCHES",
+          "response": "BOTH OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "ALL OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "ALL OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "MASTER WARNING",
+          "response": "DISENGAGE"
+        },
+        {
+          "type": "note",
+          "text": "Stop here if the aircraft will fly again; continue below only to set the cockpit dark & cold."
+        },
+        {
+          "type": "item",
+          "challenge": "EXTERNAL LIGHTS",
+          "response": "ALL OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EMERGENCY LIGHTS",
+          "response": "UNCOVERED + OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS SELECTORS",
+          "response": "BOTH OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AC-VOLTMETER SELECTOR (RIGHT)",
+          "response": "STBY PWR"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND POWER (GRD PWR)",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "IFE PASS SEAT POWER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "CABIN / UTILITY POWER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "INTERIOR LIGHTS",
+          "response": "ALL OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "DC-VOLTMETER SELECTOR (LEFT)",
+          "response": "STBY PWR"
+        },
+        {
+          "type": "item",
+          "challenge": "MASTER WARNING",
+          "response": "DISENGAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERY",
+          "response": "UNCOVERED + OFF"
+        }
+      ]
+    }
+  ]
+}

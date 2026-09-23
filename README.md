@@ -28,7 +28,7 @@ one opens it.
 
 ## Content
 
-Currently included, both for the **FBW A380X**:
+**FBW A380X:**
 
 - **Expanded SOP** — transcribed directly from the community "FBW A380X Full SOP Checklist" PDF.
   Content and ordering match the source exactly, aside from a handful of obvious spelling
@@ -37,6 +37,24 @@ Currently included, both for the **FBW A380X**:
   Simulations' own aircraft repo
   ([`flybywiresim/aircraft`](https://github.com/flybywiresim/aircraft), GPL-3.0 — the actual
   data their in-sim EFB checklist page uses). Credit: FlyByWire Simulations.
+
+**PMDG 737-800:**
+
+- **Quick Reference** — transcribed from a community "Boeing 737-800 Normal Checklist" PDF
+  ([bluemarble.ch](https://bluemarble.ch/files/b737/B737NG_NORMAL_CHECKLIST.pdf)). Real Boeing
+  737-800/NG QRH content and format; not PMDG-branded, but directly applicable since PMDG's
+  737-800 closely simulates the real aircraft. One header typo ("CHECLIST") corrected; the
+  closing "Airport Bar Checklist" is a well-known community in-joke, kept verbatim.
+- **Expanded Checklist** — transcribed from Carsten Rau's "Boeing 737 NG Checklist +
+  Flow-Procedure" PDF ([hweistra.nl](https://www.hweistra.nl/Checklist-737-PMDG-737NGX.pdf)),
+  written for the FSX-era PMDG 737NGX. The real aircraft flow/switch content was transcribed
+  faithfully; simulator/multiplayer-session-specific instructions from that legacy setup
+  (starting an FSX flight, an old VATSIM voice-client's connection/transponder steps, ATC
+  hand-off reminders, keyboard shortcuts, a third-party flight-planning tool) were left out, as
+  agreed with the user, since they don't apply outside that specific setup and would otherwise
+  read as current instructions. The source PDF's fuel-planning reference tables (not checklist
+  content) weren't included either. Marked "DO NOT USE FOR FLIGHT" by its original author —
+  simulation use only, same as everything else in this app.
 
 ### Two kinds of checklist, and where to source them
 

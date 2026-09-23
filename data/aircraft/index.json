@@ -21,6 +21,28 @@
           "itemCount": 43
         }
       ]
+    },
+    {
+      "id": "pmdg738",
+      "name": "PMDG 737-800",
+      "subtitle": "Boeing 737-800 · PMDG",
+      "accent": "#14477A",
+      "documents": [
+        {
+          "id": "sop",
+          "label": "Expanded Checklist",
+          "file": "data/aircraft/pmdg738.json",
+          "phaseCount": 18,
+          "itemCount": 311
+        },
+        {
+          "id": "reference",
+          "label": "Quick Reference",
+          "file": "data/aircraft/pmdg738-reference.json",
+          "phaseCount": 15,
+          "itemCount": 170
+        }
+      ]
     }
   ]
 }

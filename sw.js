@@ -1,4 +1,4 @@
-const CACHE_VERSION = "flight-checklists-v5";
+const CACHE_VERSION = "flight-checklists-v6";
 
 // Precached at install so the app works offline immediately after the first
 // visit. A document/aircraft added later gets cached automatically
@@ -12,6 +12,8 @@ const APP_SHELL = [
   "./data/aircraft/index.json",
   "./data/aircraft/a380x.json",
   "./data/aircraft/a380x-reference.json",
+  "./data/aircraft/pmdg738.json",
+  "./data/aircraft/pmdg738-reference.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-512-maskable.png",

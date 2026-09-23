@@ -1,0 +1,967 @@
+{
+  "aircraft": "PMDG 737-800",
+  "source": "Boeing 737-800 Normal Checklist, community PDF (bluemarble.ch/files/b737/B737NG_NORMAL_CHECKLIST.pdf). Content matches real 737-800/NG systems and QRH format; not PMDG-branded but directly applicable, as PMDG's 737-800 closely simulates the real aircraft. \"CHECLIST\" typo in the Before Taxi header corrected to \"CHECKLIST\"; the closing \"Airport Bar Checklist\" is a well-known community in-joke kept verbatim.",
+  "groups": {
+    "pre": {
+      "label": "Pre-Flight / Ground",
+      "color": "#0F9488"
+    },
+    "dep": {
+      "label": "Departure",
+      "color": "#1D72B8"
+    },
+    "air": {
+      "label": "Airborne",
+      "color": "#5A67A6"
+    },
+    "arr": {
+      "label": "Arrival / Ground",
+      "color": "#0F9488"
+    }
+  },
+  "phases": [
+    {
+      "id": "pre-flight",
+      "title": "PRE FLIGHT CHECKLIST",
+      "group": "pre",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERY",
+          "response": "GUARD CLOSED"
+        },
+        {
+          "type": "item",
+          "challenge": "STANDBY POWER",
+          "response": "GUARD CLOSED"
+        },
+        {
+          "type": "item",
+          "challenge": "GND PWR AVAIL",
+          "response": "GND PWR SWITCH ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LIGHTS TEST",
+          "response": "PERFORMED"
+        },
+        {
+          "type": "item",
+          "challenge": "OXYGEN & MASK",
+          "response": "CHECKED"
+        },
+        {
+          "type": "item",
+          "challenge": "FIRE WARN TEST",
+          "response": "PERFORMED"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "APU GEN",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION LIGHTS",
+          "response": "STEADY"
+        },
+        {
+          "type": "item",
+          "challenge": "LOGO LIGHT",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "EMER EXIT LIGHTS",
+          "response": "GUARD CLOSED"
+        },
+        {
+          "type": "item",
+          "challenge": "PASSENGER SIGNS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PACKS",
+          "response": "AUTO/HIGH"
+        },
+        {
+          "type": "item",
+          "challenge": "ISOLATION VALVE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "ENG / APU BLEED",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "IRS MODE SELECTORS",
+          "response": "OFF>NAV"
+        },
+        {
+          "type": "item",
+          "challenge": "FMC",
+          "response": "SET"
+        },
+        {
+          "type": "action",
+          "text": "Request Flight-Plan Clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "MCP V2",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "MCP HDG / TAKEOFF RWY",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "MCP INITIAL ALT",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "YAW DAMPER",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOW HEAT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT ALTITUDE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING ALTITUDE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT DIRECTORS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LNAV",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "VNAV",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "MINIMUMS REF",
+          "response": "BARO or RADIO"
+        },
+        {
+          "type": "item",
+          "challenge": "MINIMUMS",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER REF",
+          "response": "IN or HPA"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO BRAKE",
+          "response": "RTO"
+        },
+        {
+          "type": "item",
+          "challenge": "COM RADIOS",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "DOORS",
+          "response": "CLOSED"
+        }
+      ]
+    },
+    {
+      "id": "before-start",
+      "title": "BEFORE START CHECKLIST",
+      "group": "dep",
+      "items": [
+        {
+          "type": "action",
+          "text": "Request Pushback & Startup Clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT DISENGAGE BAR",
+          "response": "UP"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOTHROTTLE",
+          "response": "ARM"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI COLLISION LIGHT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND EQUIPMENT",
+          "response": "REMOVED"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE AREA",
+          "response": "CLEAR"
+        }
+      ]
+    },
+    {
+      "id": "engine-start",
+      "title": "ENGINE START CHECKLIST",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ENGINE DISPLAY",
+          "response": "SELECT"
+        },
+        {
+          "type": "item",
+          "challenge": "PACKS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCH",
+          "response": "GND"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START LEVER",
+          "response": "IDLE AT 25% N2"
+        }
+      ]
+    },
+    {
+      "id": "before-taxi",
+      "title": "BEFORE TAXI CHECKLIST",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "GENERATORS 1 & 2",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PROBE HEAT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "WING ANTI ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE ANTI ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "PACKS",
+          "response": "AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "ISOLATION VALVE",
+          "response": "AUTO"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCHES",
+          "response": "CONT"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "SET FOR T/O"
+        },
+        {
+          "type": "item",
+          "challenge": "ELEVATOR TRIM",
+          "response": "SET FOR T/O"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT CONTROLS",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "RECALL",
+          "response": "CHECK"
+        },
+        {
+          "type": "action",
+          "text": "Request Taxi Clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "RWY TURNOFF LIGHTS",
+          "response": "AS REQUIRED"
+        }
+      ]
+    },
+    {
+      "id": "before-takeoff",
+      "title": "BEFORE TAKE-OFF CHECKLIST",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "FUEL FLOW",
+          "response": "RESET, then RATE"
+        },
+        {
+          "type": "item",
+          "challenge": "CENTER FUEL PUMPS",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT INSTRUMENTS",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE INSTRUMENTS",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "TAKE-OFF DATA",
+          "response": "(V1,VR,V2) CHECK"
+        },
+        {
+          "type": "action",
+          "text": "Request Take-Off Clearance"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "STROBE LIGHT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "TA/RA"
+        },
+        {
+          "type": "item",
+          "challenge": "TFC",
+          "response": "PUSH ON"
+        },
+        {
+          "type": "item",
+          "challenge": "CLOCK",
+          "response": "START"
+        }
+      ]
+    },
+    {
+      "id": "after-takeoff",
+      "title": "AFTER TAKE-OFF CHECKLIST",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "POSITIVE RATE OF CLIMB",
+          "response": "GEAR UP"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO-BRAKE",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCHES",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "GEAR LEVER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "RWY TURN-OFF LIGHTS",
+          "response": "OFF"
+        }
+      ]
+    },
+    {
+      "id": "climb-and-cruise",
+      "title": "CLIMB AND CRUISE CHECKLIST",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "CMD A or B",
+          "response": "ENGAGE"
+        },
+        {
+          "type": "marker",
+          "text": "Passing Transition Altitude"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "SET STD"
+        },
+        {
+          "type": "item",
+          "challenge": "BELOW 10'000FT",
+          "response": "MAX 250 KIAS"
+        },
+        {
+          "type": "marker",
+          "text": "Passing 10'000 FT"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FASTEN SEAT BELTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "CENTER FUEL PUMPS",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "marker",
+          "text": "Cruise"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE & INSTRUMENTS",
+          "response": "MONITOR"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL QUANTITY",
+          "response": "CHECK"
+        }
+      ]
+    },
+    {
+      "id": "descent",
+      "title": "DESCENT CHECKLIST",
+      "group": "air",
+      "items": [
+        {
+          "type": "marker",
+          "text": "Before Top Of Descent"
+        },
+        {
+          "type": "item",
+          "challenge": "ATIS / AIRPORT INFO",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "RADIOS",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "RESET MCP ALTITUDE",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "VREF",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "LOCALIZER FREQ",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "IS LOC COURSE",
+          "response": "SET"
+        },
+        {
+          "type": "marker",
+          "text": "Descent"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING ALTITUDE",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "RECALL",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "RADIO ALT / BARO MIN",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO BRAKE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "marker",
+          "text": "Passing Transition Altitude"
+        },
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "RESET TO LOCAL"
+        },
+        {
+          "type": "marker",
+          "text": "Below 10'000 FT"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED",
+          "response": "MAX 250 KIAS"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "PASSENGER SIGNS",
+          "response": "ON"
+        }
+      ]
+    },
+    {
+      "id": "approach",
+      "title": "APPROACH CHECKLIST",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ALTIMETER",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "LOCALIZER FREQUENCY",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "LOCALIZER COURSE",
+          "response": "CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "APP",
+          "response": "ARM"
+        },
+        {
+          "type": "item",
+          "challenge": "GLIDESLOPE ALIVE",
+          "response": "GEAR DOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "15"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED BRAKE",
+          "response": "ARM"
+        },
+        {
+          "type": "item",
+          "challenge": "2ND AUTOPILOT",
+          "response": "ARM"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCHES",
+          "response": "CONT"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING FLAPS",
+          "response": "SET"
+        }
+      ]
+    },
+    {
+      "id": "landing",
+      "title": "LANDING CHECKLIST",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "GO-AROUND ALTITUDE",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "RWY TURN-OFF LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING GEAR",
+          "response": "CHECK DOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO-THRUST",
+          "response": "AS REQUIRED"
+        }
+      ]
+    },
+    {
+      "id": "landing-roll",
+      "title": "LANDING ROLL CHECKLIST",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "THRUST REVERSE",
+          "response": "ENGAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOPILOT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTOTHRUST",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AT 60 KTS",
+          "response": "REV THRUST TO IDLE"
+        },
+        {
+          "type": "item",
+          "challenge": "AT 30 KTS",
+          "response": "AUTO-BRAKE DISENGAGE"
+        }
+      ]
+    },
+    {
+      "id": "after-landing",
+      "title": "AFTER LANDING CHECKLIST",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "TRANSPONDER",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RETRACT"
+        },
+        {
+          "type": "item",
+          "challenge": "SPEED BRAKE",
+          "response": "DOWN"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "POSITION LIGHTS",
+          "response": "STEADY"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI ICE",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "START"
+        },
+        {
+          "type": "item",
+          "challenge": "PROBE HEAT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START SWITCHES",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "AUTO-BRAKE",
+          "response": "OFF"
+        },
+        {
+          "type": "marker",
+          "text": "Taxi To Gate"
+        },
+        {
+          "type": "item",
+          "challenge": "RWY TURNOFF LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU GEN",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHTS",
+          "response": "OFF"
+        }
+      ]
+    },
+    {
+      "id": "parking-shutdown",
+      "title": "PARKING / SHUTDOWN CHECKLIST",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "PARKING BRAKES",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINE START LEVERS",
+          "response": "CUTOFF"
+        },
+        {
+          "type": "item",
+          "challenge": "GROUND OPERATIONS",
+          "response": "AS REQUIRED"
+        },
+        {
+          "type": "item",
+          "challenge": "PASSENGER SIGNS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU BLEED AIR",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI COLLISION LIGHT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "FUEL PUMPS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ANTI-ICE",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "HYDRAULIC PUMPS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ISOLATION VALVE",
+          "response": "OPEN"
+        },
+        {
+          "type": "item",
+          "challenge": "FLIGHT DIRECTOR",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "GND POWER",
+          "response": "ESTABLISH"
+        },
+        {
+          "type": "item",
+          "challenge": "DOORS",
+          "response": "OPEN"
+        }
+      ]
+    },
+    {
+      "id": "securing-aircraft",
+      "title": "SECURING AIRCRAFT",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "IRS MODE SELECTORS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "APU",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EMERGENCY EXIT LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOW HEAT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "PACKS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "STANDBY POWER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERY",
+          "response": "OFF"
+        }
+      ]
+    },
+    {
+      "id": "airport-bar",
+      "title": "AIRPORT BAR CHECKLIST",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ORDER DRINK",
+          "response": "CHECK"
+        }
+      ]
+    }
+  ]
+}
