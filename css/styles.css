@@ -538,19 +538,32 @@ body {
 }
 .item-row.item-action .item-checkbox { border-radius: 8px; }
 
-/* Note rows: informational, non-interactive */
+/* Note rows: informational, collapsed to one line by default — tap to expand */
 .item-row.item-note {
-  cursor: default;
+  cursor: pointer;
   background: transparent;
   border-style: dashed;
-  padding-left: 14px;
+  padding-left: 10px;
+  min-height: 0;
 }
 .item-row.item-note .item-text-wrap {
   font-style: italic;
   color: var(--text-dim);
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.item-row.item-note:active { background: transparent; }
+.item-row.item-note.expanded .item-text-wrap {
+  white-space: normal;
+}
+.item-row.item-note:active { background: var(--panel-raised); }
+.note-toggle-icon {
+  flex: 0 0 auto;
+  width: 14px;
+  font-size: 11px;
+  color: var(--text-faint);
+}
 
 /* Marker rows: small centered caption */
 .item-row.item-marker {

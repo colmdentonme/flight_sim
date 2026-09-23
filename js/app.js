@@ -96,6 +96,7 @@
   let checked = new Set();
   let blanks = {}; // "<itemId>:<blankIdx>" -> typed-in value
   let na = new Set(); // items marked "not applicable" this flight (optional/conditional items only)
+  let expandedNotes = new Set(); // note items tapped open this session — UI state, not persisted
   let currentPhase = 0;
   let resetScope = "all"; // "all" or "phase", set right before the confirm modal opens
 
@@ -303,6 +304,8 @@
 
   function jumpToSearchResult(phaseIdx, itemIdx) {
     closeSearch();
+    const item = data.phases[phaseIdx].items[itemIdx];
+    if (item.type === "note") expandedNotes.add(itemId(data.phases[phaseIdx], itemIdx));
     goToPhase(phaseIdx);
     requestAnimationFrame(() => {
       const row = els.itemList.querySelector(`[data-item-idx="${itemIdx}"]`);
@@ -584,7 +587,28 @@
     if (isChecked) li.classList.add("checked");
     if (isNA) li.classList.add("na");
 
-    if (item.type === "note" || item.type === "marker") {
+    if (item.type === "note") {
+      const isExpanded = expandedNotes.has(id);
+      li.classList.add("collapsible");
+      if (isExpanded) li.classList.add("expanded");
+
+      const icon = document.createElement("span");
+      icon.className = "note-toggle-icon";
+      icon.textContent = isExpanded ? "▾" : "▸";
+
+      const wrap = document.createElement("div");
+      wrap.className = "item-text-wrap";
+      wrap.textContent = item.text;
+
+      li.append(icon, wrap);
+      li.addEventListener("click", () => {
+        if (expandedNotes.has(id)) expandedNotes.delete(id); else expandedNotes.add(id);
+        renderCurrentPhase();
+      });
+      return li;
+    }
+
+    if (item.type === "marker") {
       const wrap = document.createElement("div");
       wrap.className = "item-text-wrap";
       wrap.textContent = item.text;
@@ -802,6 +826,7 @@
     currentDocId = doc.id;
     saveLastOpened(aircraft.id, doc.id);
     loadState(aircraft.id, doc.id);
+    expandedNotes = new Set();
     data = await loadDocData(aircraft.id, doc);
     await buildReverseLinks(aircraft, doc);
     buildSearchIndex();
