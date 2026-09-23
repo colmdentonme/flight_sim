@@ -33,6 +33,12 @@ one opens it.
 - QREF blanks (fuel quantity, V-speeds, runway, FCU altitude, etc.) are tappable — tap one to
   type the value for this flight; it's saved per document like checked items, and cleared by the
   reset button along with everything else.
+- A "Reset phase" link appears once you've checked anything in the current phase, for clearing
+  just that phase without wiping the whole document's progress.
+- Conditional items — whichever response is exactly "AS REQUIRED"/"AS RQRD"/"AS REQ", since
+  those don't always apply on a given flight (anti-ice, packs, etc.) — get an "N/A" toggle next
+  to the checkbox, so a phase can still reach "complete" without leaving them checked when they
+  don't apply that flight.
 
 ## Content
 

@@ -108,7 +108,10 @@
     <div id="drawer-scrim"></div>
 
     <main id="checklist-main">
-      <div id="phase-progress-label"></div>
+      <div id="phase-progress-row">
+        <div id="phase-progress-label"></div>
+        <button id="phase-reset-btn" type="button">Reset phase</button>
+      </div>
       <ul id="item-list"></ul>
     </main>
 
@@ -136,7 +139,7 @@
 <div id="reset-confirm" class="modal-scrim" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="reset-confirm-title">
     <h2 id="reset-confirm-title">Reset for new flight?</h2>
-    <p>This clears every checked item across all phases. This can't be undone.</p>
+    <p id="reset-confirm-body">This clears every checked item across all phases. This can't be undone.</p>
     <div class="modal-actions">
       <button id="reset-cancel-btn" class="nav-btn">Cancel</button>
       <button id="reset-confirm-btn" class="nav-btn danger">Reset</button>

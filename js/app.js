@@ -24,7 +24,10 @@
     returnBanner: document.getElementById("return-banner"),
     returnBannerLabel: document.getElementById("return-banner-label"),
     resetBtn: document.getElementById("reset-btn"),
+    phaseResetBtn: document.getElementById("phase-reset-btn"),
     resetConfirm: document.getElementById("reset-confirm"),
+    resetConfirmTitle: document.getElementById("reset-confirm-title"),
+    resetConfirmBody: document.getElementById("reset-confirm-body"),
     resetCancelBtn: document.getElementById("reset-cancel-btn"),
     resetConfirmBtn: document.getElementById("reset-confirm-btn"),
     checklistMain: document.getElementById("checklist-main"),
@@ -92,7 +95,9 @@
   let data = null;
   let checked = new Set();
   let blanks = {}; // "<itemId>:<blankIdx>" -> typed-in value
+  let na = new Set(); // items marked "not applicable" this flight (optional/conditional items only)
   let currentPhase = 0;
+  let resetScope = "all"; // "all" or "phase", set right before the confirm modal opens
 
   // Set when a linkedReference CTA jumps from one document to another, so a
   // "Back to Flow" banner can bring you straight back to where you left off.
@@ -108,6 +113,7 @@
   function storageKeyChecked(aircraftId, docId) { return `sop:${aircraftId}:${docId}:checked`; }
   function storageKeyPhase(aircraftId, docId) { return `sop:${aircraftId}:${docId}:phase`; }
   function storageKeyBlanks(aircraftId, docId) { return `sop:${aircraftId}:${docId}:blanks`; }
+  function storageKeyNA(aircraftId, docId) { return `sop:${aircraftId}:${docId}:na`; }
 
   const LAST_OPENED_KEY = "sop:lastOpened";
   function saveLastOpened(aircraftId, docId) {
@@ -150,6 +156,7 @@
   function loadState(aircraftId, docId) {
     checked = new Set();
     blanks = {};
+    na = new Set();
     currentPhase = 0;
     try {
       const raw = localStorage.getItem(storageKeyChecked(aircraftId, docId));
@@ -159,6 +166,10 @@
       const raw = localStorage.getItem(storageKeyBlanks(aircraftId, docId));
       if (raw) blanks = JSON.parse(raw);
     } catch (e) { blanks = {}; }
+    try {
+      const raw = localStorage.getItem(storageKeyNA(aircraftId, docId));
+      if (raw) na = new Set(JSON.parse(raw));
+    } catch (e) { na = new Set(); }
     try {
       const p = parseInt(localStorage.getItem(storageKeyPhase(aircraftId, docId)), 10);
       if (!Number.isNaN(p)) currentPhase = p;
@@ -177,6 +188,12 @@
     } catch (e) { /* storage unavailable, ignore */ }
   }
 
+  function saveNA() {
+    try {
+      localStorage.setItem(storageKeyNA(currentAircraftId, currentDocId), JSON.stringify([...na]));
+    } catch (e) { /* storage unavailable, ignore */ }
+  }
+
   function savePhase() {
     try {
       localStorage.setItem(storageKeyPhase(currentAircraftId, currentDocId), String(currentPhase));
@@ -185,9 +202,11 @@
 
   function checkedCountFor(aircraftId, docId) {
     try {
-      const raw = localStorage.getItem(storageKeyChecked(aircraftId, docId));
-      if (!raw) return 0;
-      return JSON.parse(raw).length;
+      const checkedRaw = localStorage.getItem(storageKeyChecked(aircraftId, docId));
+      const naRaw = localStorage.getItem(storageKeyNA(aircraftId, docId));
+      const checkedIds = checkedRaw ? JSON.parse(checkedRaw) : [];
+      const naIds = naRaw ? JSON.parse(naRaw) : [];
+      return new Set([...checkedIds, ...naIds]).size;
     } catch (e) { return 0; }
   }
 
@@ -199,12 +218,20 @@
     return item.type === "item" || item.type === "action";
   }
 
+  // Conditional items ("AS REQUIRED" / "AS RQRD") don't always apply on a
+  // given flight, so they can be marked N/A instead of left permanently
+  // unchecked. N/A counts the same as checked for completion purposes.
+  function isOptional(item) {
+    return isCheckable(item) && /^AS (REQUIRED|RQRD|REQ)\.?$/i.test((item.response || "").trim());
+  }
+
   function phaseStats(phase) {
     let total = 0, done = 0;
     phase.items.forEach((item, idx) => {
       if (!isCheckable(item)) return;
       total++;
-      if (checked.has(itemId(phase, idx))) done++;
+      const id = itemId(phase, idx);
+      if (checked.has(id) || na.has(id)) done++;
     });
     return { total, done };
   }
@@ -503,11 +530,14 @@
     const id = itemId(phase, idx);
     const checkable = isCheckable(item);
     const isChecked = checkable && checked.has(id);
+    const optional = checkable && isOptional(item);
+    const isNA = optional && na.has(id);
 
     li.dataset.itemIdx = idx;
     li.className = "item-row item-" + item.type;
     if (item.emphasis) li.classList.add("emphasis");
     if (isChecked) li.classList.add("checked");
+    if (isNA) li.classList.add("na");
 
     if (item.type === "note" || item.type === "marker") {
       const wrap = document.createElement("div");
@@ -541,10 +571,37 @@
 
     li.append(box, wrap);
 
+    if (optional) {
+      const naBtn = document.createElement("span");
+      naBtn.className = "na-toggle" + (isNA ? " active" : "");
+      naBtn.textContent = "N/A";
+      naBtn.setAttribute("role", "button");
+      naBtn.tabIndex = 0;
+      naBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (na.has(id)) {
+          na.delete(id);
+        } else {
+          na.add(id);
+          checked.delete(id);
+          saveChecked();
+        }
+        saveNA();
+        renderCurrentPhase();
+        renderPhaseDrawer();
+        renderOverallProgress();
+      });
+      li.appendChild(naBtn);
+    }
+
     if (checkable) {
       li.addEventListener("click", () => {
-        if (checked.has(id)) checked.delete(id);
-        else checked.add(id);
+        if (checked.has(id)) {
+          checked.delete(id);
+        } else {
+          checked.add(id);
+          if (na.has(id)) { na.delete(id); saveNA(); }
+        }
         saveChecked();
         renderCurrentPhase();
         renderPhaseDrawer();
@@ -566,6 +623,7 @@
       ? (isComplete ? "✓ Phase complete" : `${s.done} of ${s.total} checked`)
       : "Informational";
     els.phaseProgressLabel.classList.toggle("complete", isComplete);
+    els.phaseResetBtn.hidden = s.total === 0 || s.done === 0;
 
     els.itemList.innerHTML = "";
     const banner = document.createElement("div");
@@ -749,15 +807,39 @@
     });
 
     els.resetBtn.addEventListener("click", () => {
+      resetScope = "all";
+      els.resetConfirmTitle.textContent = "Reset for new flight?";
+      els.resetConfirmBody.textContent = "This clears every checked item across all phases. This can't be undone.";
+      els.resetConfirm.hidden = false;
+    });
+    els.phaseResetBtn.addEventListener("click", () => {
+      resetScope = "phase";
+      const phase = data.phases[currentPhase];
+      els.resetConfirmTitle.textContent = "Reset this phase?";
+      els.resetConfirmBody.textContent = `This clears every checked item in "${phase.title}" only. This can't be undone.`;
       els.resetConfirm.hidden = false;
     });
     els.resetCancelBtn.addEventListener("click", () => {
       els.resetConfirm.hidden = true;
     });
     els.resetConfirmBtn.addEventListener("click", () => {
-      checked.clear();
+      if (resetScope === "phase") {
+        const phase = data.phases[currentPhase];
+        phase.items.forEach((item, idx) => {
+          const id = itemId(phase, idx);
+          checked.delete(id);
+          na.delete(id);
+          Object.keys(blanks).forEach((key) => {
+            if (key.startsWith(id + ":")) delete blanks[key];
+          });
+        });
+      } else {
+        checked.clear();
+        na.clear();
+        blanks = {};
+      }
       saveChecked();
-      blanks = {};
+      saveNA();
       saveBlanks();
       renderCurrentPhase();
       renderPhaseDrawer();
