@@ -91,6 +91,7 @@
   let currentDocId = null;
   let data = null;
   let checked = new Set();
+  let blanks = {}; // "<itemId>:<blankIdx>" -> typed-in value
   let currentPhase = 0;
 
   // Set when a linkedReference CTA jumps from one document to another, so a
@@ -106,6 +107,7 @@
 
   function storageKeyChecked(aircraftId, docId) { return `sop:${aircraftId}:${docId}:checked`; }
   function storageKeyPhase(aircraftId, docId) { return `sop:${aircraftId}:${docId}:phase`; }
+  function storageKeyBlanks(aircraftId, docId) { return `sop:${aircraftId}:${docId}:blanks`; }
 
   const LAST_OPENED_KEY = "sop:lastOpened";
   function saveLastOpened(aircraftId, docId) {
@@ -147,11 +149,16 @@
 
   function loadState(aircraftId, docId) {
     checked = new Set();
+    blanks = {};
     currentPhase = 0;
     try {
       const raw = localStorage.getItem(storageKeyChecked(aircraftId, docId));
       if (raw) checked = new Set(JSON.parse(raw));
     } catch (e) { checked = new Set(); }
+    try {
+      const raw = localStorage.getItem(storageKeyBlanks(aircraftId, docId));
+      if (raw) blanks = JSON.parse(raw);
+    } catch (e) { blanks = {}; }
     try {
       const p = parseInt(localStorage.getItem(storageKeyPhase(aircraftId, docId)), 10);
       if (!Number.isNaN(p)) currentPhase = p;
@@ -161,6 +168,12 @@
   function saveChecked() {
     try {
       localStorage.setItem(storageKeyChecked(currentAircraftId, currentDocId), JSON.stringify([...checked]));
+    } catch (e) { /* storage unavailable, ignore */ }
+  }
+
+  function saveBlanks() {
+    try {
+      localStorage.setItem(storageKeyBlanks(currentAircraftId, currentDocId), JSON.stringify(blanks));
     } catch (e) { /* storage unavailable, ignore */ }
   }
 
@@ -419,6 +432,72 @@
     });
   }
 
+  const BLANK_RE = /_{2,}/g;
+
+  function activateFillBlank(span, key) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "fill-blank-input";
+    input.autocomplete = "off";
+    input.autocapitalize = "characters";
+    input.spellcheck = false;
+    input.value = blanks[key] || "";
+    input.addEventListener("click", (e) => e.stopPropagation());
+    input.addEventListener("keydown", (e) => {
+      e.stopPropagation();
+      if (e.key === "Enter") input.blur();
+    });
+    input.addEventListener("blur", () => {
+      const val = input.value.trim();
+      if (val) blanks[key] = val; else delete blanks[key];
+      saveBlanks();
+      renderCurrentPhase();
+    });
+    span.replaceWith(input);
+    input.focus();
+    input.select();
+  }
+
+  function renderFillBlank(itemId_, blankIdx, underscoreLen) {
+    const key = `${itemId_}:${blankIdx}`;
+    const val = blanks[key];
+    const span = document.createElement("span");
+    span.className = "fill-blank" + (val ? " filled" : "");
+    span.textContent = val || "_".repeat(Math.max(underscoreLen, 3));
+    span.setAttribute("role", "button");
+    span.tabIndex = 0;
+    span.addEventListener("click", (e) => {
+      e.stopPropagation();
+      activateFillBlank(span, key);
+    });
+    return span;
+  }
+
+  function renderResponse(id, responseText) {
+    const response = document.createElement("span");
+    response.className = "item-response";
+    BLANK_RE.lastIndex = 0;
+    let lastIndex = 0;
+    let blankIdx = 0;
+    let match;
+    let hasBlank = false;
+    while ((match = BLANK_RE.exec(responseText))) {
+      hasBlank = true;
+      if (match.index > lastIndex) {
+        response.appendChild(document.createTextNode(responseText.slice(lastIndex, match.index)));
+      }
+      response.appendChild(renderFillBlank(id, blankIdx, match[0].length));
+      blankIdx += 1;
+      lastIndex = BLANK_RE.lastIndex;
+    }
+    if (!hasBlank) {
+      response.textContent = responseText;
+    } else if (lastIndex < responseText.length) {
+      response.appendChild(document.createTextNode(responseText.slice(lastIndex)));
+    }
+    return response;
+  }
+
   function renderItemRow(phase, item, idx) {
     const li = document.createElement("li");
     const id = itemId(phase, idx);
@@ -453,9 +532,7 @@
       const leader = document.createElement("span");
       leader.className = "item-leader";
 
-      const response = document.createElement("span");
-      response.className = "item-response";
-      response.textContent = item.response;
+      const response = renderResponse(id, item.response);
 
       wrap.append(challenge, leader, response);
     } else {
@@ -680,6 +757,8 @@
     els.resetConfirmBtn.addEventListener("click", () => {
       checked.clear();
       saveChecked();
+      blanks = {};
+      saveBlanks();
       renderCurrentPhase();
       renderPhaseDrawer();
       renderOverallProgress();

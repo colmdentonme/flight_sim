@@ -1,4 +1,4 @@
-const CACHE_VERSION = "flight-checklists-v14";
+const CACHE_VERSION = "flight-checklists-v15";
 
 // Precached at install so the app works offline immediately after the first
 // visit. A document/aircraft added later gets cached automatically

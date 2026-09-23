@@ -30,6 +30,9 @@ one opens it.
   arrived there, not just when you followed the forward link in the same session.
 - A phase's progress label switches to a clear "✓ Phase complete" once every item in it is
   checked, instead of just a count ticking up.
+- QREF blanks (fuel quantity, V-speeds, runway, FCU altitude, etc.) are tappable — tap one to
+  type the value for this flight; it's saved per document like checked items, and cleared by the
+  reset button along with everything else.
 
 ## Content
 
