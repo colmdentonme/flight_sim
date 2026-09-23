@@ -212,7 +212,12 @@
           "challenge": "FD",
           "response": "ON"
         }
-      ]
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "cockpit-preparation",
+        "label": "Read QREF: COCKPIT PREPARATION"
+      }
     },
     {
       "id": "fmgs-setup",
@@ -348,8 +353,8 @@
       ],
       "linkedReference": {
         "docId": "reference",
-        "phaseId": "pre-flight-before-start",
-        "label": "Read QREF: PRE-FLIGHT / BEFORE START"
+        "phaseId": "before-start",
+        "label": "Read QREF: BEFORE START"
       }
     },
     {
@@ -403,12 +408,7 @@
           "type": "note",
           "text": "Repeat the ground-communication/right-side/ENG MODE/ENG MASTER/ECAM/ENGINE steps for Engine 1."
         }
-      ],
-      "linkedReference": {
-        "docId": "reference",
-        "phaseId": "engine-start",
-        "label": "Read QREF: ENGINE START"
-      }
+      ]
     },
     {
       "id": "after-start-flows",
@@ -491,7 +491,12 @@
           "challenge": "HAND SIGNALS",
           "response": "RECEIVED"
         }
-      ]
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "after-start",
+        "label": "Read QREF: AFTER START"
+      }
     },
     {
       "id": "taxi-flows",
@@ -591,8 +596,8 @@
       ],
       "linkedReference": {
         "docId": "reference",
-        "phaseId": "pre-departure",
-        "label": "Read QREF: PRE-DEPARTURE"
+        "phaseId": "line-up",
+        "label": "Read QREF: LINE-UP"
       }
     },
     {
@@ -629,12 +634,7 @@
           "challenge": "PACK 1+2",
           "response": "ON"
         }
-      ],
-      "linkedReference": {
-        "docId": "reference",
-        "phaseId": "after-takeoff",
-        "label": "Read QREF: AFTER TAKEOFF"
-      }
+      ]
     },
     {
       "id": "climb-10000ft-flows",
@@ -693,12 +693,7 @@
           "challenge": "ANTI ICE",
           "response": "AS RQRD"
         }
-      ],
-      "linkedReference": {
-        "docId": "reference",
-        "phaseId": "descent",
-        "label": "Read QREF: DESCENT"
-      }
+      ]
     },
     {
       "id": "descent-10000ft-flows",
@@ -774,8 +769,8 @@
       ],
       "linkedReference": {
         "docId": "reference",
-        "phaseId": "approach",
-        "label": "Read QREF: APPROACH"
+        "phaseId": "landing",
+        "label": "Read QREF: LANDING"
       }
     },
     {
@@ -877,8 +872,8 @@
       ],
       "linkedReference": {
         "docId": "reference",
-        "phaseId": "shutdown",
-        "label": "Read QREF: SHUTDOWN"
+        "phaseId": "parking",
+        "label": "Read QREF: PARKING"
       }
     },
     {
@@ -936,7 +931,12 @@
           "challenge": "BAT 1+2",
           "response": "OFF"
         }
-      ]
+      ],
+      "linkedReference": {
+        "docId": "reference",
+        "phaseId": "securing-aircraft",
+        "label": "Read QREF: SECURING AIRCRAFT"
+      }
     }
   ]
 }

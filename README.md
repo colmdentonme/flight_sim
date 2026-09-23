@@ -82,10 +82,13 @@ one opens it.
 
 **Fenix A320 CEO** (classic engine option, not NEO):
 
-- **Quick Reference** — transcribed from "Airbus A320 Summarised Checklist" for the Fenix
-  A320-200, by BritishAvgeek (same author as the PMDG 737 QREF above). Explicitly the CEO model.
-  Published under a virtual airline's branding; only the checklist content itself was
-  transcribed, not the livery.
+- **Quick Reference** — converted from FlyByWire Simulations' own aircraft repo
+  ([`flybywiresim/aircraft`](https://github.com/flybywiresim/aircraft), GPL-3.0), the same
+  in-sim EFB checklist data already used for the A380X's Quick Reference. Published under their
+  A32NX (NEO) product, but the content itself is engine-agnostic (no PW1100G/LEAP-specific
+  items) and matches the real Airbus A320-family QRH Normal Checklist, so it applies equally to
+  the CEO — genuinely concise (42 items) rather than the longer summarised-checklist style used
+  elsewhere in this app. Credit: FlyByWire Simulations.
 - **Expanded Checklist** — transcribed from "Airbus 320/321 Cockpit Flows" by Eisa Godoussey,
   derived from Aerosoft's "Step by Step" document and explicitly written to be
   aircraft/livery-generic — no NEO-specific content (no PW1100G/LEAP references), so it applies

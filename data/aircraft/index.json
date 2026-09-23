@@ -83,8 +83,8 @@
           "id": "reference",
           "label": "Quick Reference",
           "file": "data/aircraft/fenix320-reference.json",
-          "phaseCount": 10,
-          "itemCount": 124
+          "phaseCount": 11,
+          "itemCount": 42
         }
       ]
     }

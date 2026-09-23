@@ -1,6 +1,6 @@
 {
   "aircraft": "Fenix A320 CEO",
-  "source": "\"Airbus A320 Summarised Checklist\" for the Fenix A320-200, by BritishAvgeek (same author as the PMDG 737 checklist used elsewhere in this app). Explicitly the CEO model (A320-200, not NEO). Published under a virtual airline's branding (\"Osprey Airways\"); only the checklist content itself was transcribed, not the livery/branding. \"Not to be used for any Real World Use - For home Flight Simulation Use Only\" per the source.",
+  "source": "FlyByWire Simulations' own aircraft repo (github.com/flybywiresim/aircraft, GPL-3.0), fbw-a32nx normal-checklist EFB data - the actual data their in-sim EFB checklist page uses. Published under FlyByWire's A32NX (NEO) product, but the content itself is engine-agnostic (no PW1100G/LEAP-specific items) and matches the real Airbus A320-family QRH Normal Checklist, so it applies equally to the CEO. Used in place of the previous, longer BritishAvgeek-sourced summarised checklist for a more concise, closer-to-real-QRH reference. Credit: FlyByWire Simulations.",
   "groups": {
     "pre": {
       "label": "Pre-Flight / Ground",
@@ -21,38 +21,24 @@
   },
   "phases": [
     {
-      "id": "pre-flight-before-start",
-      "title": "PRE-FLIGHT / BEFORE START",
-      "group": "pre",
+      "id": "cockpit-preparation",
+      "title": "COCKPIT PREPARATION",
+      "group": "dep",
       "items": [
         {
           "type": "item",
-          "challenge": "Cockpit Preparations",
-          "response": "Completed"
+          "challenge": "GEAR PINS & COVERS",
+          "response": "REMOVED"
         },
         {
           "type": "item",
-          "challenge": "Parking Brake",
-          "response": "SET"
+          "challenge": "FUEL QUANTITY",
+          "response": "_____ KG/LB, BALANCED"
         },
         {
           "type": "item",
-          "challenge": "GPU",
-          "response": "Connected"
-        },
-        {
-          "type": "item",
-          "challenge": "EXT Power “Avail”",
+          "challenge": "SEAT BELTS",
           "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "BATT 1 & 2",
-          "response": "On/Auto"
-        },
-        {
-          "type": "marker",
-          "text": "Check Voltage Sufficient"
         },
         {
           "type": "item",
@@ -61,244 +47,62 @@
         },
         {
           "type": "item",
-          "challenge": "EVAC",
-          "response": "Set Capt/Purs"
-        },
-        {
-          "type": "item",
-          "challenge": "Signs",
-          "response": "On/Auto"
-        },
-        {
-          "type": "item",
-          "challenge": "Lights",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Crew Oxygen",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "Fuel Pumps",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "GEN 1 & 2",
-          "response": "ON / “FAULT”"
-        },
-        {
-          "type": "item",
-          "challenge": "Cockpit/Cabin Heat",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Pack 1 & 2",
-          "response": "ON / “FAULT”"
-        },
-        {
-          "type": "item",
-          "challenge": "Lights",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Signs",
-          "response": "On/Auto"
-        },
-        {
-          "type": "item",
-          "challenge": "Warning/Caution/Fire/Oxygen Tests",
-          "response": "Completed"
-        },
-        {
-          "type": "item",
-          "challenge": "EMER Exit Lights",
-          "response": "ARM"
-        },
-        {
-          "type": "item",
-          "challenge": "Ice Ind/STBY Compass",
-          "response": "On"
-        },
-        {
-          "type": "item",
-          "challenge": "Cargo Heat",
-          "response": "As Required"
-        },
-        {
-          "type": "marker",
-          "text": "Set FMC / MCDU / Obtain Clearance"
-        },
-        {
-          "type": "item",
-          "challenge": "Altimeter",
-          "response": "SET"
-        },
-        {
-          "type": "item",
-          "challenge": "Transponder",
-          "response": "SET"
-        },
-        {
-          "type": "item",
-          "challenge": "PWS",
-          "response": "Set AUTO"
-        },
-        {
-          "type": "item",
-          "challenge": "GCS",
-          "response": "Set AUTO"
-        },
-        {
-          "type": "item",
-          "challenge": "Fueling / Loading / Boarding",
-          "response": "Completed"
-        },
-        {
-          "type": "item",
-          "challenge": "APU Master",
-          "response": "On – Wait 3sec"
-        },
-        {
-          "type": "item",
-          "challenge": "APU",
-          "response": "START"
-        },
-        {
-          "type": "item",
-          "challenge": "APU Bleed “AVAIL”",
-          "response": "Bleed ON"
-        },
-        {
-          "type": "item",
-          "challenge": "EXT Pwr",
-          "response": "OFF"
-        },
-        {
-          "type": "item",
-          "challenge": "Take Off Data",
-          "response": "SET"
-        },
-        {
-          "type": "item",
-          "challenge": "FCU",
-          "response": "SET"
-        },
-        {
-          "type": "marker",
-          "text": "Departure – Briefed & Checked"
-        },
-        {
-          "type": "item",
-          "challenge": "Flight Directors",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "Radios",
-          "response": "Frequencies SET"
+          "challenge": "BARO REF",
+          "response": "_____ (BOTH)"
         }
       ]
     },
     {
-      "id": "engine-start",
-      "title": "ENGINE START",
+      "id": "before-start",
+      "title": "BEFORE START",
       "group": "dep",
       "items": [
         {
-          "type": "marker",
-          "text": "Doors Closed / Gnd Equip. Clear / Chocks Away"
-        },
-        {
-          "type": "action",
-          "text": "Request Push & Start Clearance"
+          "type": "item",
+          "challenge": "PARKING BRAKE",
+          "response": "AS RQRD"
         },
         {
           "type": "item",
-          "challenge": "Beacon Light",
+          "challenge": "T.O SPEEDS & THRUST",
+          "response": "_____ (BOTH)"
+        },
+        {
+          "type": "item",
+          "challenge": "WINDOWS",
+          "response": "CLOSED"
+        },
+        {
+          "type": "item",
+          "challenge": "BEACON",
           "response": "ON"
+        }
+      ]
+    },
+    {
+      "id": "after-start",
+      "title": "AFTER START",
+      "group": "dep",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ANTI ICE",
+          "response": "AS RQRD"
         },
         {
           "type": "item",
-          "challenge": "Fuel Pumps",
-          "response": "Confirm ON"
+          "challenge": "ECAM STATUS",
+          "response": "CHECKED"
         },
         {
           "type": "item",
-          "challenge": "Ignition Mode Selector",
-          "response": "Set IGN/START"
+          "challenge": "PITCH TRIM",
+          "response": "_____%"
         },
         {
           "type": "item",
-          "challenge": "ENG 2 Switch",
-          "response": "ON"
-        },
-        {
-          "type": "marker",
-          "text": "Repeat for ENG 1 – Then when stable:"
-        },
-        {
-          "type": "item",
-          "challenge": "GENs 1 & 2",
-          "response": "ON (No Fault)"
-        },
-        {
-          "type": "item",
-          "challenge": "Ignition Mode Selector",
-          "response": "Set NORM"
-        },
-        {
-          "type": "item",
-          "challenge": "Probe Heat",
-          "response": "On/AUTO"
-        },
-        {
-          "type": "item",
-          "challenge": "Wing / Engine Anti-Ice",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Pack 1 & 2",
-          "response": "On (No Fault)"
-        },
-        {
-          "type": "item",
-          "challenge": "FLAPS",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Trim",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Flight Controls",
-          "response": "Full & Free"
-        },
-        {
-          "type": "item",
-          "challenge": "APU Bleed & APU",
-          "response": "OFF"
-        },
-        {
-          "type": "item",
-          "challenge": "FCP",
-          "response": "Set for Departure"
-        },
-        {
-          "type": "item",
-          "challenge": "Engine Instruments",
-          "response": "Checked"
-        },
-        {
-          "type": "action",
-          "text": "Request Taxi"
+          "challenge": "RUDDER TRIM",
+          "response": "NEUTRAL"
         }
       ]
     },
@@ -309,223 +113,82 @@
       "items": [
         {
           "type": "item",
-          "challenge": "Nose Lights",
-          "response": "Taxi"
+          "challenge": "FLIGHT CONTROL",
+          "response": "CHECKED (BOTH)"
         },
         {
           "type": "item",
-          "challenge": "Autobrake",
-          "response": "Set MAX"
-        },
-        {
-          "type": "marker",
-          "text": "Check Compass / Gyro"
+          "challenge": "FLAPS SETTING",
+          "response": "CONF _____ (BOTH)"
         },
         {
           "type": "item",
-          "challenge": "Ground Spoilers",
-          "response": "ARM"
+          "challenge": "RADAR & PRED W/S",
+          "response": "ON & AUTO"
         },
         {
           "type": "item",
-          "challenge": "T.O CONFIG",
-          "response": "NO BLUE"
+          "challenge": "ENG MODE SEL",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "ECAM MEMO",
+          "response": "TO NO BLUE"
+        },
+        {
+          "type": "item",
+          "challenge": "CABIN",
+          "response": "READY"
         }
       ]
     },
     {
-      "id": "pre-departure",
-      "title": "PRE-DEPARTURE (at the hold)",
+      "id": "line-up",
+      "title": "LINE-UP",
       "group": "dep",
       "items": [
         {
           "type": "item",
-          "challenge": "Vspeeds",
-          "response": "Check"
+          "challenge": "T.O. RWY",
+          "response": "_____ (BOTH)"
         },
         {
           "type": "item",
-          "challenge": "FCP / Nav Data / Radios",
-          "response": "Check"
+          "challenge": "TCAS",
+          "response": "AS RQRD"
         },
         {
-          "type": "action",
-          "text": "Obtain Take-Off Clearance – Alert Cabin Crew"
+          "type": "item",
+          "challenge": "PACKS 1 & 2",
+          "response": "AS RQRD"
         }
       ]
     },
     {
-      "id": "takeoff",
-      "title": "TAKEOFF",
+      "id": "departure-change",
+      "title": "<< DEPARTURE CHANGE >>",
       "group": "dep",
       "items": [
         {
           "type": "item",
-          "challenge": "Nose Lights",
-          "response": "TO"
+          "challenge": "RWY & SID",
+          "response": "RWY __, ____"
         },
         {
           "type": "item",
-          "challenge": "STROBES",
-          "response": "ON"
+          "challenge": "FLAPS SETTING",
+          "response": "CONF ____"
         },
         {
           "type": "item",
-          "challenge": "Runway Turnoff Lights",
-          "response": "ON"
+          "challenge": "T.O SPEEDS & THRUST",
+          "response": "V1 __, VR __, V2 __, FLEX __/TOGA"
         },
         {
           "type": "item",
-          "challenge": "Landing Lights",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "Transponder",
-          "response": "Set TA/RA & ON"
-        },
-        {
-          "type": "item",
-          "challenge": "Clock",
-          "response": "START"
-        },
-        {
-          "type": "item",
-          "challenge": "Runway",
-          "response": "Confirm"
-        }
-      ]
-    },
-    {
-      "id": "after-takeoff",
-      "title": "AFTER TAKEOFF",
-      "group": "air",
-      "items": [
-        {
-          "type": "item",
-          "challenge": "Positive Rate",
-          "response": "GEAR UP"
-        },
-        {
-          "type": "item",
-          "challenge": "Autopilot",
-          "response": "Engage"
-        },
-        {
-          "type": "item",
-          "challenge": "Flaps",
-          "response": "RETRACT as Appropriate"
-        },
-        {
-          "type": "item",
-          "challenge": "Ground Spoilers",
-          "response": "Disarm"
-        },
-        {
-          "type": "marker",
-          "text": "Passing Transition Altitude"
-        },
-        {
-          "type": "item",
-          "challenge": "Altimeter",
-          "response": "Set STD"
-        },
-        {
-          "type": "marker",
-          "text": "Passing 10,000ft"
-        },
-        {
-          "type": "item",
-          "challenge": "Landing Lights",
-          "response": "OFF"
-        },
-        {
-          "type": "item",
-          "challenge": "Seatbelt Signs / Cabin Lights",
-          "response": "As Required"
-        }
-      ]
-    },
-    {
-      "id": "descent",
-      "title": "DESCENT",
-      "group": "air",
-      "items": [
-        {
-          "type": "item",
-          "challenge": "Arrival & Weather Data",
-          "response": "Obtained & SET"
-        },
-        {
-          "type": "marker",
-          "text": "Ensure Nav Data Matches STAR/APPR Expected"
-        },
-        {
-          "type": "item",
-          "challenge": "MCDU APPR Page",
-          "response": "Completed"
-        },
-        {
-          "type": "item",
-          "challenge": "Radios",
-          "response": "SET"
-        },
-        {
-          "type": "item",
-          "challenge": "Wing / Engine Anti-Ice",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "FCP",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Altimeter",
-          "response": "SET"
-        },
-        {
-          "type": "item",
-          "challenge": "Approach",
-          "response": "BRIEFED"
-        },
-        {
-          "type": "item",
-          "challenge": "Autobrake",
-          "response": "SET as required"
-        },
-        {
-          "type": "marker",
-          "text": "Below Transition Altitude"
-        },
-        {
-          "type": "item",
-          "challenge": "Altimeter",
-          "response": "Set Local QNH/QFE"
-        },
-        {
-          "type": "marker",
-          "text": "Below 10,000ft"
-        },
-        {
-          "type": "item",
-          "challenge": "Landing Lights",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "Runway Turnoff Lights",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "Seatbelt Signs / Cabin Lights",
-          "response": "As Required"
-        },
-        {
-          "type": "action",
-          "text": "Confirm ATIS / Approach"
+          "challenge": "FCU ALT",
+          "response": "____ SET"
         }
       ]
     },
@@ -536,57 +199,45 @@
       "items": [
         {
           "type": "item",
-          "challenge": "NAV Course / Frequency",
-          "response": "CHECK"
+          "challenge": "BARO REF",
+          "response": "_____SET (BOTH)"
         },
         {
           "type": "item",
-          "challenge": "Flaps",
-          "response": "Extend As Required"
+          "challenge": "SEAT BELTS",
+          "response": "ON"
         },
         {
           "type": "item",
-          "challenge": "Speed Brake",
-          "response": "ARM"
+          "challenge": "MINIMUM",
+          "response": "AS RQRD"
         },
         {
           "type": "item",
-          "challenge": "APPR Mode",
-          "response": "ARM if required"
+          "challenge": "AUTO BRAKE",
+          "response": "AS RQRD"
         },
         {
           "type": "item",
-          "challenge": "GLIDESLOPE Alive",
-          "response": "GEAR DOWN"
+          "challenge": "ENG MODE SEL",
+          "response": "AS RQRD"
+        }
+      ]
+    },
+    {
+      "id": "landing",
+      "title": "LANDING",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "ECAM MEMO",
+          "response": "LDG NO BLUE"
         },
         {
           "type": "item",
-          "challenge": "Landing Gear",
-          "response": "CONFIRM DOWN"
-        },
-        {
-          "type": "item",
-          "challenge": "FLAPS",
-          "response": "SET for Landing"
-        },
-        {
-          "type": "item",
-          "challenge": "Autopilot",
-          "response": "Engage AP2 (ILS)"
-        },
-        {
-          "type": "item",
-          "challenge": "Go Around Altitude",
-          "response": "SET"
-        },
-        {
-          "type": "item",
-          "challenge": "Autopilot / Auto Throttle",
-          "response": "As Required"
-        },
-        {
-          "type": "marker",
-          "text": "Monitor – Be Prepared To Go Around"
+          "challenge": "CABIN",
+          "response": "READY"
         }
       ]
     },
@@ -597,98 +248,62 @@
       "items": [
         {
           "type": "item",
-          "challenge": "Flaps",
-          "response": "UP"
-        },
-        {
-          "type": "item",
-          "challenge": "Ground Spoilers",
-          "response": "DISARM"
-        },
-        {
-          "type": "item",
-          "challenge": "Transponder",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Strobes",
-          "response": "Auto/OFF"
-        },
-        {
-          "type": "item",
-          "challenge": "Landing & Runway Turnoff Lights",
+          "challenge": "RADAR & PRED W/S",
           "response": "OFF"
-        },
-        {
-          "type": "item",
-          "challenge": "Nose Lights",
-          "response": "Taxi"
-        },
-        {
-          "type": "item",
-          "challenge": "APU",
-          "response": "START & BLEED"
-        },
-        {
-          "type": "item",
-          "challenge": "Anti-Ice",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Autobrake",
-          "response": "OFF"
-        },
-        {
-          "type": "marker",
-          "text": "Upon Arrival At Stand/Parking"
-        },
-        {
-          "type": "item",
-          "challenge": "Nose Lights",
-          "response": "OFF"
-        },
-        {
-          "type": "item",
-          "challenge": "Parking Brake",
-          "response": "SET"
         }
       ]
     },
     {
-      "id": "shutdown",
-      "title": "SHUTDOWN",
+      "id": "parking",
+      "title": "PARKING",
       "group": "arr",
       "items": [
         {
           "type": "item",
-          "challenge": "ENG Control Levers",
+          "challenge": "PARK BRK or CHOCKS",
+          "response": "SET"
+        },
+        {
+          "type": "item",
+          "challenge": "ENGINES",
           "response": "OFF"
         },
         {
           "type": "item",
-          "challenge": "Beacon Lights",
+          "challenge": "WING LIGHTS",
           "response": "OFF"
         },
         {
           "type": "item",
-          "challenge": "Ground Equipment (FMC)",
-          "response": "In Position"
-        },
-        {
-          "type": "item",
-          "challenge": "Fuel Pumps",
-          "response": "As Required"
-        },
-        {
-          "type": "item",
-          "challenge": "Flight Directors",
+          "challenge": "FUEL PUMPS",
           "response": "OFF"
         },
         {
-          "type": "note",
-          "text": "Consider switching to GPU and turning APU off."
+          "type": "item",
+          "challenge": "YELLOW ELEC PUMP",
+          "response": "OFF"
+        }
+      ]
+    },
+    {
+      "id": "securing-aircraft",
+      "title": "SECURING AIRCRAFT",
+      "group": "arr",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "OXYGEN",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "EMER EXIT LT",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "BATTERIES",
+          "response": "OFF"
         }
       ]
     }
