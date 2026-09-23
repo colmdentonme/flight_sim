@@ -1,6 +1,6 @@
 {
   "aircraft": "Fenix A320 CEO",
-  "source": "FlyByWire Simulations' own aircraft repo (github.com/flybywiresim/aircraft, GPL-3.0), fbw-a32nx normal-checklist EFB data - the actual data their in-sim EFB checklist page uses. Published under FlyByWire's A32NX (NEO) product, but the content itself is engine-agnostic (no PW1100G/LEAP-specific items) and matches the real Airbus A320-family QRH Normal Checklist, so it applies equally to the CEO. Used in place of the previous, longer BritishAvgeek-sourced summarised checklist for a more concise, closer-to-real-QRH reference. Credit: FlyByWire Simulations.",
+  "source": "FlyByWire Simulations' own aircraft repo (github.com/flybywiresim/aircraft, GPL-3.0), fbw-a32nx normal-checklist EFB data - the actual data their in-sim EFB checklist page uses. Published under FlyByWire's A32NX (NEO) product, but the content itself is engine-agnostic (no PW1100G/LEAP-specific items) and matches the real Airbus A320-family QRH Normal Checklist, so it applies equally to the CEO. Used in place of the previous, longer BritishAvgeek-sourced summarised checklist for a more concise, closer-to-real-QRH reference. The GO-AROUND phase is from the same repo's Checklist/Library.xml (Go-Around page, checkpoints A320_GOAROUND_*), placed after Landing to match where a real QRH normal-checklist book puts it. Credit: FlyByWire Simulations.",
   "groups": {
     "pre": {
       "label": "Pre-Flight / Ground",
@@ -238,6 +238,52 @@
           "type": "item",
           "challenge": "CABIN",
           "response": "READY"
+        }
+      ]
+    },
+    {
+      "id": "go-around",
+      "title": "GO-AROUND",
+      "group": "air",
+      "items": [
+        {
+          "type": "item",
+          "challenge": "THRUST LEVERS",
+          "response": "TOGA"
+        },
+        {
+          "type": "item",
+          "challenge": "ROTATION",
+          "response": "PERFORM"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RETRACT ONE STEP"
+        },
+        {
+          "type": "item",
+          "challenge": "LANDING GEAR",
+          "response": "UP"
+        },
+        {
+          "type": "marker",
+          "text": "At Go-Around Thrust Reduction Altitude"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST LEVERS",
+          "response": "CL"
+        },
+        {
+          "type": "item",
+          "challenge": "FCU ALT (IF TARGET SPEED DOES NOT INCREASE)",
+          "response": "PULL AND CHECK"
+        },
+        {
+          "type": "item",
+          "challenge": "FLAPS",
+          "response": "RETRACT ON SCHEDULE"
         }
       ]
     },

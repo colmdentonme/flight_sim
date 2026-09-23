@@ -109,6 +109,13 @@ one opens it.
   cleanly to the CEO. The source itself marks phase-boundary checkpoints (`[--COMPLETE--]`)
   matching real QRH phases, so — like the A380X — most phases link to their Quick Reference
   match on that explicit signal rather than inferred correspondence.
+- The Quick Reference's `GO-AROUND` phase (after Landing) is likewise pulled straight from the
+  same FlyByWire repo — its `Checklist/Library.xml` has a dedicated Go-Around page (`A320_GOAROUND_*`
+  checkpoints: TOGA thrust, rotate, flaps retract one step, gear up, then at thrust-reduction
+  altitude climb-detent thrust / FCU ALT pull / flaps on schedule). None of the other three
+  aircraft's sources — the A380X's own FlyByWire checklist data, or either PMDG PDF — include a
+  go-around procedure at all (only a "GO-AROUND ALTITUDE .. SET" reminder in their Landing
+  checklist), so nothing was added there rather than inventing one from outside those sources.
 
 **Clearance calls, in every Expanded Checklist.** The A380X's Expanded SOP explicitly calls out
 moments like "OBTAIN AN IFR CLEARANCE" and "OBTAIN PUSH & START CLEARANCE" inline in the flow,
