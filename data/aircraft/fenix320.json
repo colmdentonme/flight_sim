@@ -72,7 +72,7 @@
         {
           "type": "item",
           "challenge": "IRS/ADIRS",
-          "response": "ON"
+          "response": "NAV"
         },
         {
           "type": "item",
@@ -406,7 +406,7 @@
         },
         {
           "type": "note",
-          "text": "Repeat the ground-communication/right-side/ENG MODE/ENG MASTER/ECAM/ENGINE steps for Engine 1."
+          "text": "Repeat the side-clear check, ENG MASTER (this time Engine 1), ECAM monitor, and engine-stabilized confirmation for Engine 1. Ground communication and the ENG MODE SELECTOR are one-time actions for the whole start sequence and are not repeated."
         }
       ]
     },
@@ -432,6 +432,11 @@
         {
           "type": "item",
           "challenge": "APU MASTER",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "ELEC HYDR PUMP",
           "response": "OFF"
         },
         {
@@ -526,6 +531,11 @@
           "type": "item",
           "challenge": "TAXI LIGHT",
           "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "RADAR & PRED W/S",
+          "response": "ON & AUTO"
         }
       ],
       "linkedReference": {
@@ -551,6 +561,11 @@
         {
           "type": "item",
           "challenge": "ENG MODE SELECTOR",
+          "response": "AS RQRD"
+        },
+        {
+          "type": "item",
+          "challenge": "PACKS 1+2",
           "response": "AS RQRD"
         },
         {
@@ -817,6 +832,11 @@
           "type": "item",
           "challenge": "ENGINE & WING ANTI ICE",
           "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "RADAR & PRED W/S",
+          "response": "OFF"
         }
       ],
       "linkedReference": {
@@ -848,6 +868,11 @@
         {
           "type": "item",
           "challenge": "BEACON",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "WING LIGHTS",
           "response": "OFF"
         },
         {
@@ -914,7 +939,7 @@
         {
           "type": "item",
           "challenge": "GEN",
-          "response": "ON"
+          "response": "OFF"
         },
         {
           "type": "item",
@@ -924,6 +949,11 @@
         {
           "type": "item",
           "challenge": "CABIN SIGNS & EMERGENCY LIGHTS",
+          "response": "OFF"
+        },
+        {
+          "type": "item",
+          "challenge": "OXYGEN",
           "response": "OFF"
         },
         {

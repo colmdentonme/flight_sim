@@ -568,7 +568,7 @@
         },
         {
           "type": "item",
-          "challenge": "FUEL CONTROL SWITCHES",
+          "challenge": "ENGINE START LEVERS",
           "response": "CUTOFF (CHECK)"
         }
       ],
@@ -614,12 +614,12 @@
         },
         {
           "type": "note",
-          "text": "Wait until Engine 1 N2 is above 20%."
+          "text": "Wait until Engine 1 N2 is above 25%."
         },
         {
           "type": "item",
-          "challenge": "LEFT ENGINE FUEL CONTROL SWITCH",
-          "response": "ON"
+          "challenge": "LEFT ENGINE START LEVER",
+          "response": "IDLE"
         },
         {
           "type": "note",
@@ -637,12 +637,12 @@
         },
         {
           "type": "note",
-          "text": "Wait until Engine 2 N2 is above 20%."
+          "text": "Wait until Engine 2 N2 is above 25%."
         },
         {
           "type": "item",
-          "challenge": "RIGHT ENGINE FUEL CONTROL SWITCH",
-          "response": "ON"
+          "challenge": "RIGHT ENGINE START LEVER",
+          "response": "IDLE"
         },
         {
           "type": "note",
@@ -779,26 +779,6 @@
           "type": "item",
           "challenge": "TAXI TO HOLDING POINT",
           "response": "TAXI"
-        },
-        {
-          "type": "item",
-          "challenge": "AUTOPILOT",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "VNAV",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "LNAV",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "FLAPS",
-          "response": "RAISE ON SCHEDULE"
         }
       ]
     },
@@ -825,7 +805,7 @@
         {
           "type": "item",
           "challenge": "IAS",
-          "response": "250 KNOTS / FIRST SPEED LIMIT"
+          "response": "SET V2"
         },
         {
           "type": "item",
@@ -879,17 +859,17 @@
         {
           "type": "item",
           "challenge": "PARKING BRAKE",
-          "response": "SET"
+          "response": "RELEASE"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST LEVERS",
+          "response": "ADVANCE, STABILIZE ~40% N1"
         },
         {
           "type": "item",
           "challenge": "THRUST LEVERS",
           "response": "TAKEOFF SETTING"
-        },
-        {
-          "type": "item",
-          "challenge": "PARKING BRAKE",
-          "response": "RELEASE"
         },
         {
           "type": "item",
@@ -1548,12 +1528,12 @@
         },
         {
           "type": "item",
-          "challenge": "ENGINE 1 FUEL CONTROL SWITCH",
+          "challenge": "ENGINE 1 START LEVER",
           "response": "CUTOFF"
         },
         {
           "type": "item",
-          "challenge": "ENGINE 2 FUEL CONTROL SWITCH",
+          "challenge": "ENGINE 2 START LEVER",
           "response": "CUTOFF"
         },
         {

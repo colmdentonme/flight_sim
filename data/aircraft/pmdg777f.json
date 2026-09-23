@@ -436,6 +436,16 @@
           "type": "item",
           "challenge": "DISPLAY SELECT PANEL",
           "response": "SELECT CHKL SYNOPTIC PAGE"
+        },
+        {
+          "type": "item",
+          "challenge": "TAXI LIGHT",
+          "response": "ON"
+        },
+        {
+          "type": "item",
+          "challenge": "THRUST",
+          "response": "MAXIMUM 35% N1 BREAKAWAY THRUST"
         }
       ],
       "linkedReference": {
@@ -449,16 +459,6 @@
       "title": "Before Takeoff",
       "group": "dep",
       "items": [
-        {
-          "type": "item",
-          "challenge": "TAXI LIGHT",
-          "response": "ON"
-        },
-        {
-          "type": "item",
-          "challenge": "THRUST",
-          "response": "MAXIMUM 35% N1 BREAKAWAY THRUST"
-        },
         {
           "type": "item",
           "challenge": "TRANSPONDER",
@@ -749,11 +749,6 @@
           "type": "item",
           "challenge": "FLAPS",
           "response": "RETRACTED"
-        },
-        {
-          "type": "item",
-          "challenge": "TRANSPONDER",
-          "response": "SET TO XPDR"
         },
         {
           "type": "item",
